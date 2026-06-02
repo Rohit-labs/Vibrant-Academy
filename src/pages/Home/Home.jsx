@@ -1,14 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, EffectFade, Pagination, Navigation } from 'swiper/modules';
 import AOS from 'aos';
 
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/effect-fade';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
 import './Home.css';
 
 // Import data
@@ -91,172 +84,37 @@ function Home() {
   return (
     <div className="home-page overflow-x-hidden">
       
-      {/* SECTION 1 — HERO SLIDER */}
+      {/* SECTION 1 — HERO */}
       <section className="mt-[70px] relative h-[650px] md:h-[80vh] w-full overflow-hidden bg-white">
-        <Swiper
-          modules={[Autoplay, EffectFade, Pagination, Navigation]}
-          effect={'fade'}
-          autoplay={{ delay: 3500, disableOnInteraction: false }}
-          pagination={{ clickable: true, el: '.custom-swiper-pagination' }}
-          navigation={{ nextEl: '.custom-swiper-next', prevEl: '.custom-swiper-prev' }}
-          loop={true}
-          className="w-full h-full"
-        >
-          {/* Slide 1 */}
-          <SwiperSlide className="flex flex-col md:flex-row">
-            <div className="flex flex-col md:flex-row w-full h-full">
-              <div className="w-full md:w-[45%] h-[280px] md:h-full relative overflow-hidden bg-white flex items-center justify-center">
-                <img 
-                  alt="Vibrant Academy Logo Banner" 
-                  className="w-full h-full object-contain p-6 rounded-r-none md:rounded-r-[24px]" 
-                  src="/vibrant_logo_banner.jpg"
-                />
-                <div className="absolute inset-0 bg-brand-purple/5 pointer-events-none"></div>
+        <div className="flex flex-col md:flex-row w-full h-full">
+          <div className="w-full md:w-[45%] h-[280px] md:h-full relative overflow-hidden bg-white flex items-center justify-center">
+            <img 
+              alt="Vibrant Academy Logo Banner" 
+              className="w-full h-full object-contain p-6 rounded-r-none md:rounded-r-[24px]" 
+              src="/vibrant_logo_banner.jpg"
+            />
+            <div className="absolute inset-0 bg-brand-purple/5 pointer-events-none"></div>
+          </div>
+          <div className="w-full md:w-[55%] flex items-start md:items-center bg-white hero-pattern px-margin_mobile pt-6 pb-20 md:p-stack_xl">
+            <div className="max-w-xl mx-auto md:mx-0">
+              <div className="inline-flex items-center gap-2 mb-2 md:mb-3">
+                <span className="h-px w-8 bg-brand-teal"></span>
+                <span className="font-dancing text-brand-teal text-lg md:text-xl">Believe in Excellence...</span>
               </div>
-              <div className="w-full md:w-[55%] flex items-start md:items-center bg-white hero-pattern px-margin_mobile pt-6 pb-20 md:p-stack_xl">
-                <div className="max-w-xl mx-auto md:mx-0">
-                  <div className="inline-flex items-center gap-2 mb-2 md:mb-3">
-                    <span className="h-px w-8 bg-brand-teal"></span>
-                    <span className="font-dancing text-brand-teal text-lg md:text-xl">Believe in Excellence...</span>
-                  </div>
-                  <h1 className="text-2xl md:text-5xl lg:text-6xl font-extrabold text-brand-navy mb-2 md:mb-4 tracking-tight leading-tight">
-                    Welcome to <br /><span className="text-brand-purple">Vibrant Academy.</span>
-                  </h1>
-                  <p className="text-gray-500 text-sm md:text-lg leading-relaxed mb-4 md:mb-6">
-                    Crafting academic success stories through highly personalized mentorship, comprehensive curriculum guides, and expert-led board coaching since 2010.
-                  </p>
-                  <div className="flex gap-4">
-                    <Link to="/contact" className="px-6 py-3 bg-brand-yellow hover:bg-[#E0B000] text-[#1F2937] font-bold rounded-lg shadow-md transition-all text-xs uppercase tracking-wider">
-                      Enroll Today
-                    </Link>
-                    <Link to="/about" className="px-6 py-3 border-2 border-brand-purple hover:bg-brand-purple hover:text-white text-brand-purple font-bold rounded-lg transition-all text-xs uppercase tracking-wider">
-                      Our Philosophy
-                    </Link>
-                  </div>
-                </div>
+              <h1 className="text-2xl md:text-5xl lg:text-6xl font-extrabold text-brand-navy mb-2 md:mb-4 tracking-tight leading-tight">
+                Welcome to <br /><span className="text-brand-purple">Vibrant Academy.</span>
+              </h1>
+              <p className="text-gray-500 text-sm md:text-lg leading-relaxed mb-4 md:mb-6">
+                Crafting academic success stories through highly personalized mentorship, comprehensive curriculum guides, and expert-led board coaching since 2002.
+              </p>
+              <div className="flex gap-4">
+                <Link to="/contact" className="px-6 py-3 bg-brand-yellow hover:bg-[#E0B000] text-[#1F2937] font-bold rounded-lg shadow-md transition-all text-xs uppercase tracking-wider">
+                  Enroll Today
+                </Link>
               </div>
             </div>
-          </SwiperSlide>
-
-          {/* Slide 2 */}
-          <SwiperSlide className="flex flex-col md:flex-row">
-            <div className="flex flex-col md:flex-row w-full h-full">
-              <div className="w-full md:w-[45%] h-[280px] md:h-full relative overflow-hidden">
-                <img 
-                  alt="Vibrant Academy Study Group" 
-                  className="w-full h-full object-cover rounded-r-none md:rounded-r-[24px]" 
-                  src="/student_studying_with_mentor.png"
-                />
-                <div className="absolute inset-0 bg-brand-purple/10"></div>
-              </div>
-              <div className="w-full md:w-[55%] flex items-start md:items-center bg-white hero-pattern px-margin_mobile pt-6 pb-20 md:p-stack_xl">
-                <div className="max-w-xl mx-auto md:mx-0">
-                  <div className="inline-flex items-center gap-2 mb-2 md:mb-3">
-                    <span className="h-px w-8 bg-brand-teal"></span>
-                    <span className="font-dancing text-brand-teal text-lg md:text-xl">Believe in Excellence...</span>
-                  </div>
-                  <h2 className="text-2xl md:text-5xl lg:text-6xl font-extrabold text-brand-navy mb-2 md:mb-4 tracking-tight leading-tight">
-                    Personalized <br /><span className="text-brand-purple">Mentorship.</span>
-                  </h2>
-                  <p className="text-gray-500 text-sm md:text-lg leading-relaxed mb-4 md:mb-6">
-                    Our micro-batch structures limit seating to ensure individual tracking of concepts, diagnostic problem sessions, and custom progress markers.
-                  </p>
-                  <div className="flex gap-4">
-                    <Link to="/contact" className="px-6 py-3 bg-brand-yellow hover:bg-[#E0B000] text-[#1F2937] font-bold rounded-lg shadow-md transition-all text-xs uppercase tracking-wider">
-                      Reserve Seating
-                    </Link>
-                    <a href="#offerings" className="px-6 py-3 border-2 border-brand-purple hover:bg-brand-purple hover:text-white text-brand-purple font-bold rounded-lg transition-all text-xs uppercase tracking-wider">
-                      Explore Courses
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
-
-          {/* Slide 3 */}
-          <SwiperSlide className="flex flex-col md:flex-row">
-            <div className="flex flex-col md:flex-row w-full h-full">
-              <div className="w-full md:w-[45%] h-[280px] md:h-full relative overflow-hidden">
-                <img 
-                  alt="Expert Faculty Board Prep" 
-                  className="w-full h-full object-cover rounded-r-none md:rounded-r-[24px]" 
-                  src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=1200"
-                />
-                <div className="absolute inset-0 bg-brand-purple/10"></div>
-              </div>
-              <div className="w-full md:w-[55%] flex items-start md:items-center bg-white hero-pattern px-margin_mobile pt-6 pb-20 md:p-stack_xl">
-                <div className="max-w-xl mx-auto md:mx-0">
-                  <div className="inline-flex items-center gap-2 mb-2 md:mb-3">
-                    <span className="h-px w-8 bg-brand-teal"></span>
-                    <span className="font-dancing text-brand-teal text-lg md:text-xl">Believe in Excellence...</span>
-                  </div>
-                  <h2 className="text-2xl md:text-5xl lg:text-6xl font-extrabold text-brand-navy mb-2 md:mb-4 tracking-tight leading-tight">
-                    Elite Board <br /><span className="text-brand-purple">Faculties.</span>
-                  </h2>
-                  <p className="text-gray-500 text-sm md:text-lg leading-relaxed mb-4 md:mb-6">
-                    Learn under senior mentors and school coordinators with a combined expertise of 40+ years in board assessment methodologies.
-                  </p>
-                  <div className="flex gap-4">
-                    <Link to="/about" className="px-6 py-3 bg-brand-yellow hover:bg-[#E0B000] text-[#1F2937] font-bold rounded-lg shadow-md transition-all text-xs uppercase tracking-wider">
-                      Meet Faculty
-                    </Link>
-                    <Link to="/contact" className="px-6 py-3 border-2 border-brand-purple hover:bg-brand-purple hover:text-white text-brand-purple font-bold rounded-lg transition-all text-xs uppercase tracking-wider">
-                      Book Free Trial
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
-
-          {/* Slide 4 */}
-          <SwiperSlide className="flex flex-col md:flex-row">
-            <div className="flex flex-col md:flex-row w-full h-full">
-              <div className="w-full md:w-[45%] h-[280px] md:h-full relative overflow-hidden">
-                <img 
-                  alt="Vibrant Academy Graduation Results" 
-                  className="w-full h-full object-cover rounded-r-none md:rounded-r-[24px]" 
-                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1200"
-                />
-                <div className="absolute inset-0 bg-brand-purple/10"></div>
-              </div>
-              <div className="w-full md:w-[55%] flex items-start md:items-center bg-white hero-pattern px-margin_mobile pt-6 pb-20 md:p-stack_xl">
-                <div className="max-w-xl mx-auto md:mx-0">
-                  <div className="inline-flex items-center gap-2 mb-2 md:mb-3">
-                    <span className="h-px w-8 bg-brand-teal"></span>
-                    <span className="font-dancing text-brand-teal text-xl">Believe in Excellence...</span>
-                  </div>
-                  <h2 className="text-2xl md:text-5xl lg:text-6xl font-extrabold text-brand-navy mb-2 md:mb-4 tracking-tight leading-tight">
-                    Stellar Academic <br /><span className="text-brand-purple">Results.</span>
-                  </h2>
-                  <p className="text-gray-500 text-sm md:text-lg leading-relaxed mb-4 md:mb-6">
-                    With an outstanding 95% pass rate and 50+ toppers scoring above 95% across ICSE & SSC boards, our metrics speak for our core coaching standards.
-                  </p>
-                  <div className="flex gap-4">
-                    <Link to="/results" className="px-6 py-3 bg-brand-yellow hover:bg-[#E0B000] text-[#1F2937] font-bold rounded-lg shadow-md transition-all text-xs uppercase tracking-wider">
-                      View Results
-                    </Link>
-                    <Link to="/contact" className="px-6 py-3 border-2 border-brand-purple hover:bg-brand-purple hover:text-white text-brand-purple font-bold rounded-lg transition-all text-xs uppercase tracking-wider">
-                      Enquire Batches
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
-
-          {/* Navigation Controls */}
-          <button className="custom-swiper-prev absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-brand-purple text-brand-purple hover:bg-brand-purple hover:text-white flex items-center justify-center transition-all z-20">
-            <span className="material-symbols-outlined">chevron_left</span>
-          </button>
-          <button className="custom-swiper-next absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-brand-purple text-brand-purple hover:bg-brand-purple hover:text-white flex items-center justify-center transition-all z-20">
-            <span className="material-symbols-outlined">chevron_right</span>
-          </button>
-
-          {/* Dot Indicators */}
-          <div className="custom-swiper-pagination absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-20"></div>
-        </Swiper>
+          </div>
+        </div>
       </section>
 
       {/* SECTION 2 — ESTABLISHED METRICS */}
@@ -640,66 +498,6 @@ function Home() {
             ))}
           </div>
 
-        </div>
-      </section>
-
-      {/* SECTION 8 — CONTACT CTA STRIP */}
-      <section className="bg-brand-purple text-white relative z-30">
-        <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
-          <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/10">
-            <div className="py-8 md:py-10 flex items-center gap-6 group hover:bg-white/5 transition-all px-6">
-              <div className="w-14 h-14 rounded-full bg-brand-teal/15 flex items-center justify-center flex-shrink-0 text-brand-teal">
-                <span className="material-symbols-outlined text-2xl">call</span>
-              </div>
-              <div>
-                <p className="text-sm font-bold text-white/50 uppercase tracking-widest mb-1 text-[11px]">Call Our Desk</p>
-                <p className="text-xl font-bold text-white font-poppins">91379 64830</p>
-              </div>
-            </div>
-            <div className="py-8 md:py-10 flex items-center gap-6 group hover:bg-white/5 transition-all px-6">
-              <div className="w-14 h-14 rounded-full bg-brand-whatsapp/15 flex items-center justify-center flex-shrink-0 text-brand-whatsapp">
-                <span className="material-symbols-outlined text-2xl" style={{ fontVariationSettings: '"FILL" 1' }}>chat</span>
-              </div>
-              <div>
-                <p className="text-sm font-bold text-white/50 uppercase tracking-widest mb-1 text-[11px]">Quick Support</p>
-                <a className="text-xl font-bold text-brand-yellow hover:underline" href="https://wa.me/919137964830" target="_blank" rel="noreferrer">WhatsApp Us</a>
-              </div>
-            </div>
-            <div className="py-8 md:py-10 flex items-center gap-6 group hover:bg-white/5 transition-all px-6">
-              <div className="w-14 h-14 rounded-full bg-brand-yellow/15 flex items-center justify-center flex-shrink-0 text-brand-yellow">
-                <span className="material-symbols-outlined text-2xl">location_on</span>
-              </div>
-              <div>
-                <p className="text-sm font-bold text-white/50 uppercase tracking-widest mb-1 text-[11px]">Visit Campus</p>
-                <p className="text-base font-bold text-white leading-tight">Dahisar (East), Mumbai</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 9 — ENROLL CTA BANNER */}
-      <section className="py-stack_xl bg-white">
-        <div className="max-w-3xl mx-auto px-margin_mobile text-center" data-aos="zoom-in">
-          <div className="inline-flex items-center gap-2 mb-4">
-            <span className="h-px w-8 bg-brand-teal"></span>
-            <span className="font-dancing text-brand-teal text-xl">Believe in Excellence...</span>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy mb-2 tracking-tight">
-            Start Your <span className="text-brand-purple">Journey Today.</span>
-          </h2>
-          <div className="h-1 w-[40px] bg-brand-purple rounded-full mx-auto mb-6"></div>
-          <p className="text-gray-500 text-base leading-relaxed mb-8 max-w-xl mx-auto">
-            Secure your admission in our dedicated upcoming boards preparation batches. Limited seating is enforced to ensure quality mentorship.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/contact" className="px-10 py-4 bg-brand-yellow hover:bg-[#E0B000] text-[#1F2937] font-bold rounded-lg shadow-md transition-all text-sm uppercase tracking-wider">
-              Enroll Now
-            </Link>
-            <Link to="/contact" className="px-10 py-4 border-2 border-brand-purple hover:bg-brand-purple hover:text-white text-brand-purple font-bold rounded-lg transition-all text-sm uppercase tracking-wider">
-              Contact Us
-            </Link>
-          </div>
         </div>
       </section>
 

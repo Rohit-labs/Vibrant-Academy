@@ -93,32 +93,6 @@ function Footer() {
           </div>
         </div>
       </footer>
-
-      {/* BottomNavBar (Mobile Only) */}
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-brand-navy/5 z-[100] shadow-[0_-2px_15px_rgba(0,0,0,0.05)] pb-safe">
-        <div className="grid grid-cols-5 h-[64px]">
-          <Link to="/" className={`flex flex-col items-center justify-center gap-1 transition-colors ${location.pathname === '/' ? 'text-brand-purple' : 'text-brand-navy/60 hover:text-brand-purple'}`}>
-            <span className="material-symbols-outlined text-[24px]">home</span>
-            <span className="text-[10px] font-semibold uppercase tracking-wider">Home</span>
-          </Link>
-          <Link to="/about" className={`flex flex-col items-center justify-center gap-1 transition-colors ${location.pathname === '/about' ? 'text-brand-purple' : 'text-brand-navy/60 hover:text-brand-purple'}`}>
-            <span className="material-symbols-outlined text-[24px]">info</span>
-            <span className="text-[10px] font-semibold uppercase tracking-wider">About Us</span>
-          </Link>
-          <Link to="/results" className={`flex flex-col items-center justify-center gap-1 transition-colors ${location.pathname === '/results' ? 'text-brand-purple' : 'text-brand-navy/60 hover:text-brand-purple'}`}>
-            <span className="material-symbols-outlined text-[24px]">workspace_premium</span>
-            <span className="text-[10px] font-semibold uppercase tracking-wider">Results</span>
-          </Link>
-          <Link to="/contact" className={`flex flex-col items-center justify-center gap-1 transition-colors ${location.pathname === '/contact' ? 'text-brand-purple' : 'text-brand-navy/60 hover:text-brand-purple'}`}>
-            <span className="material-symbols-outlined text-[24px]">mail</span>
-            <span className="text-[10px] font-semibold uppercase tracking-wider">Contact</span>
-          </Link>
-          <a className="flex flex-col items-center justify-center gap-1 text-brand-whatsapp" href="https://wa.me/919137964830" target="_blank" rel="noreferrer">
-            <span className="material-symbols-outlined text-[24px]" style={{ fontVariationSettings: '"FILL" 1' }}>chat</span>
-            <span className="text-[10px] font-semibold uppercase tracking-wider">WhatsApp</span>
-          </a>
-        </div>
-      </nav>
     </>
   );
 }

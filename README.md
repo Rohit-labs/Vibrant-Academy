@@ -1,70 +1,140 @@
-# Getting Started with Create React App
+# Vibrant Academy
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React-based educational platform showcasing classes, results, and student testimonials with a modern, responsive design built with Tailwind CSS.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Quick Start
 
-### `npm start`
+### Installation
+```bash
+npm install
+```
 
-Runs the app in the development mode.\
+### Run Development Server
+```bash
+npm start
+# or
+npm run dev
+```
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Build for Production
+```bash
+npm run build
+```
 
-### `npm test`
+### Run Tests
+```bash
+npm test
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 📁 Project Structure
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `/src` - Main Source Code
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### **`/pages`** - Page Components
+Each page is a full-page component with its own styling:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **`Home/`** - Homepage of the academy
+  - `Home.jsx` - Main home page component
+  - `Home.css` - Homepage styling
 
-### `npm run eject`
+- **`About/`** - About the academy page
+  - `About.jsx` - About page component
+  - `About.css` - About page styling
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **`Results/`** - Results/Performance page
+  - `Results.jsx` - Displays student results and achievements
+  - `Results.css` - Results page styling
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **`Contact/`** - Contact/Get in Touch page
+  - `Contact.jsx` - Contact form and information
+  - `Contact.css` - Contact page styling
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### **`/components`** - Reusable UI Components
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **`Navbar/`** - Navigation bar component
+  - `Navbar.jsx` - Top navigation with menu
+  - `Navbar.css` - Navigation styling
 
-## Learn More
+- **`Footer/`** - Footer component
+  - `Footer.jsx` - Site footer with links
+  - `Footer.css` - Footer styling
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **`WhatsAppButton/`** - WhatsApp contact button
+  - `WhatsAppButton.jsx` - Floating WhatsApp button
+  - `WhatsAppButton.css` - Button styling
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **`InstagramButton/`** - Instagram follow button
+  - `InstagramButton.jsx` - Instagram link button
+  - `InstagramButton.css` - Button styling
 
-### Code Splitting
+- **`Loader/`** - Loading spinner component
+  - `Loader.jsx` - Loading animation display
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+#### **`/data`** - Static Data Files
 
-### Analyzing the Bundle Size
+- **`toppers.js`** - Top performing students data
+- **`results.js`** - Student results and exam performance data
+- **`testimonials.js`** - Student testimonials and feedback data
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### **`/styles`** - Global Styling
 
-### Making a Progressive Web App
+- **`global.css`** - Global styles and CSS variables
+- **`App.css`** - App component styling
+- **`index.css`** - Root styling
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+#### **Root Files**
 
-### Advanced Configuration
+- **`App.jsx`** - Main application component with routing
+- **`index.js`** - Entry point for React application
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## 🎨 Technology Stack
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- **React** 19.2 - UI library
+- **React Router DOM** 7.16 - Client-side routing
+- **Tailwind CSS** 3.4 - Utility-first CSS framework
+- **Swiper** 12.2 - Carousel/slider component
+- **React Icons** 5.6 - Icon library
+- **AOS** 2.3 - Scroll animation library
+- **EmailJS** 4.4 - Email service integration
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## ⚙️ Configuration Files
+
+- **`tailwind.config.js`** - Tailwind CSS configuration with custom colors, spacing, and fonts
+- **`package.json`** - Project dependencies and scripts
+- **`public/index.html`** - HTML entry point
+
+---
+
+## 🏗️ Build Output
+
+- **`/build`** - Production build folder (generated after `npm run build`)
+  - Contains minified CSS and JavaScript files
+  - Ready for deployment
+
+---
+
+## 💡 Usage
+
+1. Create page content in `/src/pages`
+2. Build reusable components in `/src/components`
+3. Store data in `/src/data` files
+4. Use Tailwind classes for styling
+5. Add routes in `App.jsx` for navigation
+
+---
+
+## 📝 Notes
+
+- This project uses **Tailwind CSS** for styling - no need to write raw CSS in most cases
+- Custom colors are defined in `tailwind.config.js` (brand-teal, brand-purple, etc.)
+- Pages are automatically styled with their corresponding `.css` files
+- Responsive design is built-in with Tailwind's mobile-first approach
