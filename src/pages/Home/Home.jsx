@@ -455,7 +455,50 @@ function Home() {
         </div>
       </section>
 
-      
+      {/* SECTION 6 — RESULTS BANNER (TOPPERS STRIP) */}
+      <section className="py-stack_xl bg-white border-t border-brand-navy/5">
+        <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
+          
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <p className="text-brand-teal font-extrabold uppercase tracking-widest text-xs mb-3">Our Toppers</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy mb-2 tracking-tight">
+              Student <span class="text-brand-purple">Achievements.</span>
+            </h2>
+            <div className="h-1 w-[40px] bg-brand-purple rounded-full mx-auto mb-4"></div>
+          </div>
+
+          {/* Toppers Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {toppers.slice(0, 3).map((topper) => (
+              <div 
+                key={topper.id}
+                className="bg-white rounded-xl p-8 border-t-[3px] border-brand-yellow shadow-md flex flex-col items-center text-center hover:translate-y-[-4px] transition-all"
+                data-aos="zoom-in"
+              >
+                <div className="relative w-20 h-20 mb-4">
+                  <img 
+                    alt={topper.name} 
+                    className="w-full h-full object-cover rounded-full border-2 border-brand-yellow p-1" 
+                    src={topper.photo}
+                  />
+                  <div className="absolute bottom-0 right-0 w-6 h-6 bg-brand-yellow rounded-full flex items-center justify-center text-brand-navy border-2 border-white text-xs font-bold">{topper.medal}</div>
+                </div>
+                <h4 className="font-bold text-brand-purple text-base mb-1">{topper.name}</h4>
+                <p className="text-4xl font-extrabold text-[#E0B000] mb-1 font-poppins">{topper.score}</p>
+                <p className="text-xs font-semibold text-brand-teal uppercase tracking-wider">{topper.board} {topper.class}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-8">
+            <Link to="/results" className="px-8 py-3.5 border-2 border-brand-purple hover:bg-brand-purple hover:text-white text-brand-purple font-bold rounded-lg transition-all text-sm uppercase tracking-wider inline-block">
+              View All Results
+            </Link>
+          </div>
+
+        </div>
+      </section>
+
       {/* SECTION 7 — TESTIMONIALS */}
       <section className="py-stack_xl bg-[#F5F0F7]">
         <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">

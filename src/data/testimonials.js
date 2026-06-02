@@ -1,3 +1,5 @@
+import studentPhotos from './studentPhotos';
+
 const testimonials = [
   {
     id: 1,
@@ -5,7 +7,7 @@ const testimonials = [
     name: "Sunita Sharma",
     detail: "Parent of Class 10 Student",
     stars: 5,
-    photo: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200"
+    photo: studentPhotos.sunita_sharma
   },
   {
     id: 2,
@@ -13,7 +15,7 @@ const testimonials = [
     name: "Ramesh Mehta",
     detail: "Parent of SSC Topper",
     stars: 5,
-    photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200"
+    photo: studentPhotos.ramesh_mehta
   },
   {
     id: 3,
@@ -21,7 +23,7 @@ const testimonials = [
     name: "Kalyani Sen",
     detail: "Parent of Class 10 Student",
     stars: 5,
-    photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200"
+    photo: studentPhotos.kalyani_sen
   }
 ];
 
