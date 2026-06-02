@@ -36,7 +36,7 @@ function About() {
   ];
 
   return (
-    <div className="about-page overflow-x-hidden">
+    <div className="about-page">
       
       {/* SECTION 1 — PAGE HERO (Strict bounded height split layout) */}
       <section className="mt-[70px] flex flex-col md:flex-row md:h-[500px] overflow-hidden bg-white">
@@ -123,7 +123,7 @@ function About() {
       </section>
 
       {/* SECTION 3 — OUR STORY */}
-      <section id="story" className="py-stack_xl bg-white">
+      <section id="story" className="py-stack_xl bg-white overflow-hidden">
         <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
           <div className="flex flex-col lg:flex-row items-center gap-16">
             <div className="w-full lg:w-1/2" data-aos="fade-right">
@@ -187,7 +187,7 @@ function About() {
       </section>
 
       {/* SECTION 5 — FOUNDER PROFILE */}
-      <section className="py-stack_xl bg-white">
+      <section className="py-stack_xl bg-white overflow-hidden">
         <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
           <div className="flex flex-col lg:flex-row items-center gap-16">
             <div className="w-full lg:w-1/3 flex justify-center" data-aos="fade-right">

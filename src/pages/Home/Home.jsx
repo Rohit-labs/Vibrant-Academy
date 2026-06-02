@@ -82,7 +82,7 @@ function Home() {
   ];
 
   return (
-    <div className="home-page overflow-x-hidden">
+    <div className="home-page">
       
       {/* SECTION 1 — HERO */}
       <section className="mt-[70px] relative h-[650px] md:h-[80vh] w-full overflow-hidden bg-white">
@@ -302,7 +302,7 @@ function Home() {
       </section>
 
       {/* SECTION 4 — HIGHER SECONDARY SECTION */}
-      <section className="py-stack_xl bg-[#F5F0F7]">
+      <section className="py-stack_xl bg-[#F5F0F7] overflow-hidden">
         <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
           <div className="flex flex-col lg:flex-row items-center gap-16">
             <div className="w-full lg:w-1/2" data-aos="fade-right">
@@ -353,7 +353,7 @@ function Home() {
       </section>
 
       {/* SECTION 5 — WHY CHOOSE US */}
-      <section className="py-stack_xl bg-white">
+      <section className="py-stack_xl bg-white overflow-hidden">
         <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
           <div className="flex flex-col lg:flex-row items-center gap-16">
             <div className="w-full lg:w-1/2 order-2 lg:order-1" data-aos="fade-right">
@@ -412,7 +412,7 @@ function Home() {
       </section>
 
       {/* SECTION 6 — RESULTS BANNER (TOPPERS STRIP) */}
-      <section className="py-stack_xl bg-white border-t border-brand-navy/5">
+      <section className="py-stack_xl bg-white border-t border-brand-navy/5 overflow-hidden">
         <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
           
           <div className="text-center max-w-2xl mx-auto mb-16">

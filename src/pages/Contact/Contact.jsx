@@ -72,7 +72,7 @@ function Contact() {
   const showExamAndStream = ['Class 11', 'Class 12'].includes(formData.standard);
 
   return (
-    <div className="contact-page overflow-x-hidden bg-gray-50 min-h-screen">
+    <div className="contact-page bg-gray-50 min-h-screen">
       
       {/* Centered Page Header (No Hero) */}
       <div className="pt-[100px] pb-6 text-center bg-white border-b border-brand-navy/5 shadow-sm">

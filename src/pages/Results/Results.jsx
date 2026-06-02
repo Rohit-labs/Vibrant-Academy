@@ -21,7 +21,7 @@ function Results() {
   }, []);
 
   return (
-    <div className="results-page overflow-x-hidden">
+    <div className="results-page">
       
       {/* SECTION 1 — PAGE HERO (Split Layout) */}
       <section className="mt-[70px] flex flex-col md:flex-row min-h-[500px] overflow-hidden bg-white">
@@ -169,7 +169,7 @@ function Results() {
       </section>
 
       {/* SECTION 4 — BOARD RESULTS (ICSE / SSC Side by Side) */}
-      <section className="py-stack_xl bg-[#F5F0F7]">
+      <section className="py-stack_xl bg-[#F5F0F7] overflow-hidden">
         <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
           
           <div className="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
@@ -400,7 +400,7 @@ function Results() {
       </section>
 
       {/* SECTION 7 — ENROLL CTA STRIP (Full Width) */}
-      <section className="py-stack_xl bg-brand-purple text-white relative z-30">
+      <section className="py-stack_xl bg-brand-purple text-white relative z-30 overflow-hidden">
         <div className="max-w-3xl mx-auto px-margin_mobile text-center" data-aos="zoom-in">
           <div className="inline-flex items-center gap-2 mb-4">
             <span className="h-px w-8 bg-brand-yellow"></span>

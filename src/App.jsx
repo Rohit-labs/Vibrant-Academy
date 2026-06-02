@@ -9,6 +9,7 @@ import Footer from './components/Footer/Footer';
 import WhatsAppButton from './components/WhatsAppButton/WhatsAppButton';
 import InstagramButton from './components/InstagramButton/InstagramButton';
 import Loader from './components/Loader/Loader';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 // Import Page Components
 import Home from './pages/Home/Home';
@@ -35,12 +36,20 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    if (!loading) {
+      window.scrollTo(0, 0);
+      AOS.refresh();
+    }
+  }, [loading]);
+
   if (loading) {
     return <Loader />;
   }
 
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Navbar />
       <main className="min-h-[80vh]">
         <Routes>
