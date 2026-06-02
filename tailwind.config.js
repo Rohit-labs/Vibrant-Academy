@@ -12,7 +12,8 @@ module.exports = {
         "brand-navy": "#1E2D6B",
         "brand-yellow": "#F5C518",
         "brand-whatsapp": "#25D366",
-        "brand-gold": "#D97706"
+        "brand-gold": "#D97706",
+        "Meteorite": "#392D6C"
       },
       borderRadius: {
         "lg": "12px",

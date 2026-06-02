@@ -12,11 +12,11 @@ function Home() {
   const [quickForm, setQuickForm] = useState({
     name: '',
     phone: '',
-    standard: '',
-    subject: ''
+    standard: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [showEnquiryModal, setShowEnquiryModal] = useState(false);
 
   useEffect(() => {
     AOS.refresh();
@@ -33,7 +33,18 @@ function Home() {
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitted(true);
+      setTimeout(() => {
+        setShowEnquiryModal(false);
+        setSubmitted(false);
+        setQuickForm({ name: '', phone: '', standard: '' });
+      }, 2000);
     }, 1200);
+  };
+
+  const closeEnquiryModal = () => {
+    setShowEnquiryModal(false);
+    setSubmitted(false);
+    setQuickForm({ name: '', phone: '', standard: '' });
   };
 
   const courses = [
@@ -85,12 +96,12 @@ function Home() {
     <div className="home-page overflow-x-hidden">
       
       {/* SECTION 1 — HERO */}
-      <section className="mt-[70px] relative h-[650px] md:h-[80vh] w-full overflow-hidden bg-white">
+      <section className="mt-[70px] relative h-[380px] md:h-[55vh] w-full overflow-hidden bg-white">
         <div className="flex flex-col md:flex-row w-full h-full">
-          <div className="w-full md:w-[45%] h-[280px] md:h-full relative overflow-hidden bg-white flex items-center justify-center">
+          <div className="w-full md:w-[45%] h-[250px] md:h-full relative overflow-hidden bg-white flex items-center justify-center object-cover">
             <img 
               alt="Vibrant Academy Logo Banner" 
-              className="w-full h-full object-contain p-6 rounded-r-none md:rounded-r-[24px]" 
+              className="max-w-full max-h-full object-contain"
               src="/vibrant_logo_banner.jpg"
             />
             <div className="absolute inset-0 bg-brand-purple/5 pointer-events-none"></div>
@@ -99,21 +110,64 @@ function Home() {
             <div className="max-w-xl mx-auto md:mx-0">
               <div className="inline-flex items-center gap-2 mb-2 md:mb-3">
                 <span className="h-px w-8 bg-brand-teal"></span>
-                <span className="font-dancing text-brand-teal text-lg md:text-xl">Believe in Excellence...</span>
+                <span className="font-dancing text-Meteorite text-lg md:text-xl">Believe in Excellence...</span>
               </div>
-              <h1 className="text-2xl md:text-5xl lg:text-6xl font-extrabold text-brand-navy mb-2 md:mb-4 tracking-tight leading-tight">
+              <h1 className="text-2xl md:text-5xl lg:text-6xl font-extrabold text-brand-teal mb-2 md:mb-4 tracking-tight leading-tight">
                 Welcome to <br /><span className="text-brand-purple">Vibrant Academy.</span>
               </h1>
               <p className="text-gray-500 text-sm md:text-lg leading-relaxed mb-4 md:mb-6">
                 Crafting academic success stories through highly personalized mentorship, comprehensive curriculum guides, and expert-led board coaching since 2002.
               </p>
               <div className="flex gap-4">
-                <Link to="/contact" className="px-6 py-3 bg-brand-yellow hover:bg-[#E0B000] text-[#1F2937] font-bold rounded-lg shadow-md transition-all text-xs uppercase tracking-wider">
+                <button onClick={() => setShowEnquiryModal(true)} className="px-6 py-3 bg-brand-yellow hover:bg-[#E0B000] text-[#1F2937] font-bold rounded-lg shadow-md transition-all text-xs uppercase tracking-wider">
                   Enroll Today
-                </Link>
+                </button>
               </div>
             </div>
           </div>
+        </div>
+      </section>
+{/* SECTION 6 — RESULTS BANNER (TOPPERS STRIP) */}
+      <section className="py-stack_xl bg-white border-t border-brand-navy/5">
+        <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
+          
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <p className="text-brand-teal font-extrabold uppercase tracking-widest text-xs mb-3">Our Toppers</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy mb-2 tracking-tight">
+              Student <span class="text-brand-purple">Achievements.</span>
+            </h2>
+            <div className="h-1 w-[40px] bg-brand-purple rounded-full mx-auto mb-4"></div>
+          </div>
+
+          {/* Toppers Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {toppers.slice(0, 3).map((topper) => (
+              <div 
+                key={topper.id}
+                className="bg-white rounded-xl p-8 border-t-[3px] border-brand-yellow shadow-md flex flex-col items-center text-center hover:translate-y-[-4px] transition-all"
+                data-aos="zoom-in"
+              >
+                <div className="relative w-20 h-20 mb-4">
+                  <img 
+                    alt={topper.name} 
+                    className="w-full h-full object-cover rounded-full border-2 border-brand-yellow p-1" 
+                    src={topper.photo}
+                  />
+                  <div className="absolute bottom-0 right-0 w-6 h-6 bg-brand-yellow rounded-full flex items-center justify-center text-brand-navy border-2 border-white text-xs font-bold">{topper.medal}</div>
+                </div>
+                <h4 className="font-bold text-brand-purple text-base mb-1">{topper.name}</h4>
+                <p className="text-4xl font-extrabold text-[#E0B000] mb-1 font-poppins">{topper.score}</p>
+                <p className="text-xs font-semibold text-brand-teal uppercase tracking-wider">{topper.board} {topper.class}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-8">
+            <Link to="/results" className="px-8 py-3.5 border-2 border-brand-purple hover:bg-brand-purple hover:text-white text-brand-purple font-bold rounded-lg transition-all text-sm uppercase tracking-wider inline-block">
+              View All Results
+            </Link>
+          </div>
+
         </div>
       </section>
 
@@ -200,34 +254,34 @@ function Home() {
         </div>
       </section>
 
-      {/* QUICK ENQUIRY FORM SECTION */}
-      <section className="py-12 bg-brand-navy relative z-30 overflow-hidden">
-        {/* Subtle decorative background blur elements */}
-        <div className="absolute top-0 left-0 w-64 h-64 bg-brand-purple/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute bottom-0 right-0 w-80 h-80 bg-brand-teal/10 rounded-full blur-3xl translate-x-1/3 translate-y-1/3"></div>
+      {/* QUICK ENQUIRY MODAL */}
+      {showEnquiryModal && (
+        <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[500] flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl p-6 md:p-8 shadow-2xl max-w-2xl w-full relative" data-aos="zoom-in">
+            {/* Close Button */}
+            <button
+              onClick={closeEnquiryModal}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+              aria-label="Close modal"
+            >
+              <span className="material-symbols-outlined text-2xl">close</span>
+            </button>
 
-        <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter relative z-10">
-          <div className="bg-white/5 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-white/10 shadow-2xl" data-aos="fade-up">
-            <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 mb-8">
-              <div>
-                <span className="font-dancing text-brand-yellow text-xl block mb-1">Reserve Your Free Session...</span>
-                <h3 className="text-2xl md:text-3xl font-extrabold text-white tracking-tight">Quick Batch Enquiry</h3>
-              </div>
-              <p className="text-white/60 text-sm max-w-md">
-                Select your academic standard and subject interest to book a free trial trial batch with our senior moderators.
-              </p>
+            <div className="mb-6">
+              <span className="font-dancing text-brand-teal text-xl block mb-1">Request a Free Counselling Session</span>
+              <h3 className="text-2xl md:text-3xl font-extrabold text-brand-navy tracking-tight">Quick Enquiry</h3>
             </div>
 
             {submitted ? (
-              <div className="bg-brand-teal/10 border border-brand-teal/20 text-brand-teal p-6 rounded-xl text-center font-bold" data-aos="zoom-in">
+              <div className="bg-brand-teal/10 border border-brand-teal/20 text-brand-teal p-6 rounded-xl text-center font-bold">
                 <span className="material-symbols-outlined text-4xl mb-2 block">check_circle</span>
                 Thank you! Your academic enquiry has been submitted. We will contact you at {quickForm.phone} within 24 hours.
               </div>
             ) : (
-              <form onSubmit={handleQuickSubmit} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 items-end">
+              <form onSubmit={handleQuickSubmit} className="space-y-4">
                 {/* Field 1: Name */}
                 <div className="space-y-1.5">
-                  <label className="text-xs font-semibold uppercase tracking-wider text-white/70 ml-1">Student Name</label>
+                  <label className="text-xs font-semibold uppercase tracking-wider text-gray-600 ml-1">Student Name</label>
                   <input
                     type="text"
                     name="name"
@@ -235,13 +289,13 @@ function Home() {
                     onChange={handleQuickChange}
                     placeholder="Enter Name"
                     required
-                    className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/10 text-white placeholder-white/40 focus:bg-white/15 focus:border-brand-yellow transition-all outline-none text-sm"
+                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 text-brand-navy placeholder-gray-400 focus:bg-white focus:border-brand-teal transition-all outline-none text-sm"
                   />
                 </div>
 
                 {/* Field 2: Phone */}
                 <div className="space-y-1.5">
-                  <label className="text-xs font-semibold uppercase tracking-wider text-white/70 ml-1">Phone Number</label>
+                  <label className="text-xs font-semibold uppercase tracking-wider text-gray-600 ml-1">Phone Number</label>
                   <input
                     type="tel"
                     name="phone"
@@ -249,49 +303,39 @@ function Home() {
                     onChange={handleQuickChange}
                     placeholder="Enter Phone"
                     required
-                    className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/10 text-white placeholder-white/40 focus:bg-white/15 focus:border-brand-yellow transition-all outline-none text-sm"
+                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 text-brand-navy placeholder-gray-400 focus:bg-white focus:border-brand-teal transition-all outline-none text-sm"
                   />
                 </div>
 
                 {/* Field 3: Standard */}
                 <div className="space-y-1.5">
-                  <label className="text-xs font-semibold uppercase tracking-wider text-white/70 ml-1">Standard</label>
+                  <label className="text-xs font-semibold uppercase tracking-wider text-gray-600 ml-1">Standard</label>
                   <select
                     name="standard"
                     value={quickForm.standard}
                     onChange={handleQuickChange}
                     required
-                    className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/10 text-white focus:bg-brand-navy focus:border-brand-yellow transition-all outline-none text-sm cursor-pointer [&>option]:text-brand-navy [&>option]:bg-white"
+                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 text-brand-navy focus:bg-white focus:border-brand-teal transition-all outline-none text-sm cursor-pointer [&>option]:text-brand-navy [&>option]:bg-white"
                   >
-                    <option value="" className="text-white/40">Select Class</option>
+                    <option value="">Select Class</option>
                     <option value="Class 7">Class 7</option>
                     <option value="Class 8">Class 8</option>
                     <option value="Class 9">Class 9</option>
                     <option value="Class 10">Class 10</option>
                     <option value="Class 11">Class 11</option>
                     <option value="Class 12">Class 12</option>
+                    <option value="Class 12">B-Pharma</option>
+                    <option value="Class 12">D-Pharma</option>
+                    <option value="Class 12">Chartered Accountant(CA)</option>
+                    <option value="Class 12">Cost and Management Accountant(CMA)</option>
                   </select>
-                </div>
-
-                {/* Field 4: Subject */}
-                <div className="space-y-1.5">
-                  <label className="text-xs font-semibold uppercase tracking-wider text-white/70 ml-1">Subject</label>
-                  <input
-                    type="text"
-                    name="subject"
-                    value={quickForm.subject}
-                    onChange={handleQuickChange}
-                    placeholder="e.g. Maths, Physics"
-                    required
-                    className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/10 text-white placeholder-white/40 focus:bg-white/15 focus:border-brand-yellow transition-all outline-none text-sm"
-                  />
                 </div>
 
                 {/* Submit Button */}
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3 bg-brand-yellow hover:bg-brand-yellow/90 disabled:bg-brand-yellow/60 text-[#1F2937] font-bold rounded-lg transition-all text-xs uppercase tracking-widest shadow-lg shadow-brand-yellow/10"
+                  className="w-full py-3 bg-brand-yellow hover:bg-brand-yellow/90 disabled:bg-brand-yellow/60 text-[#1F2937] font-bold rounded-lg transition-all text-xs uppercase tracking-widest shadow-lg"
                 >
                   {isSubmitting ? 'Submitting...' : 'Enquire Now'}
                 </button>
@@ -299,7 +343,7 @@ function Home() {
             )}
           </div>
         </div>
-      </section>
+      )}
 
       {/* SECTION 4 — HIGHER SECONDARY SECTION */}
       <section className="py-stack_xl bg-[#F5F0F7]">
@@ -411,50 +455,7 @@ function Home() {
         </div>
       </section>
 
-      {/* SECTION 6 — RESULTS BANNER (TOPPERS STRIP) */}
-      <section className="py-stack_xl bg-white border-t border-brand-navy/5">
-        <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
-          
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <p className="text-brand-teal font-extrabold uppercase tracking-widest text-xs mb-3">Our Toppers</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy mb-2 tracking-tight">
-              Student <span class="text-brand-purple">Achievements.</span>
-            </h2>
-            <div className="h-1 w-[40px] bg-brand-purple rounded-full mx-auto mb-4"></div>
-          </div>
-
-          {/* Toppers Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {toppers.slice(0, 3).map((topper) => (
-              <div 
-                key={topper.id}
-                className="bg-white rounded-xl p-8 border-t-[3px] border-brand-yellow shadow-md flex flex-col items-center text-center hover:translate-y-[-4px] transition-all"
-                data-aos="zoom-in"
-              >
-                <div className="relative w-20 h-20 mb-4">
-                  <img 
-                    alt={topper.name} 
-                    className="w-full h-full object-cover rounded-full border-2 border-brand-yellow p-1" 
-                    src={topper.photo}
-                  />
-                  <div className="absolute bottom-0 right-0 w-6 h-6 bg-brand-yellow rounded-full flex items-center justify-center text-brand-navy border-2 border-white text-xs font-bold">{topper.medal}</div>
-                </div>
-                <h4 className="font-bold text-brand-purple text-base mb-1">{topper.name}</h4>
-                <p className="text-4xl font-extrabold text-[#E0B000] mb-1 font-poppins">{topper.score}</p>
-                <p className="text-xs font-semibold text-brand-teal uppercase tracking-wider">{topper.board} {topper.class}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-8">
-            <Link to="/results" className="px-8 py-3.5 border-2 border-brand-purple hover:bg-brand-purple hover:text-white text-brand-purple font-bold rounded-lg transition-all text-sm uppercase tracking-wider inline-block">
-              View All Results
-            </Link>
-          </div>
-
-        </div>
-      </section>
-
+      
       {/* SECTION 7 — TESTIMONIALS */}
       <section className="py-stack_xl bg-[#F5F0F7]">
         <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
