@@ -1,0 +1,14 @@
+/* Results page custom styling */
+.results-page {
+  scroll-behavior: smooth;
+}
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+}
+.gallery-item img {
+  transition: transform 0.5s ease;
+}
+.gallery-item:hover img {
+  transform: scale(1.05);
+}

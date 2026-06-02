@@ -1,0 +1,4 @@
+/* Main application layout overrides if needed */
+main {
+  min-height: 80vh;
+}

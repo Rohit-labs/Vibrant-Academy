@@ -1,0 +1,7 @@
+/* Home page custom styling if needed */
+.home-page {
+  scroll-behavior: smooth;
+}
+.custom-swiper-pagination .swiper-pagination-bullet-active {
+  background-color: var(--purple) !important;
+}
