@@ -49,45 +49,39 @@ function Home() {
 
   const courses = [
     {
-      title: "Algebra & Geometry",
-      badge: "Mathematics",
-      desc: "Comprehensive foundation of numerical equations, trigonometry matrices, proofs and geometric conceptual layouts.",
-      icon: "calculate",
+      title: "SSC (7th–10th Std)",
+      badge: "SSC BOARD",
+      desc: "Strong academic foundation with concept-based learning, board exam preparation, and regular assessments for consistent performance.",
       color: "brand-purple"
     },
     {
-      title: "Mechanics & Optics",
-      badge: "Physics",
-      desc: "Hands-on conceptual reviews of kinematics, rotational dynamics, mirrors, lenses, and magnetic circuit models.",
-      icon: "bolt",
+      title: "ICSE (7th–10th Std)",
+      badge: "ICSE BOARD",
+      desc: "Comprehensive subject coverage with analytical learning, project guidance, and focused preparation for ICSE examinations.",
       color: "brand-teal"
     },
     {
-      title: "Organic & Inorganic",
-      badge: "Chemistry",
-      desc: "Detailed molecular representations, stoichiometry tables, periodic classifications, and lab reaction procedures.",
-      icon: "science",
+      title: "CBSE (7th–10th Std)",
+      badge: "CBSE BOARD",
+      desc: "NCERT-oriented teaching with conceptual clarity, problem-solving skills, and structured preparation for board exams.",
       color: "brand-gold"
     },
     {
-      title: "Physiology & Genetics",
-      badge: "Biology",
-      desc: "Exploration of cellular organelles, anatomy structure charts, plant respiration, and genetics code metrics.",
-      icon: "biotech",
+      title: "Science (11th–12th)",
+      badge: "JEE, NEET, CET, Plain Boards",
+      desc: "Expert coaching for Physics, Chemistry, and Mathematics/Biology with integrated preparation for JEE, NEET, Plain Boards and MHT-CET.",
       color: "brand-teal"
     },
     {
-      title: "Language & Literature",
-      badge: "English",
-      desc: "Structured critical grammar essays, dramatic script critiques, public speaking guidelines, and active composition tags.",
-      icon: "menu_book",
+      title: "Commerce",
+      badge: "CA, CMA",
+      desc: "Specialized guidance in Accounts, Economics, and Business Studies with foundation support for CA and CMA careers.",
       color: "brand-purple"
     },
     {
-      title: "Boards prep crash course",
-      badge: "Board Special",
-      desc: "Intensive 30-day question bank reviews, historical board papers, and direct classroom exam mocks.",
-      icon: "workspace_premium",
+      title: "Pharma",
+      badge: "B.PHARM • D.PHARM",
+      desc: "Focused academic support for B.Pharm and D.Pharm students covering core pharmaceutical sciences and practical concepts",
       color: "brand-gold"
     }
   ];
@@ -227,7 +221,7 @@ function Home() {
             </h2>
             <div className="h-1 w-[40px] bg-brand-purple rounded-full mx-auto mb-4"></div>
             <p className="text-gray-500 text-base leading-relaxed">
-              We specialize in deep conceptual coaching for class 7 to 10 secondary school curriculum boards.
+              We provide comprehensive coaching for SSC, ICSE, and CBSE students from Classes 7–10, along with specialized guidance for Science, Commerce, and Pharmacy aspirants.
             </p>
           </div>
 
@@ -241,9 +235,6 @@ function Home() {
                 data-aos-delay={idx * 100}
               >
                 <div>
-                  <div className={`w-12 h-12 rounded-full mb-6 flex items-center justify-center bg-brand-purple/5 text-brand-purple`}>
-                    <span className="material-symbols-outlined text-2xl">{course.icon}</span>
-                  </div>
                   <h3 className="text-xl font-bold text-brand-navy mb-3">{course.title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed mb-6">{course.desc}</p>
                 </div>
