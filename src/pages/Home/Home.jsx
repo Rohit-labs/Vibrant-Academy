@@ -437,7 +437,6 @@ function Home() {
                     className="w-full h-full object-cover rounded-full border-2 border-brand-yellow p-1" 
                     src={topper.photo}
                   />
-                  <div className="absolute bottom-0 right-0 w-6 h-6 bg-brand-yellow rounded-full flex items-center justify-center text-brand-navy border-2 border-white text-xs font-bold">{topper.medal}</div>
                 </div>
                 <h4 className="font-bold text-brand-purple text-base mb-1">{topper.name}</h4>
                 <p className="text-4xl font-extrabold text-[#E0B000] mb-1 font-poppins">{topper.score}</p>

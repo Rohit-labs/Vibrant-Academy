@@ -135,11 +135,10 @@ function Results() {
             >
               {toppers.map((topper) => (
                 <SwiperSlide key={topper.id} className="py-4">
-                  <div className="bg-white rounded-xl p-6 border border-brand-purple/10 border-t-4 border-t-brand-yellow shadow-sm hover:shadow-lg hover:translate-y-[-6px] transition-all duration-300 flex flex-col items-center text-center h-[330px] justify-between">
+                  <div className="bg-white rounded-xl p-6 border border-brand-purple/10 border-t-4 border-t-brand-yellow shadow-sm hover:shadow-lg hover:translate-y-[-6px] transition-all duration-300 flex flex-col items-center text-center h-[370px] justify-between">
                     <div className="flex flex-col items-center w-full">
-                      <div className="relative w-20 h-20 mb-4">
+                      <div className="relative w-28 h-28 mb-4">
                         <img alt={topper.name} className="w-full h-full object-cover rounded-full border-2 border-brand-yellow p-1 shadow-inner" src={topper.photo} />
-                        <div className="absolute bottom-0 right-0 w-7 h-7 bg-brand-yellow rounded-full flex items-center justify-center text-brand-navy border-2 border-white text-sm font-bold shadow-md">{topper.medal}</div>
                       </div>
                       <h4 className="font-bold text-brand-navy text-base mb-1 truncate w-full">{topper.name}</h4>
                       <p className="text-3xl font-extrabold text-brand-gold mb-3 font-poppins">{topper.score}</p>
