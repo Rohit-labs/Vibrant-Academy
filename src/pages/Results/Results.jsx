@@ -1,78 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import AOS from 'aos';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
 import './Results.css';
 
 // Import data
 import toppers from '../../data/toppers';
 import testimonials from '../../data/testimonials';
-import resultsTable from '../../data/results';
 
 function Results() {
-  const [filterYear, setFilterYear] = useState('all');
-  const [visibleToppers, setVisibleToppers] = useState(4);
-  const [galleryFilter, setGalleryFilter] = useState('all');
-
   useEffect(() => {
     AOS.refresh();
   }, []);
 
-  // Filter toppers based on year
-  const filteredToppers = toppers.filter(topper => {
-    return filterYear === 'all' || topper.year === filterYear;
-  });
-
-  const handleLoadMore = () => {
-    setVisibleToppers(prev => prev + 4);
-  };
-
-  const galleryItems = [
-    {
-      id: 1,
-      category: "marksheets",
-      title: "Class 10 Board Marksheet",
-      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuD4GycBE1yYDgeclceBfmTNMTVtS-y2mpakZYxHyDaUFrvOXHcHQzZ97lSSBuqYbqJqi-72q3NjNUP3vP27xsaZb3NI40FSLooe-r1QGXr-3ENPK37eaK9YclezGHXGO3XFjmLEZT_roVRsp_rQ6Adbpq-_RilTEMkfH530SA-XiKhEDeya-LpAqj0NOA_Q1HiX8FFe8i32ZdR-mZk7B_WorYFrBnE1qA_A2ng2cBf3xwpCmdTqoiFACerLSPJvUyihh4_1IWYLJg"
-    },
-    {
-      id: 2,
-      category: "celebrations",
-      title: "Annual Toppers Convocation Ceremony",
-      img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1200"
-    },
-    {
-      id: 3,
-      category: "awards",
-      title: "Best Academic Coaching Trophy 2024",
-      img: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=1200"
-    },
-    {
-      id: 4,
-      category: "marksheets",
-      title: "100/100 Mathematics Centum",
-      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuD4GycBE1yYDgeclceBfmTNMTVtS-y2mpakZYxHyDaUFrvOXHcHQzZ97lSSBuqYbqJqi-72q3NjNUP3vP27xsaZb3NI40FSLooe-r1QGXr-3ENPK37eaK9YclezGHXGO3XFjmLEZT_roVRsp_rQ6Adbpq-_RilTEMkfH530SA-XiKhEDeya-LpAqj0NOA_Q1HiX8FFe8i32ZdR-mZk7B_WorYFrBnE1qA_A2ng2cBf3xwpCmdTqoiFACerLSPJvUyihh4_1IWYLJg"
-    },
-    {
-      id: 5,
-      category: "celebrations",
-      title: "Parents Appreciation Dinner Meet",
-      img: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=1200"
-    },
-    {
-      id: 6,
-      category: "awards",
-      title: "District Rank 1 Gold Medalist Award",
-      img: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&q=80&w=1200"
-    }
-  ];
-
-  const filteredGallery = galleryItems.filter(item => {
-    return galleryFilter === 'all' || item.category === galleryFilter;
-  });
-
   return (
     <div className="results-page overflow-x-hidden">
       
-      {/* SECTION 1 — PAGE HERO */}
+      {/* SECTION 1 — PAGE HERO (Split Layout) */}
       <section className="mt-[70px] flex flex-col md:flex-row min-h-[500px] overflow-hidden bg-white">
         <div className="w-full md:w-[45%] h-[250px] md:h-auto relative overflow-hidden">
           <img 
@@ -101,86 +52,54 @@ function Results() {
               <span className="flex items-center gap-1"><span className="material-symbols-outlined text-brand-purple text-base">check_circle</span> 95% Pass Rate</span>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#toppers" className="px-8 py-3.5 bg-brand-yellow hover:bg-[#E0B000] text-[#1F2937] font-bold rounded-lg shadow-md hover:translate-y-[-2px] active:scale-95 transition-all text-sm uppercase tracking-wider text-center">
+              <a href="#toppers" className="px-8 py-3.5 border-2 border-brand-purple hover:bg-brand-purple hover:text-white text-brand-purple font-bold rounded-lg transition-all text-sm uppercase tracking-wider text-center">
                 View Toppers
               </a>
-              <Link to="/contact" className="px-8 py-3.5 border-2 border-brand-purple hover:bg-brand-purple hover:text-white text-brand-purple font-bold rounded-lg active:scale-95 transition-all text-sm uppercase tracking-wider text-center">
-                Enroll Now
+              <Link to="/contact" className="px-8 py-3.5 bg-brand-yellow hover:bg-[#E0B000] text-[#1F2937] font-bold rounded-lg shadow-md hover:translate-y-[-2px] active:scale-95 transition-all text-sm uppercase tracking-wider text-center">
+                Enquire Now
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 2 — STATS STRIP */}
-      <section className="bg-white border-y border-brand-navy/5 relative z-30">
+      {/* SECTION 2 — ACHIEVEMENT STATS (4 Counters) */}
+      <section className="bg-white border-y border-brand-navy/5 relative z-30 py-12">
         <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
-          <div className="grid grid-cols-2 md:grid-cols-4 divide-y-0 divide-x divide-brand-navy/5">
-            <div className="py-8 md:py-10 flex items-center gap-4 group hover:bg-brand-purple/5 transition-colors px-4 justify-center md:justify-start">
-              <div className="w-12 h-12 rounded-full bg-brand-yellow/10 flex items-center justify-center text-brand-gold">
-                <span className="material-symbols-outlined text-xl">emoji_events</span>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6">
+            <div className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-sm border border-brand-navy/5 hover:translate-y-[-4px] hover:shadow-md transition-all duration-300" data-aos="fade-up">
+              <div className="w-16 h-16 rounded-full bg-brand-yellow/10 flex items-center justify-center text-brand-gold mb-4 text-2xl">
+                <span className="material-symbols-outlined text-3xl">groups</span>
               </div>
-              <div>
-                <p className="text-[10px] font-bold text-brand-navy/50 uppercase tracking-widest mb-0.5">Total Students</p>
-                <p className="text-xl font-bold text-brand-navy">500+</p>
-              </div>
+              <p className="text-3xl md:text-4xl font-extrabold text-brand-navy font-poppins mb-1">500+</p>
+              <p className="text-xs font-bold text-brand-navy/50 uppercase tracking-widest">Total Students</p>
             </div>
-            <div className="py-8 md:py-10 flex items-center gap-4 group hover:bg-brand-purple/5 transition-colors px-4 justify-center md:justify-start">
-              <div className="w-12 h-12 rounded-full bg-brand-purple/10 flex items-center justify-center text-brand-purple">
-                <span className="material-symbols-outlined text-xl">star</span>
+            <div className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-sm border border-brand-navy/5 hover:translate-y-[-4px] hover:shadow-md transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+              <div className="w-16 h-16 rounded-full bg-brand-purple/10 flex items-center justify-center text-brand-purple mb-4 text-2xl">
+                <span className="material-symbols-outlined text-3xl">star</span>
               </div>
-              <div>
-                <p className="text-[10px] font-bold text-brand-navy/50 uppercase tracking-widest mb-0.5">Pass Rate</p>
-                <p className="text-xl font-bold text-brand-navy">95%</p>
-              </div>
+              <p className="text-3xl md:text-4xl font-extrabold text-brand-navy font-poppins mb-1">95%</p>
+              <p className="text-xs font-bold text-brand-navy/50 uppercase tracking-widest">Pass Rate</p>
             </div>
-            <div className="py-8 md:py-10 flex items-center gap-4 group hover:bg-brand-purple/5 transition-colors px-4 justify-center md:justify-start">
-              <div className="w-12 h-12 rounded-full bg-brand-teal/10 flex items-center justify-center text-brand-teal">
-                <span className="material-symbols-outlined text-xl">school</span>
+            <div className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-sm border border-brand-navy/5 hover:translate-y-[-4px] hover:shadow-md transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+              <div className="w-16 h-16 rounded-full bg-brand-teal/10 flex items-center justify-center text-brand-teal mb-4 text-2xl">
+                <span className="material-symbols-outlined text-3xl">school</span>
               </div>
-              <div>
-                <p className="text-[10px] font-bold text-brand-navy/50 uppercase tracking-widest mb-0.5">Years Experience</p>
-                <p className="text-xl font-bold text-brand-navy">10+</p>
-              </div>
+              <p className="text-3xl md:text-4xl font-extrabold text-brand-navy font-poppins mb-1">10+</p>
+              <p className="text-xs font-bold text-brand-navy/50 uppercase tracking-widest">Years Experience</p>
             </div>
-            <div className="py-8 md:py-10 flex items-center gap-4 group hover:bg-brand-purple/5 transition-colors px-4 justify-center md:justify-start">
-              <div className="w-12 h-12 rounded-full bg-brand-yellow/10 flex items-center justify-center text-brand-gold">
-                <span className="material-symbols-outlined text-xl">workspace_premium</span>
+            <div className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-sm border border-brand-navy/5 hover:translate-y-[-4px] hover:shadow-md transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+              <div className="w-16 h-16 rounded-full bg-brand-yellow/10 flex items-center justify-center text-brand-gold mb-4 text-2xl">
+                <span className="material-symbols-outlined text-3xl">workspace_premium</span>
               </div>
-              <div>
-                <p className="text-[10px] font-bold text-brand-navy/50 uppercase tracking-widest mb-0.5">Top Scorers</p>
-                <p className="text-xl font-bold text-brand-navy">50+</p>
-              </div>
+              <p className="text-3xl md:text-4xl font-extrabold text-brand-navy font-poppins mb-1">50+</p>
+              <p className="text-xs font-bold text-brand-navy/50 uppercase tracking-widest">Top Scorers</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 3 — ANIMATED STATS COUNTER */}
-      <section className="bg-brand-navy text-white py-16">
-        <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 divide-y-0 divide-x-0 md:divide-x divide-white/10 text-center">
-            <div className="px-4">
-              <p className="text-5xl md:text-6xl font-extrabold text-brand-yellow mb-2 font-poppins">500+</p>
-              <p className="text-gray-400 text-sm tracking-wider uppercase font-semibold text-[13px]">Students Taught</p>
-            </div>
-            <div className="px-4">
-              <p className="text-5xl md:text-6xl font-extrabold text-brand-yellow mb-2 font-poppins">95%</p>
-              <p className="text-gray-400 text-sm tracking-wider uppercase font-semibold text-[13px]">Pass Rate</p>
-            </div>
-            <div className="px-4">
-              <p className="text-5xl md:text-6xl font-extrabold text-brand-yellow mb-2 font-poppins">10+</p>
-              <p className="text-gray-400 text-sm tracking-wider uppercase font-semibold text-[13px]">Years Experience</p>
-            </div>
-            <div className="px-4">
-              <p className="text-5xl md:text-6xl font-extrabold text-brand-yellow mb-2 font-poppins">50+</p>
-              <p className="text-gray-400 text-sm tracking-wider uppercase font-semibold text-[13px]">Top Scorers</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 4 — YEAR FILTER + TOPPERS GRID */}
+      {/* SECTION 3 — TOP TOPPERS CAROUSEL */}
       <section id="toppers" className="py-stack_xl bg-white">
         <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
           
@@ -195,79 +114,74 @@ function Results() {
             </p>
           </div>
 
-          {/* Year Filter Bar */}
-          <div className="flex gap-3 overflow-x-auto pb-4 justify-start md:justify-center mb-10 hide-scrollbar scroll-smooth">
-            {['all', '2024', '2023', '2022', '2021', '2020'].map(year => (
-              <button 
-                key={year}
-                onClick={() => {
-                  setFilterYear(year);
-                  setVisibleToppers(4); // Reset pagination
-                }}
-                className={`px-6 py-2 rounded-full border transition-all text-xs font-bold uppercase whitespace-nowrap ${
-                  filterYear === year 
-                    ? 'bg-brand-yellow text-brand-purple border-brand-yellow shadow-sm font-extrabold' 
-                    : 'bg-white text-brand-purple border-brand-purple hover:bg-brand-purple/5'
-                }`}
-              >
-                {year === 'all' ? 'ALL' : year}
+          {/* Carousel */}
+          <div className="px-4 md:px-8 relative" data-aos="zoom-in">
+            <Swiper
+              modules={[Autoplay, Pagination, Navigation]}
+              spaceBetween={24}
+              slidesPerView={1}
+              autoplay={{ delay: 3500, disableOnInteraction: false }}
+              pagination={{ clickable: true, el: '.toppers-pagination' }}
+              navigation={{
+                nextEl: '.toppers-next',
+                prevEl: '.toppers-prev',
+              }}
+              breakpoints={{
+                640: { slidesPerView: 2 },
+                768: { slidesPerView: 3 },
+                1024: { slidesPerView: 4 }
+              }}
+              className="w-full pb-16"
+            >
+              {toppers.map((topper) => (
+                <SwiperSlide key={topper.id} className="py-4">
+                  <div className="bg-white rounded-xl p-6 border border-brand-purple/10 border-t-4 border-t-brand-yellow shadow-sm hover:shadow-lg hover:translate-y-[-6px] transition-all duration-300 flex flex-col items-center text-center h-[330px] justify-between">
+                    <div className="flex flex-col items-center w-full">
+                      <div className="relative w-20 h-20 mb-4">
+                        <img alt={topper.name} className="w-full h-full object-cover rounded-full border-2 border-brand-yellow p-1 shadow-inner" src={topper.photo} />
+                        <div className="absolute bottom-0 right-0 w-7 h-7 bg-brand-yellow rounded-full flex items-center justify-center text-brand-navy border-2 border-white text-sm font-bold shadow-md">{topper.medal}</div>
+                      </div>
+                      <h4 className="font-bold text-brand-navy text-base mb-1 truncate w-full">{topper.name}</h4>
+                      <p className="text-3xl font-extrabold text-brand-gold mb-3 font-poppins">{topper.score}</p>
+                      <div className="flex gap-1.5 justify-center mb-2">
+                        <span className="px-2.5 py-0.5 bg-brand-purple/10 text-brand-purple text-[9px] font-bold rounded-full uppercase">{topper.board}</span>
+                        <span className="px-2.5 py-0.5 bg-brand-teal/10 text-brand-teal text-[9px] font-bold rounded-full uppercase">{topper.class}</span>
+                      </div>
+                    </div>
+                    <p className="text-gray-400 text-[11px] italic leading-none">{topper.subject}</p>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+
+            {/* Custom Pagination & Navigation Controls */}
+            <div className="flex items-center justify-center gap-6 mt-4">
+              <button className="toppers-prev w-10 h-10 rounded-full border border-brand-purple text-brand-purple hover:bg-brand-purple hover:text-white flex items-center justify-center transition-all disabled:opacity-30 disabled:pointer-events-none shadow-sm active:scale-95">
+                <span className="material-symbols-outlined text-xl">arrow_back</span>
               </button>
-            ))}
-          </div>
-
-          {/* Toppers Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {filteredToppers.slice(0, visibleToppers).map((topper) => (
-              <div 
-                key={topper.id}
-                className="bg-white rounded-xl p-6 border border-brand-purple/10 border-t-4 border-t-brand-yellow shadow-sm hover:shadow-lg hover:translate-y-[-6px] transition-all duration-300 flex flex-col items-center text-center snap-center"
-                data-aos="zoom-in"
-              >
-                <div className="relative w-24 h-24 mb-4">
-                  <img alt={topper.name} className="w-full h-full object-cover rounded-full border-2 border-brand-yellow p-1 shadow-inner" src={topper.photo} />
-                  <div className="absolute bottom-0 right-0 w-7 h-7 bg-brand-yellow rounded-full flex items-center justify-center text-brand-navy border-2 border-white text-sm font-bold shadow-md">{topper.medal}</div>
-                </div>
-                <h4 className="font-bold text-brand-purple text-base mb-1">{topper.name}</h4>
-                <p className="text-3xl font-extrabold text-[#E0B000] mb-3 font-poppins">{topper.score}</p>
-                <div className="flex flex-wrap justify-center gap-1.5 mb-3">
-                  <span className="px-3 py-0.5 bg-brand-purple text-white text-[10px] font-semibold rounded-full">{topper.board}</span>
-                  <span className="px-3 py-0.5 bg-brand-teal text-white text-[10px] font-semibold rounded-full">{topper.class}</span>
-                </div>
-                <p className="text-gray-400 text-xs italic mb-4 leading-none">{topper.subject}</p>
-                <div className="h-px bg-brand-navy/5 w-full my-3"></div>
-                <span className="px-3 py-1 bg-[#F5F0F7] text-brand-purple text-[10px] font-bold rounded-full uppercase tracking-wider">Batch {topper.year}</span>
-              </div>
-            ))}
-          </div>
-
-          {/* Load More Button */}
-          {visibleToppers < filteredToppers.length && (
-            <div className="text-center mt-12">
-              <button 
-                onClick={handleLoadMore}
-                className="px-8 py-3 border-2 border-brand-yellow hover:bg-brand-yellow hover:text-[#1F2937] text-brand-purple font-bold rounded-lg active:scale-95 transition-all text-xs uppercase tracking-wider"
-              >
-                Load More Toppers
+              <div className="toppers-pagination flex gap-2 !w-auto"></div>
+              <button className="toppers-next w-10 h-10 rounded-full border border-brand-purple text-brand-purple hover:bg-brand-purple hover:text-white flex items-center justify-center transition-all disabled:opacity-30 disabled:pointer-events-none shadow-sm active:scale-95">
+                <span className="material-symbols-outlined text-xl">arrow_forward</span>
               </button>
             </div>
-          )}
+          </div>
 
         </div>
       </section>
 
-      {/* SECTION 5 — BOARD WISE RESULTS */}
+      {/* SECTION 4 — BOARD RESULTS (ICSE / SSC Side by Side) */}
       <section className="py-stack_xl bg-[#F5F0F7]">
         <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
           
           <div className="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
             <p className="text-brand-teal font-extrabold uppercase tracking-widest text-xs mb-3">Board Results</p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy mb-2 tracking-tight">
-              ICSE, CBSE & <span className="text-brand-purple">SSC Results.</span>
+              ICSE & <span className="text-brand-purple">SSC Results.</span>
             </h2>
             <div className="h-1 w-[40px] bg-brand-purple rounded-full mx-auto mb-4"></div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             
             {/* Card 1: ICSE Results */}
             <div className="bg-white rounded-xl shadow-md overflow-hidden flex flex-col justify-between border border-brand-navy/5" data-aos="fade-right">
@@ -308,47 +222,8 @@ function Results() {
               </div>
             </div>
 
-            {/* Card 2: CBSE Results (In Between!) */}
-            <div className="bg-white rounded-xl shadow-md overflow-hidden flex flex-col justify-between border border-brand-navy/5" data-aos="fade-up" data-aos-delay="100">
-              <div>
-                <div className="bg-brand-navy text-center py-6 px-4 text-white">
-                  <h3 className="text-2xl font-bold font-poppins">CBSE Board</h3>
-                  <p className="text-brand-yellow text-xs font-semibold uppercase tracking-wider mt-1">Class 7 to 10</p>
-                </div>
-                <div className="p-8">
-                  <ul className="space-y-4 text-sm md:text-base font-medium text-brand-navy/80">
-                    <li className="flex items-start gap-2.5 py-3 border-b border-brand-navy/5">
-                      <span className="material-symbols-outlined text-brand-teal">check_circle</span>
-                      <span>98.0% highest score achieved</span>
-                    </li>
-                    <li className="flex items-start gap-2.5 py-3 border-b border-brand-navy/5">
-                      <span className="material-symbols-outlined text-brand-teal">check_circle</span>
-                      <span>100% pass rate in Science & Maths</span>
-                    </li>
-                    <li className="flex items-start gap-2.5 py-3 border-b border-brand-navy/5">
-                      <span className="material-symbols-outlined text-brand-teal">check_circle</span>
-                      <span>96% pass rate in English</span>
-                    </li>
-                    <li className="flex items-start gap-2.5 py-3 border-b border-brand-navy/5">
-                      <span className="material-symbols-outlined text-brand-teal">check_circle</span>
-                      <span>15+ students scored above 90%</span>
-                    </li>
-                    <li className="flex items-start gap-2.5 py-3">
-                      <span className="material-symbols-outlined text-brand-teal">check_circle</span>
-                      <span>Top regional board school ranks</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div className="p-8 pt-0">
-                <Link to="/contact" className="w-full py-3 bg-brand-yellow hover:bg-[#E0B000] text-[#1F2937] font-bold rounded-lg uppercase text-xs tracking-wider transition-all text-center block">
-                  View CBSE Details
-                </Link>
-              </div>
-            </div>
-
-            {/* Card 3: SSC Results */}
-            <div className="bg-white rounded-xl shadow-md overflow-hidden flex flex-col justify-between border border-brand-navy/5" data-aos="fade-left" data-aos-delay="200">
+            {/* Card 2: SSC Results */}
+            <div className="bg-white rounded-xl shadow-md overflow-hidden flex flex-col justify-between border border-brand-navy/5" data-aos="fade-left">
               <div>
                 <div className="bg-brand-teal text-center py-6 px-4 text-white">
                   <h3 className="text-2xl font-bold font-poppins">SSC Board</h3>
@@ -390,7 +265,7 @@ function Results() {
         </div>
       </section>
 
-      {/* SECTION 6 — SUBJECT WISE RESULTS */}
+      {/* SECTION 5 — SUBJECT PERFORMANCE (3 Cards) */}
       <section className="py-stack_xl bg-white">
         <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
           
@@ -428,7 +303,7 @@ function Results() {
               </div>
             </div>
 
-            {/* Commerce Card */}
+            {/* Mathematics Card */}
             <div className="bg-white rounded-xl p-8 border border-brand-navy/5 border-t-4 border-t-brand-purple shadow-md hover:translate-y-[-4px] hover:shadow-xl transition-all" data-aos="fade-up" data-aos-delay="100">
               <div className="w-14 h-14 rounded-full bg-brand-purple/10 text-brand-purple flex items-center justify-center mb-6 mx-auto">
                 <span className="material-symbols-outlined text-2xl">calculate</span>
@@ -452,7 +327,7 @@ function Results() {
               </div>
             </div>
 
-            {/* English Card */}
+            {/* English & Language Card */}
             <div className="bg-white rounded-xl p-8 border border-brand-navy/5 border-t-4 border-t-brand-yellow shadow-md hover:translate-y-[-4px] hover:shadow-xl transition-all" data-aos="fade-up" data-aos-delay="200">
               <div className="w-14 h-14 rounded-full bg-brand-yellow/10 text-brand-gold flex items-center justify-center mb-6 mx-auto">
                 <span className="material-symbols-outlined text-2xl">menu_book</span>
@@ -480,171 +355,8 @@ function Results() {
         </div>
       </section>
 
-      {/* SECTION 7 — YEAR WISE RESULTS TABLE */}
-      <section className="py-stack_xl bg-[#F5F0F7]">
-        <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
-          <div className="text-center max-w-2xl mx-auto mb-12" data-aos="fade-up">
-            <p className="text-brand-teal font-extrabold uppercase tracking-widest text-xs mb-3">Historical Breakdown</p>
-            <h2 className="text-3xl font-extrabold text-brand-navy mb-2 tracking-tight">Year Wise Performance</h2>
-            <div className="h-1 w-12 bg-brand-purple rounded-full mx-auto mb-6"></div>
-          </div>
-
-          <div className="bg-white rounded-xl shadow-lg border border-brand-navy/5 overflow-hidden" data-aos="fade-up">
-            <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-brand-navy/5 text-left border-collapse">
-                <thead className="bg-[#1E2D6B] text-white">
-                  <tr>
-                    <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider">Year</th>
-                    <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider">Board</th>
-                    <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider">Total Students</th>
-                    <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider">Pass Rate</th>
-                    <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider">Top Score</th>
-                    <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider">Distinction</th>
-                    <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider">Remarks</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-brand-navy/5 text-sm font-semibold text-brand-navy/80">
-                  {resultsTable.map((row, idx) => (
-                    <tr key={idx} className="hover:bg-brand-purple/5 transition-colors">
-                      <td className="px-6 py-4 text-brand-purple font-extrabold">{row.year}</td>
-                      <td className="px-6 py-4"><span className={`px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase ${row.board === 'ICSE' ? 'bg-brand-purple/10 text-brand-purple' : 'bg-brand-teal/10 text-brand-teal'}`}>{row.board}</span></td>
-                      <td className="px-6 py-4 font-mono">{row.students}</td>
-                      <td className="px-6 py-4 text-brand-teal font-extrabold">{row.passRate}</td>
-                      <td className="px-6 py-4 text-[#D97706] font-extrabold">{row.topScore}</td>
-                      <td className="px-6 py-4">{row.distinctions}</td>
-                      <td className="px-6 py-4 text-gray-500 font-medium text-xs max-w-[280px] leading-relaxed">{row.remarks}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 8 — STUDENT SUCCESS STORIES */}
-      <section className="py-stack_xl bg-white">
-        <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
-          
-          <div className="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
-            <p className="text-brand-teal font-extrabold uppercase tracking-widest text-xs mb-3">Inspiring Journeys</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy mb-2 tracking-tight">Success Stories</h2>
-            <div className="h-1 w-12 bg-brand-purple rounded-full mx-auto mb-4"></div>
-          </div>
-
-          <div className="space-y-16">
-            
-            {/* Story 1 */}
-            <div className="flex flex-col lg:flex-row items-center gap-12" data-aos="fade-up">
-              <div className="w-full lg:w-1/2 rounded-2xl overflow-hidden shadow-xl h-[300px]">
-                <img className="w-full h-full object-cover" alt="Student Topper" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600" />
-              </div>
-              <div className="w-full lg:w-1/2">
-                <div className="inline-flex items-center gap-2 mb-3">
-                  <span className="h-px w-6 bg-brand-purple"></span>
-                  <span className="text-xs font-bold uppercase tracking-wider text-brand-purple">ICSE 2024 Rank 1</span>
-                </div>
-                <h3 className="text-2xl font-bold text-brand-navy mb-3">Aditi Sharma's Analytical Science Triumph</h3>
-                <p className="text-gray-500 text-sm leading-relaxed mb-6">
-                  Aditi joined our secondary physics and chemistry boards program with conceptual doubts. Through weekly customized diagnostic sheets and Mr. Ravindra Singh's ex-moderator assessment notes, she mastered standard board answer representations and scored 98.5% total distinctions.
-                </p>
-                <div className="flex gap-8 border-t border-brand-navy/5 pt-4">
-                  <div>
-                    <span className="text-3xl font-extrabold text-[#D97706] font-poppins">98.5%</span>
-                    <p className="text-gray-400 text-[10px] uppercase font-bold tracking-widest mt-0.5">Aggregate Score</p>
-                  </div>
-                  <div>
-                    <span className="text-3xl font-extrabold text-brand-purple font-poppins">100/100</span>
-                    <p className="text-gray-400 text-[10px] uppercase font-bold tracking-widest mt-0.5">Physics Centum</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Story 2 */}
-            <div className="flex flex-col lg:flex-row-reverse items-center gap-12" data-aos="fade-up">
-              <div className="w-full lg:w-1/2 rounded-2xl overflow-hidden shadow-xl h-[300px]">
-                <img className="w-full h-full object-cover" alt="Student Topper" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600" />
-              </div>
-              <div className="w-full lg:w-1/2">
-                <div className="inline-flex items-center gap-2 mb-3">
-                  <span className="h-px w-6 bg-brand-teal"></span>
-                  <span className="text-xs font-bold uppercase tracking-wider text-brand-teal">SSC 2024 Rank 2</span>
-                </div>
-                <h3 className="text-2xl font-bold text-brand-navy mb-3">Rohan Mehta's Mathematical Speed Centum</h3>
-                <p className="text-gray-500 text-sm leading-relaxed mb-6">
-                  Rohan struggled with arithmetic speed and geometry proof alignments. UnderMr. Malhotra's personalized algebra modules and step-by-step mock runs, Rohan completed his SSC board mathematics paper 20 minutes before time, scoring a perfect 100 centum.
-                </p>
-                <div className="flex gap-8 border-t border-brand-navy/5 pt-4">
-                  <div>
-                    <span className="text-3xl font-extrabold text-[#D97706] font-poppins">97.2%</span>
-                    <p className="text-gray-400 text-[10px] uppercase font-bold tracking-widest mt-0.5">Aggregate Score</p>
-                  </div>
-                  <div>
-                    <span className="text-3xl font-extrabold text-brand-teal font-poppins">100/100</span>
-                    <p className="text-gray-400 text-[10px] uppercase font-bold tracking-widest mt-0.5">Maths Centum</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 9 — INTERACTIVE PHOTO GALLERY */}
-      <section className="py-stack_xl bg-[#F5F0F7]">
-        <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
-          
-          <div className="text-center max-w-2xl mx-auto mb-12" data-aos="fade-up">
-            <p className="text-brand-teal font-extrabold uppercase tracking-widest text-xs mb-3 text-[13px]">Vibrant Gallery</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy mb-2 tracking-tight">
-              Visual <span className="text-brand-purple">Moments.</span>
-            </h2>
-            <div className="h-1 w-[40px] bg-brand-purple rounded-full mx-auto mb-4"></div>
-          </div>
-
-          {/* Gallery Category Filter */}
-          <div className="flex flex-wrap justify-center gap-3 mb-10">
-            {['all', 'marksheets', 'celebrations', 'awards'].map(cat => (
-              <button 
-                key={cat}
-                onClick={() => setGalleryFilter(cat)}
-                className={`px-6 py-2 rounded-full border transition-all text-xs font-bold uppercase ${
-                  galleryFilter === cat 
-                    ? 'bg-brand-purple text-white border-brand-purple shadow-sm font-extrabold' 
-                    : 'bg-white text-brand-purple border-brand-purple hover:bg-brand-purple/5'
-                }`}
-              >
-                {cat === 'all' ? 'ALL PHOTOS' : cat}
-              </button>
-            ))}
-          </div>
-
-          {/* Masonry Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {filteredGallery.map((item) => (
-              <div 
-                key={item.id} 
-                className="gallery-item relative rounded-xl overflow-hidden shadow-md group h-[220px]"
-                data-aos="fade-up"
-              >
-                <img className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt={item.title} src={item.img} />
-                <div className="absolute inset-0 bg-brand-navy/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
-                  <div className="text-center">
-                    <span className="px-3 py-0.5 bg-brand-yellow text-[#1F2937] text-[9px] font-bold rounded-full uppercase tracking-wider">{item.category}</span>
-                    <h4 className="text-white font-bold text-sm mt-2">{item.title}</h4>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
-      {/* SECTION 10 — TESTIMONIALS */}
-      <section className="py-stack_xl bg-white">
+      {/* SECTION 6 — TESTIMONIALS (3 Student Cards) */}
+      <section className="py-stack_xl bg-[#F5F0F7] border-t border-brand-navy/5">
         <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
           
           <div className="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
@@ -656,10 +368,10 @@ function Results() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((test) => (
+            {testimonials.slice(0, 3).map((test) => (
               <div 
                 key={test.id} 
-                className="bg-[#F5F0F7] rounded-xl p-8 border border-brand-purple/10 flex flex-col justify-between hover:translate-y-[-4px] hover:shadow-lg transition-all"
+                className="bg-white rounded-xl p-8 border border-brand-purple/10 flex flex-col justify-between hover:translate-y-[-4px] hover:shadow-lg transition-all shadow-sm"
                 data-aos="fade-up"
               >
                 <div>
@@ -688,60 +400,25 @@ function Results() {
         </div>
       </section>
 
-      {/* SECTION 11 & 12 — CTA STRIPS */}
-      <section className="bg-brand-purple text-white relative z-30">
-        <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
-          <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/10">
-            <div className="py-8 md:py-10 flex items-center gap-6 group hover:bg-white/5 transition-all px-6">
-              <div className="w-14 h-14 rounded-full bg-brand-teal/15 flex items-center justify-center flex-shrink-0 text-brand-teal">
-                <span className="material-symbols-outlined text-2xl">call</span>
-              </div>
-              <div>
-                <p className="text-sm font-bold text-white/50 uppercase tracking-widest mb-1 text-[11px]">Call Our Desk</p>
-                <p className="text-xl font-bold text-white font-poppins">91379 64830</p>
-              </div>
-            </div>
-            <div className="py-8 md:py-10 flex items-center gap-6 group hover:bg-white/5 transition-all px-6">
-              <div className="w-14 h-14 rounded-full bg-brand-whatsapp/15 flex items-center justify-center flex-shrink-0 text-brand-whatsapp">
-                <span className="material-symbols-outlined text-2xl" style={{ fontVariationSettings: '"FILL" 1' }}>chat</span>
-              </div>
-              <div>
-                <p className="text-sm font-bold text-white/50 uppercase tracking-widest mb-1 text-[11px]">Quick Support</p>
-                <a className="text-xl font-bold text-brand-yellow hover:underline" href="https://wa.me/919137964830" target="_blank" rel="noreferrer">WhatsApp Us</a>
-              </div>
-            </div>
-            <div className="py-8 md:py-10 flex items-center gap-6 group hover:bg-white/5 transition-all px-6">
-              <div className="w-14 h-14 rounded-full bg-brand-yellow/15 flex items-center justify-center flex-shrink-0 text-brand-yellow">
-                <span className="material-symbols-outlined text-2xl">location_on</span>
-              </div>
-              <div>
-                <p className="text-sm font-bold text-white/50 uppercase tracking-widest mb-1 text-[11px]">Visit Campus</p>
-                <p className="text-base font-bold text-white leading-tight">Dahisar (East), Mumbai</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA BANNER */}
-      <section className="py-stack_xl bg-white">
-        <div className="max-w-3xl mx-auto px-margin_mobile text-center animate-pulse-once" data-aos="zoom-in">
+      {/* SECTION 7 — ENROLL CTA STRIP (Full Width) */}
+      <section className="py-stack_xl bg-brand-purple text-white relative z-30">
+        <div className="max-w-3xl mx-auto px-margin_mobile text-center" data-aos="zoom-in">
           <div className="inline-flex items-center gap-2 mb-4">
-            <span className="h-px w-8 bg-brand-teal"></span>
-            <span className="font-dancing text-brand-teal text-xl">Believe in Excellence...</span>
+            <span className="h-px w-8 bg-brand-yellow"></span>
+            <span className="font-dancing text-brand-yellow text-xl">Believe in Excellence...</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy mb-2 tracking-tight">
-            Create Your <span className="text-brand-purple">Success Story.</span>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-2 tracking-tight">
+            Create Your <span className="text-brand-yellow">Success Story.</span>
           </h2>
-          <div className="h-1 w-[40px] bg-brand-purple rounded-full mx-auto mb-6"></div>
-          <p className="text-gray-500 text-base leading-relaxed mb-8 max-w-xl mx-auto">
+          <div className="h-1 w-[40px] bg-brand-yellow rounded-full mx-auto mb-6"></div>
+          <p className="text-white/80 text-base leading-relaxed mb-8 max-w-xl mx-auto">
             Our admissions are strictly merit and micro-batch capacity based. Book a diagnostic scoring session with Mr. Ravindra Singh to evaluate your conceptual foundations.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact" className="px-10 py-4 bg-brand-yellow hover:bg-[#E0B000] text-[#1F2937] font-bold rounded-lg shadow-md transition-all text-sm uppercase tracking-wider">
               Book Scoring Session
             </Link>
-            <Link to="/contact" className="px-10 py-4 border-2 border-brand-purple hover:bg-brand-purple hover:text-white text-brand-purple font-bold rounded-lg transition-all text-sm uppercase tracking-wider">
+            <Link to="/contact" className="px-10 py-4 border-2 border-white hover:bg-white hover:text-brand-purple text-white font-bold rounded-lg transition-all text-sm uppercase tracking-wider">
               Enquire Batches
             </Link>
           </div>
