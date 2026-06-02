@@ -146,6 +146,9 @@ function Results() {
                         <span className="px-2.5 py-0.5 bg-brand-purple/10 text-brand-purple text-[9px] font-bold rounded-full uppercase">{topper.board}</span>
                         <span className="px-2.5 py-0.5 bg-brand-teal/10 text-brand-teal text-[9px] font-bold rounded-full uppercase">{topper.class}</span>
                       </div>
+                      {topper.school && (
+                        <p className="text-xs text-gray-400 font-medium mt-1">{topper.school}</p>
+                      )}
                     </div>
                     <p className="text-gray-400 text-[11px] italic leading-none">{topper.subject}</p>
                   </div>

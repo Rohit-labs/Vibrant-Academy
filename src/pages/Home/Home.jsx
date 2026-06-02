@@ -98,7 +98,7 @@ function Home() {
       {/* SECTION 1 — HERO */}
       <section className="mt-[70px] relative h-[380px] md:h-[55vh] w-full overflow-hidden bg-white">
         <div className="flex flex-col md:flex-row w-full h-full">
-          <div className="w-full md:w-[45%] h-[250px] md:h-full relative overflow-hidden bg-white flex items-center justify-center object-cover">
+          <div className="hidden md:flex w-full md:w-[45%] h-[250px] md:h-full relative overflow-hidden bg-white items-center justify-center object-cover">
             <img 
               alt="Vibrant Academy Logo Banner" 
               className="max-w-full max-h-full object-contain"
@@ -134,7 +134,7 @@ function Home() {
           <div className="text-center max-w-2xl mx-auto mb-16">
             <p className="text-brand-teal font-extrabold uppercase tracking-widest text-xs mb-3">Our Toppers</p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy mb-2 tracking-tight">
-              Student <span class="text-brand-purple">Achievements.</span>
+              Student <span className="text-brand-purple">Achievements.</span>
             </h2>
             <div className="h-1 w-[40px] bg-brand-purple rounded-full mx-auto mb-4"></div>
           </div>
@@ -153,11 +153,13 @@ function Home() {
                     className="w-full h-full object-cover rounded-full border-2 border-brand-yellow p-1" 
                     src={topper.photo}
                   />
-                  <div className="absolute bottom-0 right-0 w-6 h-6 bg-brand-yellow rounded-full flex items-center justify-center text-brand-navy border-2 border-white text-xs font-bold">{topper.medal}</div>
                 </div>
                 <h4 className="font-bold text-brand-purple text-base mb-1">{topper.name}</h4>
                 <p className="text-4xl font-extrabold text-[#E0B000] mb-1 font-poppins">{topper.score}</p>
                 <p className="text-xs font-semibold text-brand-teal uppercase tracking-wider">{topper.board} {topper.class}</p>
+                {topper.school && (
+                  <p className="text-xs text-gray-400 font-medium mt-1">{topper.school}</p>
+                )}
               </div>
             ))}
           </div>
