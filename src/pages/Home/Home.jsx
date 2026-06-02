@@ -94,13 +94,13 @@ function Home() {
 
   return (
     <div className="home-page">
-      
+
       {/* SECTION 1 — HERO */}
-      <section className="mt-[70px] relative h-[380px] md:h-[55vh] w-full overflow-hidden bg-white">
+      <section className="mt-[70px] relative h-[380px] md:h-[75vh] w-full overflow-hidden bg-white">
         <div className="flex flex-col md:flex-row w-full h-full">
           <div className="hidden md:flex w-full md:w-[45%] h-[250px] md:h-full relative overflow-hidden bg-white items-center justify-center object-cover">
-            <img 
-              alt="Vibrant Academy Logo Banner" 
+            <img
+              alt="Vibrant Academy Logo Banner"
               className="max-w-full max-h-full object-contain"
               src="/vibrant_logo_banner.jpg"
             />
@@ -127,10 +127,10 @@ function Home() {
           </div>
         </div>
       </section>
-{/* SECTION 6 — RESULTS BANNER (TOPPERS STRIP) */}
+      {/* SECTION 6 — RESULTS BANNER (TOPPERS STRIP) */}
       <section className="py-stack_xl bg-white border-t border-brand-navy/5">
         <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
-          
+
           <div className="text-center max-w-2xl mx-auto mb-16">
             <p className="text-brand-teal font-extrabold uppercase tracking-widest text-xs mb-3">Our Toppers</p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy mb-2 tracking-tight">
@@ -142,15 +142,15 @@ function Home() {
           {/* Toppers Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {toppers.slice(0, 3).map((topper) => (
-              <div 
+              <div
                 key={topper.id}
                 className="bg-white rounded-xl p-8 border-t-[3px] border-brand-yellow shadow-md flex flex-col items-center text-center hover:translate-y-[-4px] transition-all"
                 data-aos="zoom-in"
               >
                 <div className="relative w-20 h-20 mb-4">
-                  <img 
-                    alt={topper.name} 
-                    className="w-full h-full object-cover rounded-full border-2 border-brand-yellow p-1" 
+                  <img
+                    alt={topper.name}
+                    className="w-full h-full object-cover rounded-full border-2 border-brand-yellow p-1"
                     src={topper.photo}
                   />
                 </div>
@@ -183,7 +183,7 @@ function Home() {
               </div>
               <div>
                 <p className="text-[10px] font-bold text-brand-navy/50 uppercase tracking-widest mb-0.5">ESTABLISHED</p>
-                <p className="text-xl font-bold text-brand-navy">Since 2010</p>
+                <p className="text-xl font-bold text-brand-navy">Since 2002</p>
               </div>
             </div>
             <div className="py-8 md:py-10 flex items-center gap-4 group hover:bg-brand-purple/5 transition-colors px-4 justify-center md:justify-start">
@@ -192,7 +192,7 @@ function Home() {
               </div>
               <div>
                 <p className="text-[10px] font-bold text-brand-navy/50 uppercase tracking-widest mb-0.5">EXPERT MENTORS</p>
-                <p className="text-xl font-bold text-brand-navy">15+ Teachers</p>
+                <p className="text-xl font-bold text-brand-navy">25+ Teachers</p>
               </div>
             </div>
             <div className="py-8 md:py-10 flex items-center gap-4 group hover:bg-brand-purple/5 transition-colors px-4 justify-center md:justify-start">
@@ -201,7 +201,7 @@ function Home() {
               </div>
               <div>
                 <p className="text-[10px] font-bold text-brand-navy/50 uppercase tracking-widest mb-0.5">STUDENTS TAUGHT</p>
-                <p className="text-xl font-bold text-brand-navy">500+ Grads</p>
+                <p className="text-xl font-bold text-brand-navy">1000+</p>
               </div>
             </div>
             <div className="py-8 md:py-10 flex items-center gap-4 group hover:bg-brand-purple/5 transition-colors px-4 justify-center md:justify-start">
@@ -210,7 +210,7 @@ function Home() {
               </div>
               <div>
                 <p className="text-[10px] font-bold text-brand-navy/50 uppercase tracking-widest mb-0.5">PASS RATE</p>
-                <p className="text-xl font-bold text-brand-navy">95% Success</p>
+                <p className="text-xl font-bold text-brand-navy">100% Success</p>
               </div>
             </div>
           </div>
@@ -234,10 +234,10 @@ function Home() {
           {/* Offerings Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {courses.map((course, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className="bg-white rounded-xl p-8 border border-brand-navy/5 shadow-md hover:translate-y-[-6px] hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
-                data-aos="fade-up" 
+                data-aos="fade-up"
                 data-aos-delay={idx * 100}
               >
                 <div>
@@ -383,9 +383,9 @@ function Home() {
             </div>
             <div className="w-full lg:w-1/2 relative" data-aos="fade-left">
               <div className="rounded-2xl overflow-hidden shadow-2xl">
-                <img 
-                  alt="High School Study Environment" 
-                  className="w-full h-[350px] md:h-[450px] object-cover" 
+                <img
+                  alt="High School Study Environment"
+                  className="w-full h-[350px] md:h-[450px] object-cover"
                   src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1200"
                 />
               </div>
@@ -461,7 +461,7 @@ function Home() {
       {/* SECTION 7 — TESTIMONIALS */}
       <section className="py-stack_xl bg-[#F5F0F7]">
         <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
-          
+
           <div className="text-center max-w-2xl mx-auto mb-16">
             <p className="text-brand-teal font-extrabold uppercase tracking-widest text-xs mb-3">Testimonials</p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy mb-2 tracking-tight">
@@ -473,7 +473,7 @@ function Home() {
           {/* Testimonial Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((test) => (
-              <div 
+              <div
                 key={test.id}
                 className="bg-white rounded-xl p-8 shadow-md flex flex-col justify-between border border-brand-navy/5"
                 data-aos="fade-up"
