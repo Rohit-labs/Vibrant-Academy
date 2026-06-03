@@ -22,13 +22,13 @@ function Results() {
 
   return (
     <div className="results-page">
-      
+
       {/* SECTION 1 — PAGE HERO (Split Layout) */}
       <section className="mt-[70px] flex flex-col md:flex-row min-h-[500px] overflow-hidden bg-white">
         <div className="w-full md:w-[45%] h-[250px] md:h-auto relative overflow-hidden">
-          <img 
-            alt="Celebrating Students Results" 
-            className="w-full h-full object-cover rounded-r-none md:rounded-r-[24px]" 
+          <img
+            alt="Celebrating Students Results"
+            className="w-full h-full object-cover rounded-r-none md:rounded-r-[24px]"
             src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200"
           />
           <div className="absolute inset-0 bg-brand-navy/5"></div>
@@ -102,7 +102,7 @@ function Results() {
       {/* SECTION 3 — TOP TOPPERS CAROUSEL */}
       <section id="toppers" className="py-stack_xl bg-white">
         <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
-          
+
           <div className="text-center max-w-2xl mx-auto mb-12" data-aos="fade-up">
             <p className="text-brand-teal font-extrabold uppercase tracking-widest text-xs mb-3 text-[13px]">Our Toppers</p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy mb-2 tracking-tight">
@@ -174,7 +174,7 @@ function Results() {
       {/* SECTION 4 — BOARD RESULTS (ICSE / SSC Side by Side) */}
       <section className="py-stack_xl bg-[#F5F0F7] overflow-hidden">
         <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
-          
+
           <div className="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
             <p className="text-brand-teal font-extrabold uppercase tracking-widest text-xs mb-3">Board Results</p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy mb-2 tracking-tight">
@@ -184,7 +184,7 @@ function Results() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            
+
             {/* Card 1: ICSE Results */}
             <div className="bg-white rounded-xl shadow-md overflow-hidden flex flex-col justify-between border border-brand-navy/5" data-aos="fade-right">
               <div>
@@ -270,7 +270,7 @@ function Results() {
       {/* SECTION 5 — SUBJECT PERFORMANCE (3 Cards) */}
       <section className="py-stack_xl bg-white">
         <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
-          
+
           <div className="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
             <p className="text-brand-teal font-extrabold uppercase tracking-widest text-xs mb-3 text-[13px]">Subject Results</p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy mb-2 tracking-tight">
@@ -280,7 +280,7 @@ function Results() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            
+
             {/* Science Card */}
             <div className="bg-white rounded-xl p-8 border border-brand-navy/5 border-t-4 border-t-brand-teal shadow-md hover:translate-y-[-4px] hover:shadow-xl transition-all" data-aos="fade-up">
               <div className="w-14 h-14 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center mb-6 mx-auto">
@@ -360,7 +360,7 @@ function Results() {
       {/* SECTION 6 — TESTIMONIALS (3 Student Cards) */}
       <section className="py-stack_xl bg-[#F5F0F7] border-t border-brand-navy/5">
         <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
-          
+
           <div className="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
             <p className="text-brand-teal font-extrabold uppercase tracking-widest text-xs mb-3 text-[13px]">Topper Reviews</p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy mb-2 tracking-tight">
@@ -371,8 +371,8 @@ function Results() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.slice(0, 3).map((test) => (
-              <div 
-                key={test.id} 
+              <div
+                key={test.id}
                 className="bg-white rounded-xl p-8 border border-brand-purple/10 flex flex-col justify-between hover:translate-y-[-4px] hover:shadow-lg transition-all shadow-sm"
                 data-aos="fade-up"
               >
