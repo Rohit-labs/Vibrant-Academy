@@ -7,6 +7,7 @@ import './Home.css';
 // Import data
 import toppers from '../../data/toppers';
 import testimonials from '../../data/testimonials';
+import faqs from '../../data/faqs';
 
 function Home() {
   const [quickForm, setQuickForm] = useState({
@@ -14,6 +15,11 @@ function Home() {
     phone: '',
     standard: ''
   });
+  const [activeFAQIndex, setActiveFAQIndex] = useState(null);
+
+  const toggleFAQ = (index) => {
+    setActiveFAQIndex(prevIndex => prevIndex === index ? null : index);
+  };
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [showEnquiryModal, setShowEnquiryModal] = useState(false);
@@ -578,6 +584,44 @@ function Home() {
 
         </div>
       </section>
+      {/* SECTION 8 — FAQ */}
+      <section className="py-stack_xl bg-white border-t border-brand-navy/5">
+        <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
+          <div className="FAQ-box">
+
+            <div className="FAQHEADINGBOX">
+              <h2 className="FAQheading">Frequently Asked Questions</h2>
+              <p className="FAQmorequestions">
+                For more questions please<br />
+                contact our official gmail <a href="mailto:ENGINEERIFY@gmail.com">vibrantacademy@gmail.com</a>
+              </p>
+            </div>
+            <div className="FAQQUESTIONSBOX">
+              {faqs.map((faq, index) => {
+                const isActive = activeFAQIndex === index;
+                return (
+                  <div key={faq.id} className="faq-questions-list" onClick={() => toggleFAQ(index)}>
+                    <div className="list-elements">
+                      <div className="question-element-box">
+                        <h3 className="question">
+                          <span className="number">{String(faq.id).padStart(2, '0')}</span>
+                          {faq.question}
+                        </h3>
+                        <h3 className={`icon ${isActive ? 'active' : ''}`}>+</h3>
+                      </div>
+                      <p className={`Answer ${isActive ? 'active' : ''}`}>{faq.answer}</p>
+                      {index < faqs.length - 1 && (
+                        <span className={`line ${isActive ? 'active' : ''}`}></span>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
 
     </div>
   );
