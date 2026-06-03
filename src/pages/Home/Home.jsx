@@ -81,6 +81,70 @@ function Home() {
     setQuickForm({ name: '', phone: '', standard: '' });
   };
 
+  const [formData, setFormData] = useState({
+    name: '',
+    parentName: '',
+    phone: '',
+    gender: '',
+    standard: '',
+    examination: 'Plain Boards',
+    stream: '',
+    board: '',
+    message: ''
+  });
+
+  const [isContactSubmitting, setIsContactSubmitting] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormData(prev => {
+      const updated = { ...prev, [name]: value };
+
+      // Conditional auto-population logic
+      if (name === 'standard') {
+        const isClass7to10 = ['Class 7', 'Class 8', 'Class 9', 'Class 10'].includes(value);
+        const isPharma = ['D-Pharma', 'B-Pharma'].includes(value);
+
+        if (isClass7to10) {
+          updated.examination = 'Plain Boards';
+          updated.stream = '';
+        } else if (isPharma) {
+          updated.examination = 'Plain Boards';
+          updated.stream = 'Science';
+        } else if (value === '') {
+          updated.examination = '';
+          updated.stream = '';
+        }
+      }
+
+      return updated;
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsContactSubmitting(true);
+
+    setTimeout(() => {
+      alert(`Thank you, ${formData.name}! Your enquiry has been submitted. We will contact you at ${formData.phone} shortly.`);
+      setFormData({
+        name: '',
+        parentName: '',
+        phone: '',
+        gender: '',
+        standard: '',
+        examination: 'Plain Boards',
+        stream: '',
+        board: '',
+        message: ''
+      });
+      setIsContactSubmitting(false);
+    }, 1200);
+  };
+
+  const showExamAndStream = ['Class 11', 'Class 12'].includes(formData.standard);
+
   const courses = [
     {
       title: "SSC (7th–10th Std)",
@@ -383,10 +447,10 @@ function Home() {
                     <option value="Class 10">Class 10</option>
                     <option value="Class 11">Class 11</option>
                     <option value="Class 12">Class 12</option>
-                    <option value="Class 12">B-Pharma</option>
-                    <option value="Class 12">D-Pharma</option>
-                    <option value="Class 12">Chartered Accountant(CA)</option>
-                    <option value="Class 12">Cost and Management Accountant(CMA)</option>
+                    <option value="B-Pharma">B-Pharma</option>
+                    <option value="D-Pharma">D-Pharma</option>
+                    <option value="Chartered Accountant(CA)">Chartered Accountant(CA)</option>
+                    <option value="Cost and Management Accountant(CMA)">Cost and Management Accountant(CMA)</option>
                   </select>
                 </div>
 
@@ -402,7 +466,260 @@ function Home() {
             )}
           </div>
         </div>
-      )}
+      )}      {/* SECTION 3B — ENQUIRY FORM & CONTACT INFO */}
+      <section className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter pt-10 pb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+
+          {/* Left Column: Contact Info & Photo */}
+          <div className="space-y-6" data-aos="fade-right">
+            <div>
+              <h2 className="text-xl md:text-2xl font-black text-brand-navy uppercase tracking-tight">
+                Expert Guidance is Just a Message Away
+              </h2>
+            </div>
+
+            {/* Compact Address, Phone, Email Rows */}
+            <div className="space-y-3">
+              {/* Address card (Full Width) */}
+              <div className="flex items-center gap-3 p-3 bg-white rounded-lg border border-brand-navy/5 shadow-sm">
+                <div className="w-8 h-8 rounded-full bg-brand-purple/10 flex items-center justify-center text-brand-purple flex-shrink-0">
+                  <span className="material-symbols-outlined text-base">location_on</span>
+                </div>
+                <div>
+                  <p className="text-[9px] font-bold text-gray-400 uppercase tracking-wider">Address</p>
+                  <p className="text-[11px] font-semibold text-brand-navy leading-normal">
+                    Shop No. 7, RMMS CHSL, Bldg. A1/A2, C.S. Road, Dahisar (East), Mumbai
+                  </p>
+                </div>
+              </div>
+
+              {/* Phone & Email cards (Side by Side) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="flex items-center gap-3 p-3 bg-white rounded-lg border border-brand-navy/5 shadow-sm">
+                  <div className="w-8 h-8 rounded-full bg-brand-teal/10 flex items-center justify-center text-brand-teal flex-shrink-0">
+                    <span className="material-symbols-outlined text-base">call</span>
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-[9px] font-bold text-gray-400 uppercase tracking-wider">Phone</p>
+                    <a href="tel:+919137964830" className="text-[11px] font-semibold text-brand-navy hover:text-brand-purple transition-colors truncate block">
+                      +91 91379 64830
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3 p-3 bg-white rounded-lg border border-brand-navy/5 shadow-sm">
+                  <div className="w-8 h-8 rounded-full bg-brand-yellow/10 flex items-center justify-center text-brand-gold flex-shrink-0">
+                    <span className="material-symbols-outlined text-base">mail</span>
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-[9px] font-bold text-gray-400 uppercase tracking-wider">Email</p>
+                    <a href="mailto:info@vibrantacademy.com" className="text-[11px] font-semibold text-brand-navy hover:text-brand-purple transition-colors truncate block">
+                      info@vibrantacademy.com
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Photo Container */}
+            <div className="h-[280px] md:h-[340px] rounded-xl overflow-hidden shadow-sm border border-brand-navy/5">
+              <img
+                src="/academy_entrance.jpg"
+                alt="Vibrant Academy Entrance"
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  e.target.src = "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200";
+                }}
+              />
+            </div>
+          </div>
+
+          {/* Right Column: Enquiry Form (Reduced height & highly compact layout) */}
+          <div className="bg-white p-6 md:p-8 rounded-xl shadow-sm border border-brand-navy/5" data-aos="fade-left">
+            <div className="mb-4">
+              <p className="text-brand-teal font-extrabold uppercase tracking-widest text-[10px] mb-0.5">Admissions Desk</p>
+              <h2 className="text-xl md:text-2xl font-black text-brand-navy uppercase tracking-tight">
+                Enquiry Form
+              </h2>
+            </div>
+
+            <form onSubmit={handleSubmit} className="space-y-4">
+
+              {/* Row 1: Name & Parent Name */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-1">
+                  <label className="text-xs font-bold text-brand-navy/80 ml-0.5">Name</label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Student Name"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold"
+                    required
+                  />
+                </div>
+
+                <div className="space-y-1">
+                  <label className="text-xs font-bold text-brand-navy/80 ml-0.5">Parent Name</label>
+                  <input
+                    type="text"
+                    name="parentName"
+                    value={formData.parentName}
+                    onChange={handleChange}
+                    placeholder="Parent Name"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold"
+                    required
+                  />
+                </div>
+              </div>
+
+              {/* Row 2: Phone Number & Gender */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-1">
+                  <label className="text-xs font-bold text-brand-navy/80 ml-0.5">Phone Number</label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder="Mobile Number"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold"
+                    required
+                  />
+                </div>
+
+                <div className="space-y-1">
+                  <label className="text-xs font-bold text-brand-navy/80 ml-0.5">Gender</label>
+                  <select
+                    name="gender"
+                    value={formData.gender}
+                    onChange={handleChange}
+                    className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold cursor-pointer [&>option]:text-brand-navy [&>option]:bg-white"
+                    required
+                  >
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+
+              {/* Row 3: Standard & Boards */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-1">
+                  <label className="text-xs font-bold text-brand-navy/80 ml-0.5">Standard</label>
+                  <select
+                    name="standard"
+                    value={formData.standard}
+                    onChange={handleChange}
+                    className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold cursor-pointer [&>option]:text-brand-navy [&>option]:bg-white"
+                    required
+                  >
+                    <option value="">Select Standard</option>
+                    <option value="Class 7">Class 7</option>
+                    <option value="Class 8">Class 8</option>
+                    <option value="Class 9">Class 9</option>
+                    <option value="Class 10">Class 10</option>
+                    <option value="Class 11">Class 11</option>
+                    <option value="Class 12">Class 12</option>
+                    <option value="D-Pharma">D-Pharma</option>
+                    <option value="B-Pharma">B-Pharma</option>
+                  </select>
+                </div>
+
+                <div className="space-y-1">
+                  <label className="text-xs font-bold text-brand-navy/80 ml-0.5">Boards</label>
+                  <select
+                    name="board"
+                    value={formData.board}
+                    onChange={handleChange}
+                    className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold cursor-pointer [&>option]:text-brand-navy [&>option]:bg-white"
+                    required
+                  >
+                    <option value="">Select Board</option>
+                    <option value="SSC">SSC</option>
+                    <option value="CBSE">CBSE</option>
+                    <option value="ICSE">ICSE</option>
+                    <option value="HSC">HSC</option>
+                  </select>
+                </div>
+              </div>
+
+              {/* Conditional Row: Examination & Stream (Shown only for Class 11 & Class 12) */}
+              {showExamAndStream && (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 animate-fade-in">
+                  <div className="space-y-1">
+                    <label className="text-xs font-bold text-brand-navy/80 ml-0.5">Examination</label>
+                    <select
+                      name="examination"
+                      value={formData.examination}
+                      onChange={handleChange}
+                      className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold cursor-pointer [&>option]:text-brand-navy [&>option]:bg-white"
+                      required
+                    >
+                      <option value="">Select Exam</option>
+                      <option value="JEE">JEE</option>
+                      <option value="NEET">NEET</option>
+                      <option value="MHT-CET">MHT-CET</option>
+                      <option value="CA">CA</option>
+                      <option value="CMA">CMA</option>
+                      <option value="Plain Boards">Plain Boards</option>
+                    </select>
+                  </div>
+
+                  <div className="space-y-1">
+                    <label className="text-xs font-bold text-brand-navy/80 ml-0.5">Stream</label>
+                    <select
+                      name="stream"
+                      value={formData.stream}
+                      onChange={handleChange}
+                      className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold cursor-pointer [&>option]:text-brand-navy [&>option]:bg-white"
+                      required
+                    >
+                      <option value="">Select Stream</option>
+                      <option value="Science">Science</option>
+                      <option value="Commerce">Commerce</option>
+                    </select>
+                  </div>
+                </div>
+              )}
+
+              {/* Message Field */}
+              <div className="space-y-1">
+                <label className="text-xs font-bold text-brand-navy/80 ml-0.5">Message</label>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Your Message..."
+                  rows="2"
+                  className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold resize-none"
+                  required
+                ></textarea>
+              </div>
+
+              {/* Submit Button */}
+              <button
+                type="submit"
+                disabled={isContactSubmitting}
+                className="w-full py-3 bg-brand-navy text-white font-extrabold rounded-lg hover:bg-brand-purple active:scale-[0.98] transition-all text-xs uppercase tracking-wider shadow-sm flex items-center justify-center gap-2"
+              >
+                {isContactSubmitting ? (
+                  <span>Submitting...</span>
+                ) : (
+                  <>
+                    <span className="material-symbols-outlined text-xs">send</span>
+                    <span>Submit Enquiry</span>
+                  </>
+                )}
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </section>
 
       {/* SECTION 4 — HIGHER SECONDARY SECTION */}
       <section className="py-stack_xl bg-[#F5F0F7] overflow-hidden">
