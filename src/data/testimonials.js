@@ -24,6 +24,30 @@ const testimonials = [
     detail: "Parent of Class 10 Student",
     stars: 5,
     photo: studentPhotos.kalyani_sen
+  },
+  {
+    id: 4,
+    quote: "The personalized attention at Vibrant Academy is unique. They don't just teach for marks but build deep conceptual understanding that sparks scientific interest.",
+    name: "Kalyani Sen",
+    detail: "Parent of Class 10 Student",
+    stars: 5,
+    photo: studentPhotos.kalyani_sen
+  },
+  {
+    id: 5,
+    quote: "The personalized attention at Vibrant Academy is unique. They don't just teach for marks but build deep conceptual understanding that sparks scientific interest.",
+    name: "Kalyani Sen",
+    detail: "Parent of Class 10 Student",
+    stars: 5,
+    photo: studentPhotos.kalyani_sen
+  },
+  {
+    id: 6,
+    quote: "The personalized attention at Vibrant Academy is unique. They don't just teach for marks but build deep conceptual understanding that sparks scientific interest.",
+    name: "Kalyani Sen",
+    detail: "Parent of Class 10 Student",
+    stars: 5,
+    photo: studentPhotos.kalyani_sen
   }
 ];
 

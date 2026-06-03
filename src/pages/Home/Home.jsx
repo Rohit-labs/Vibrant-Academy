@@ -18,6 +18,34 @@ function Home() {
   const [submitted, setSubmitted] = useState(false);
   const [showEnquiryModal, setShowEnquiryModal] = useState(false);
 
+  const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const mobile = window.innerWidth < 768;
+      setIsMobile(mobile);
+      setCurrentTestimonialIndex((prev) => {
+        const maxIndex = mobile ? testimonials.length - 1 : Math.max(0, testimonials.length - 3);
+        return Math.min(prev, maxIndex);
+      });
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    const maxIndex = isMobile ? testimonials.length - 1 : Math.max(0, testimonials.length - 3);
+    if (maxIndex === 0) return;
+
+    const interval = setInterval(() => {
+      setCurrentTestimonialIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [isMobile]);
+
   useEffect(() => {
     AOS.refresh();
   }, []);
@@ -488,34 +516,63 @@ function Home() {
             <div className="h-1 w-[40px] bg-brand-purple rounded-full mx-auto mb-4"></div>
           </div>
 
-          {/* Testimonial Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((test) => (
-              <div
-                key={test.id}
-                className="bg-white rounded-xl p-8 shadow-md flex flex-col justify-between border border-brand-navy/5"
-                data-aos="fade-up"
-              >
-                <div>
-                  <span className="text-5xl text-brand-purple/20 font-serif leading-none font-bold block mb-2">“</span>
-                  <p className="text-gray-600 text-sm italic mb-4 leading-relaxed">{test.quote}</p>
-                </div>
-                <div>
-                  <div className="flex text-brand-yellow mb-4">
-                    {[...Array(test.stars)].map((_, i) => (
-                      <span key={i} className="material-symbols-outlined text-base" style={{ fontVariationSettings: '"FILL" 1' }}>star</span>
-                    ))}
-                  </div>
-                  <div className="h-px bg-brand-navy/5 w-full my-4"></div>
-                  <div className="flex items-center gap-3">
-                    <img alt={test.name} className="w-10 h-10 rounded-full object-cover" src={test.photo} />
+          {/* Testimonial Carousel */}
+          <div className="overflow-hidden w-full px-1 py-4" data-aos="fade-up">
+            <div
+              className="flex transition-transform duration-500 ease-in-out -mx-4"
+              style={{
+                transform: `translateX(-${currentTestimonialIndex * (isMobile ? 100 : 33.3333)}%)`
+              }}
+            >
+              {testimonials.map((test) => (
+                <div
+                  key={test.id}
+                  className="w-full md:w-1/3 flex-shrink-0 px-4"
+                >
+                  <div className="bg-white rounded-xl p-8 shadow-md flex flex-col justify-between border border-brand-navy/5 h-full min-h-[300px]">
                     <div>
-                      <h5 className="font-bold text-brand-purple text-sm">{test.name}</h5>
-                      <p className="text-gray-400 text-[11px]">{test.detail}</p>
+                      <span className="text-5xl text-brand-purple/20 font-serif leading-none font-bold block mb-2">“</span>
+                      <p className="text-gray-600 text-sm italic mb-4 leading-relaxed">{test.quote}</p>
+                    </div>
+                    <div>
+                      <div className="flex text-brand-yellow mb-4">
+                        {[...Array(test.stars)].map((_, i) => (
+                          <span key={i} className="material-symbols-outlined text-base" style={{ fontVariationSettings: '"FILL" 1' }}>star</span>
+                        ))}
+                      </div>
+                      <div className="h-px bg-brand-navy/5 w-full my-4"></div>
+                      <div className="flex items-center gap-3">
+                        {test.photo ? (
+                          <img
+                            alt={test.name}
+                            className="w-10 h-10 rounded-full object-cover border border-brand-purple/10"
+                            src={test.photo}
+                          />
+                        ) : (
+                          <span className="material-symbols-outlined text-brand-purple/60 text-4xl">account_circle</span>
+                        )}
+                        <div>
+                          <h5 className="font-bold text-brand-purple text-sm">{test.name}</h5>
+                          <p className="text-gray-400 text-[11px]">{test.detail}</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Navigation Dots */}
+          <div className="flex justify-center gap-2 mt-8">
+            {Array.from({ length: isMobile ? testimonials.length : Math.max(1, testimonials.length - 2) }).map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrentTestimonialIndex(idx)}
+                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${currentTestimonialIndex === idx ? 'bg-brand-purple w-6' : 'bg-brand-purple/20'
+                  }`}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
             ))}
           </div>
 

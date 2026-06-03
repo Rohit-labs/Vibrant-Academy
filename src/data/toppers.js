@@ -1,3 +1,4 @@
+import studentPhotos from "./studentPhotos";
 const toppers = [
   {
     id: 1,
@@ -7,7 +8,7 @@ const toppers = [
     class: "Class 10",
     subject: "Science Distinction",
     year: "2024",
-    photo: "/Akshara Gupta.jpg",
+    photo: studentPhotos.akshara_gupta,
     school: "SVPV"
   },
   {
@@ -18,7 +19,7 @@ const toppers = [
     class: "Class 12",
     subject: "Maths Centum",
     year: "2024",
-    photo: "/Anshika Sharma.jpg",
+    photo: studentPhotos.anshika_sharma,
     school: "Royal College"
   },
   {
@@ -29,7 +30,7 @@ const toppers = [
     class: "Class 12",
     subject: "Pharma Top Grade",
     year: "2024",
-    photo: "/Shivshankar Chaurasiya.jpg",
+    photo: studentPhotos.shivshankar_chaurasiya,
     school: "A.P. college"
   }
 ];
