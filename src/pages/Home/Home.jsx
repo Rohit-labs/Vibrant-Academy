@@ -86,8 +86,40 @@ function Home() {
     }
   ];
 
+  const [showPopup, setShowPopup] = useState(true);
+
   return (
+
     <div className="home-page">
+      {showPopup && (
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/30 backdrop-blur-md">
+
+          {/* Close Button */}
+          <button
+            onClick={() => {
+              setShowPopup(false);
+              localStorage.setItem("welcomePopup", "seen");
+            }}
+            className="absolute top-5 right-5 text-white text-4xl p-2  hover:scale-110 transition"
+          >
+            ✕
+          </button>
+
+          {/* Center Image */}
+          <div className="relative">
+            <Link to="/contact">
+              <img
+                src="/Popup_advertisement.jpeg"
+                alt="Academy Announcement"
+                className="max-w-[90vw] max-h-[85vh] rounded-2xl shadow-2xl"
+              />
+            </Link>
+          </div>
+
+        </div>
+      )}
+
+
 
       {/* SECTION 1 — HERO */}
       <section className="mt-[70px] relative h-[380px] md:h-[75vh] w-full overflow-hidden bg-white">
@@ -114,7 +146,7 @@ function Home() {
               </p>
               <div className="flex gap-4">
                 <button onClick={() => setShowEnquiryModal(true)} className="px-6 py-3 bg-brand-yellow hover:bg-[#E0B000] text-[#1F2937] font-bold rounded-lg shadow-md transition-all text-xs uppercase tracking-wider">
-                  Enroll Today
+                  Apply Now
                 </button>
               </div>
             </div>

@@ -31,7 +31,7 @@ function Navbar() {
     <>
       <nav className={`navbar fixed top-0 w-full h-[70px] bg-white z-[100] border-b border-brand-navy/5 shadow-sm transition-all duration-300 ${scrolled ? 'scrolled shadow-md' : ''}`} style={{ boxShadow: 'rgba(0, 0, 0, 0.08) 0px 2px 20px' }}>
         <div className="flex justify-between items-center h-full px-margin_mobile md:px-gutter max-w-container_max_width mx-auto">
-          
+
           <Link to="/" className="h-10 md:h-[48px] flex items-center gap-0">
             <img src="/logo_mark.jpg" alt="V Logo Mark" className="h-full object-contain rounded" />
             <img src="/logo_vibrant.jpg" alt="Vibrant" className="h-[75%] md:h-[80%] object-contain" />
@@ -44,18 +44,15 @@ function Navbar() {
               <Link
                 key={link.name}
                 to={link.path}
-                className={`font-semibold transition-all ${
-                  location.pathname === link.path 
-                    ? 'text-brand-purple border-b-2 border-brand-purple pb-1' 
-                    : 'text-brand-navy/70 hover:text-brand-purple'
-                }`}
+                className={`font-semibold transition-all ${location.pathname === link.path
+                  ? 'text-brand-purple border-b-2 border-brand-purple pb-1'
+                  : 'text-brand-navy/70 hover:text-brand-purple'
+                  }`}
               >
                 {link.name}
               </Link>
             ))}
-            <Link to="/contact" className="bg-brand-yellow hover:bg-[#E0B000] text-[#1F2937] font-semibold py-2.5 px-8 rounded-lg active:scale-95 transition-all shadow-sm font-poppins uppercase text-sm tracking-wider">
-              Enroll Now
-            </Link>
+
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -71,10 +68,9 @@ function Navbar() {
       </nav>
 
       {/* Mobile Full Screen Menu Overlay */}
-      <div 
-        className={`fixed inset-0 bg-brand-purple z-[200] flex flex-col justify-between p-6 transition-all duration-300 transform ${
-          menuOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0 pointer-events-none'
-        }`}
+      <div
+        className={`fixed inset-0 bg-brand-purple z-[200] flex flex-col justify-between p-6 transition-all duration-300 transform ${menuOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0 pointer-events-none'
+          }`}
       >
         <div className="flex justify-between items-center w-full">
           <div className="bg-white px-3 py-1.5 rounded-lg shadow-sm flex items-center gap-0 h-10">
@@ -82,7 +78,7 @@ function Navbar() {
             <img src="/logo_vibrant.jpg" alt="Vibrant" className="h-[75%] object-contain" />
             <img src="/logo_academy.jpg" alt="Academy" className="h-full object-contain translate-y-[4px]" />
           </div>
-          <button 
+          <button
             onClick={() => setMenuOpen(false)}
             className="text-white p-1"
           >
@@ -96,24 +92,15 @@ function Navbar() {
               key={link.name}
               to={link.path}
               onClick={() => setMenuOpen(false)}
-              className={`text-2xl font-semibold tracking-wide hover:text-brand-yellow transition-all ${
-                location.pathname === link.path ? 'text-brand-yellow underline underline-offset-8' : 'text-white'
-              }`}
+              className={`text-2xl font-semibold tracking-wide hover:text-brand-yellow transition-all ${location.pathname === link.path ? 'text-brand-yellow underline underline-offset-8' : 'text-white'
+                }`}
             >
               {link.name === 'Results' ? 'Success Results' : link.name}
             </Link>
           ))}
         </div>
 
-        <div className="w-full pb-10">
-          <Link 
-            to="/contact" 
-            onClick={() => setMenuOpen(false)}
-            className="block text-center w-full py-4 bg-brand-yellow hover:bg-[#E0B000] text-[#1F2937] font-extrabold rounded-lg uppercase tracking-wider shadow-lg transition-all"
-          >
-            Enroll Now
-          </Link>
-        </div>
+
       </div>
     </>
   );
