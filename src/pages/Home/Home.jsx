@@ -104,7 +104,8 @@ function Home() {
       // Conditional auto-population logic
       if (name === 'standard') {
         const isClass7to10 = ['Class 7', 'Class 8', 'Class 9', 'Class 10'].includes(value);
-        const isPharma = ['D-Pharma', 'B-Pharma'].includes(value);
+        const isPharma = ['D.Pharm', 'B.Pharm'].includes(value);
+        const isCAorCMA = ['Chartered Accountant (CA)', 'Cost and Management Accountant (CMA)'].includes(value);
 
         if (isClass7to10) {
           updated.examination = 'Plain Boards';
@@ -112,9 +113,15 @@ function Home() {
         } else if (isPharma) {
           updated.examination = 'Plain Boards';
           updated.stream = 'Science';
+          updated.board = ''; // Clear board for Pharmacy
+        } else if (isCAorCMA) {
+          updated.examination = 'Plain Boards';
+          updated.stream = 'Commerce';
+          updated.board = ''; // Clear board for CA/CMA
         } else if (value === '') {
           updated.examination = '';
           updated.stream = '';
+          updated.board = '';
         }
       }
 
@@ -144,6 +151,7 @@ function Home() {
   };
 
   const showExamAndStream = ['Class 11', 'Class 12'].includes(formData.standard);
+  const showBoard = !['B.Pharm', 'D.Pharm', 'Chartered Accountant (CA)', 'Cost and Management Accountant (CMA)'].includes(formData.standard);
 
   const courses = [
     {
@@ -447,10 +455,10 @@ function Home() {
                     <option value="Class 10">Class 10</option>
                     <option value="Class 11">Class 11</option>
                     <option value="Class 12">Class 12</option>
-                    <option value="B-Pharma">B-Pharma</option>
-                    <option value="D-Pharma">D-Pharma</option>
-                    <option value="Chartered Accountant(CA)">Chartered Accountant(CA)</option>
-                    <option value="Cost and Management Accountant(CMA)">Cost and Management Accountant(CMA)</option>
+                    <option value="B.Pharm">B.Pharm</option>
+                    <option value="D.Pharm">D.Pharm</option>
+                    <option value="Chartered Accountant (CA)">Chartered Accountant (CA)</option>
+                    <option value="Cost and Management Accountant (CMA)">Cost and Management Accountant (CMA)</option>
                   </select>
                 </div>
 
@@ -607,7 +615,7 @@ function Home() {
               </div>
 
               {/* Row 3: Standard & Boards */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className={`grid grid-cols-1 ${showBoard ? 'md:grid-cols-2' : ''} gap-4`}>
                 <div className="space-y-1">
                   <label className="text-xs font-bold text-brand-navy/80 ml-0.5">Standard</label>
                   <select
@@ -624,27 +632,31 @@ function Home() {
                     <option value="Class 10">Class 10</option>
                     <option value="Class 11">Class 11</option>
                     <option value="Class 12">Class 12</option>
-                    <option value="D-Pharma">D-Pharma</option>
-                    <option value="B-Pharma">B-Pharma</option>
+                    <option value="B.Pharm">B.Pharm</option>
+                    <option value="D.Pharm">D.Pharm</option>
+                    <option value="Chartered Accountant (CA)">Chartered Accountant (CA)</option>
+                    <option value="Cost and Management Accountant (CMA)">Cost and Management Accountant (CMA)</option>
                   </select>
                 </div>
 
-                <div className="space-y-1">
-                  <label className="text-xs font-bold text-brand-navy/80 ml-0.5">Boards</label>
-                  <select
-                    name="board"
-                    value={formData.board}
-                    onChange={handleChange}
-                    className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold cursor-pointer [&>option]:text-brand-navy [&>option]:bg-white"
-                    required
-                  >
-                    <option value="">Select Board</option>
-                    <option value="SSC">SSC</option>
-                    <option value="CBSE">CBSE</option>
-                    <option value="ICSE">ICSE</option>
-                    <option value="HSC">HSC</option>
-                  </select>
-                </div>
+                {showBoard && (
+                  <div className="space-y-1">
+                    <label className="text-xs font-bold text-brand-navy/80 ml-0.5">Boards</label>
+                    <select
+                      name="board"
+                      value={formData.board}
+                      onChange={handleChange}
+                      className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold cursor-pointer [&>option]:text-brand-navy [&>option]:bg-white"
+                      required
+                    >
+                      <option value="">Select Board</option>
+                      <option value="SSC">SSC</option>
+                      <option value="CBSE">CBSE</option>
+                      <option value="ICSE">ICSE</option>
+                      <option value="HSC">HSC</option>
+                    </select>
+                  </div>
+                )}
               </div>
 
               {/* Conditional Row: Examination & Stream (Shown only for Class 11 & Class 12) */}
