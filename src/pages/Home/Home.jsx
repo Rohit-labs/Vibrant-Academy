@@ -377,32 +377,33 @@ function Home() {
             <div className="w-full lg:w-1/2" data-aos="fade-right">
               <div className="inline-flex items-center gap-2 mb-4">
                 <span className="h-px w-8 bg-brand-teal"></span>
-                <span className="font-dancing text-brand-teal text-xl">Believe in Excellence...</span>
+                <span className="font-dancing text-brand-teal text-xl">Powered by S.S. Classes </span>
               </div>
               <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy mb-4 tracking-tight leading-tight">
-                Higher Secondary <br /><span className="text-brand-purple">Batch Coaching.</span>
+                Why Choose <br /><span className="text-brand-purple">Vibrant Academy?</span>
               </h2>
               <div className="h-1 w-[40px] bg-brand-purple rounded-full mb-6"></div>
               <p className="text-gray-600 text-base leading-relaxed mb-8">
-                In addition to secondary foundations, we host expert-guided coaching grids for high school cohorts (Class 11 & 12). Science streams focus heavily on board compliance standards with intensive mock runs.
+                We provide comprehensive coaching programs for SSC, ICSE, and CBSE students from Classes 7 to 10, along with specialized guidance for Science, Commerce, and Pharmacy aspirants. Our structured teaching approach focuses on conceptual understanding, academic excellence, and career-oriented preparation.
               </p>
               <div className="space-y-4 mb-8">
-                <div className="flex items-start gap-3">
-                  <span className="material-symbols-outlined text-brand-teal mt-0.5">check_circle</span>
-                  <span className="text-sm font-medium text-brand-navy/80">Class 11 and 12 Physics, Chemistry, Mathematics</span>
-                </div>
                 <div className="flex items-start gap-3">
                   <span className="material-symbols-outlined text-brand-teal mt-0.5">check_circle</span>
                   <span className="text-sm font-medium text-brand-navy/80">ICSE, SSC, CBSE state board integration models</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <span className="material-symbols-outlined text-brand-teal mt-0.5">check_circle</span>
-                  <span className="text-sm font-medium text-brand-navy/80">Bi-weekly diagnostic test series with scorecard reports</span>
+                  <span className="text-sm font-medium text-brand-navy/80">JEE, NEET, MHT-CET & Plain Boards Preparation</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="material-symbols-outlined text-brand-teal mt-0.5">check_circle</span>
+                  <span className="text-sm font-medium text-brand-navy/80">CA & CMA Foundation Coaching</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="material-symbols-outlined text-brand-teal mt-0.5">check_circle</span>
+                  <span className="text-sm font-medium text-brand-navy/80">B.Pharm & D.Pharm Support</span>
                 </div>
               </div>
-              <Link to="/contact" className="px-8 py-3.5 bg-brand-yellow hover:bg-[#E0B000] text-[#1F2937] font-bold rounded-lg shadow-md transition-all text-xs uppercase tracking-wider">
-                Request timing sheet
-              </Link>
             </div>
             <div className="w-full lg:w-1/2 relative" data-aos="fade-left">
               <div className="rounded-2xl overflow-hidden shadow-2xl">
@@ -412,47 +413,41 @@ function Home() {
                   src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1200"
                 />
               </div>
-              <div className="absolute -bottom-6 -left-6 bg-brand-teal text-white p-6 rounded-xl shadow-xl hidden sm:block max-w-xs">
-                <h4 className="font-bold text-lg mb-1">98.5% Highest Score</h4>
-                <p className="text-white/80 text-xs">Achieved in Class 12 Boards in 2024 by our student!</p>
-              </div>
+
             </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 5 — WHY CHOOSE US */}
+      {/* SECTION 5 — Education Philosophy */}
       <section className="py-stack_xl bg-white overflow-hidden">
         <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
           <div className="flex flex-col lg:flex-row items-center gap-16">
             <div className="w-full lg:w-1/2 order-2 lg:order-1" data-aos="fade-right">
               <div className="grid grid-cols-2 gap-6">
-                <div className="bg-[#F0F9FC] p-6 rounded-xl border border-brand-teal/5 flex flex-col justify-between h-[180px]">
-                  <span className="material-symbols-outlined text-brand-teal text-3xl">co_present</span>
+                <div className="bg-[#F0F9FC] p-6 rounded-xl border border-brand-teal/5 flex flex-col justify-center h-[180px]">
+
                   <div>
                     <h4 className="font-bold text-brand-navy text-sm mb-1">Micro Batches</h4>
-                    <p className="text-gray-500 text-xs leading-relaxed">Max 15 students per batch for absolute focus.</p>
+                    <p className="text-gray-500 text-xs leading-relaxed">Max 25 students per batch for personalized attention and focused learning.</p>
                   </div>
                 </div>
-                <div className="bg-[#F5F0F7] p-6 rounded-xl border border-brand-purple/5 flex flex-col justify-between h-[180px]">
-                  <span className="material-symbols-outlined text-brand-purple text-3xl">verified</span>
+                <div className="bg-[#F5F0F7] p-6 rounded-xl border border-brand-purple/5 flex flex-col justify-center h-[180px]">
                   <div>
                     <h4 className="font-bold text-brand-navy text-sm mb-1">Weekly Tests</h4>
-                    <p className="text-gray-500 text-xs leading-relaxed">Standard diagnostic tests to track performance.</p>
+                    <p className="text-gray-500 text-xs leading-relaxed">Periodic diagnostic tests to evaluate progress and strengthen exam readiness.</p>
                   </div>
                 </div>
-                <div className="bg-[#FFFCEB] p-6 rounded-xl border border-brand-yellow/5 flex flex-col justify-between h-[180px]">
-                  <span className="material-symbols-outlined text-brand-gold text-3xl">psychology</span>
+                <div className="bg-[#FFFCEB] p-6 rounded-xl border border-brand-yellow/5 flex flex-col justify-center h-[180px]">
                   <div>
                     <h4 className="font-bold text-brand-navy text-sm mb-1">Senior Mentors</h4>
-                    <p className="text-gray-500 text-xs leading-relaxed">Ex-examiners and syllabus experts guide classes.</p>
+                    <p className="text-gray-500 text-xs leading-relaxed">Experienced faculty and subject experts guide every student.</p>
                   </div>
                 </div>
-                <div className="bg-[#F5F0F7] p-6 rounded-xl border border-brand-purple/5 flex flex-col justify-between h-[180px]">
-                  <span className="material-symbols-outlined text-brand-purple text-3xl">menu_book</span>
+                <div className="bg-[#F5F0F7] p-6 rounded-xl border border-brand-purple/5 flex flex-col justify-center h-[180px]">
                   <div>
                     <h4 className="font-bold text-brand-navy text-sm mb-1">Syllabus Grids</h4>
-                    <p className="text-gray-500 text-xs leading-relaxed">Well-mapped worksheets, handouts, and notes.</p>
+                    <p className="text-gray-500 text-xs leading-relaxed">Structured notes, worksheets, and exam-oriented resources.</p>
                   </div>
                 </div>
               </div>
@@ -460,17 +455,17 @@ function Home() {
             <div className="w-full lg:w-1/2 order-1 lg:order-2" data-aos="fade-left">
               <div className="inline-flex items-center gap-2 mb-4">
                 <span className="h-px w-8 bg-brand-teal"></span>
-                <span className="font-dancing text-brand-teal text-xl">Believe in Excellence...</span>
+                <span className="font-dancing text-brand-teal text-xl">Powered By S.S. Classes</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy mb-4 tracking-tight leading-tight">
                 Our Educational <br /><span className="text-brand-purple">Philosophy.</span>
               </h2>
               <div className="h-1 w-[40px] bg-brand-purple rounded-full mb-6"></div>
               <p className="text-gray-600 text-base leading-relaxed mb-6">
-                We believe that education is not about rote memorization but building strong analytical skills. Our boutique framework maps out standard textbook concepts into easy graphical representations, formula grids, and diagnostic test feedback.
+                We believe that education goes beyond memorization. Our teaching approach focuses on building strong concepts, analytical thinking, and problem-solving skills through personalized guidance, structured study material, and regular assessments.
               </p>
               <p className="text-gray-600 text-base leading-relaxed mb-8">
-                Every child is unique, which is why our classes are limited. We analyze weekly scoring indices to target doubt clearance and correct assessment writing formats.
+                Every student learns differently, which is why we maintain small batch sizes. This allows our faculty to provide personalized attention, resolve doubts effectively, and help students improve their academic performance.
               </p>
               <Link to="/about" className="px-8 py-3.5 bg-brand-yellow hover:bg-[#E0B000] text-[#1F2937] font-bold rounded-lg shadow-md transition-all text-xs uppercase tracking-wider">
                 Learn More About Us
