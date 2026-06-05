@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import AOS from 'aos';
+import Loader from '../../components/Loader/Loader';
+import ThankYouModal from '../../components/ThankYouModal/ThankYouModal';
 import './Contact.css';
 
 function Contact() {
@@ -20,6 +22,8 @@ function Contact() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showThankYou, setShowThankYou] = useState(false);
+  const [submittedInfo, setSubmittedInfo] = useState({ name: '', phone: '' });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -30,17 +34,25 @@ function Contact() {
       // Conditional auto-population logic
       if (name === 'standard') {
         const isClass7to10 = ['Class 7', 'Class 8', 'Class 9', 'Class 10'].includes(value);
+        const isClass11to12 = ['Class 11', 'Class 12'].includes(value);
         const isPharma = ['D-Pharma', 'B-Pharma'].includes(value);
         
         if (isClass7to10) {
           updated.examination = 'Plain Boards';
           updated.stream = '';
+          if (updated.board === 'HSC') {
+            updated.board = '';
+          }
+        } else if (isClass11to12) {
+          updated.board = 'HSC';
         } else if (isPharma) {
           updated.examination = 'Plain Boards';
           updated.stream = 'Science';
+          updated.board = '';
         } else if (value === '') {
           updated.examination = '';
           updated.stream = '';
+          updated.board = '';
         }
       }
       
@@ -53,7 +65,7 @@ function Contact() {
     setIsSubmitting(true);
 
     setTimeout(() => {
-      alert(`Thank you, ${formData.name}! Your enquiry has been submitted. We will contact you at ${formData.phone} shortly.`);
+      setSubmittedInfo({ name: formData.name, phone: formData.phone });
       setFormData({
         name: '',
         parentName: '',
@@ -66,10 +78,12 @@ function Contact() {
         message: ''
       });
       setIsSubmitting(false);
-    }, 1200);
+      setShowThankYou(true);
+    }, 2000);
   };
 
   const showExamAndStream = ['Class 11', 'Class 12'].includes(formData.standard);
+  const showBoard = !['D-Pharma', 'B-Pharma'].includes(formData.standard);
 
   return (
     <div className="contact-page bg-gray-50 min-h-screen">
@@ -226,7 +240,7 @@ function Contact() {
               </div>
 
               {/* Row 3: Standard & Boards */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className={`grid grid-cols-1 ${showBoard ? 'md:grid-cols-2' : ''} gap-4`}>
                 <div className="space-y-1">
                   <label className="text-xs font-bold text-brand-navy/80 ml-0.5">Standard</label>
                   <select
@@ -248,21 +262,24 @@ function Contact() {
                   </select>
                 </div>
 
-                <div className="space-y-1">
-                  <label className="text-xs font-bold text-brand-navy/80 ml-0.5">Boards</label>
-                  <select
-                    name="board"
-                    value={formData.board}
-                    onChange={handleChange}
-                    className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-55 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold"
-                    required
-                  >
-                    <option value="">Select Board</option>
-                    <option value="SSC">SSC</option>
-                    <option value="CBSE">CBSE</option>
-                    <option value="ICSE">ICSE</option>
-                  </select>
-                </div>
+                {showBoard && (
+                  <div className="space-y-1">
+                    <label className="text-xs font-bold text-brand-navy/80 ml-0.5">Boards</label>
+                    <select
+                      name="board"
+                      value={formData.board}
+                      onChange={handleChange}
+                      className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-55 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold"
+                      required={showBoard}
+                    >
+                      <option value="">Select Board</option>
+                      <option value="SSC">SSC</option>
+                      <option value="CBSE">CBSE</option>
+                      <option value="ICSE">ICSE</option>
+                      <option value="HSC">HSC</option>
+                    </select>
+                  </div>
+                )}
               </div>
 
               {/* Conditional Row: Examination & Stream (Shown only for Class 11 & Class 12) */}
@@ -338,6 +355,17 @@ function Contact() {
 
         </div>
       </section>
+
+      {/* Translucent Loader overlay while submitting */}
+      {isSubmitting && <Loader translucent={true} />}
+
+      {/* Thank You Popup Modal */}
+      <ThankYouModal
+        isOpen={showThankYou}
+        onClose={() => setShowThankYou(false)}
+        studentName={submittedInfo.name}
+        phoneNumber={submittedInfo.phone}
+      />
 
     </div>
   );

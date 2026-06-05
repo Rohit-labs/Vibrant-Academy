@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-function Loader() {
+function Loader({ translucent = false }) {
   useEffect(() => {
     const LOOP = 4600;
     const interval = setInterval(() => {
@@ -15,8 +15,9 @@ function Loader() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center 
-                    fixed inset-0 bg-white z-[9999]">
+    <div className={`flex flex-col items-center justify-center fixed inset-0 z-[9999] ${
+      translucent ? 'bg-white/85 backdrop-blur-md' : 'bg-white'
+    }`}>
 
       {/* V Logo SVG */}
       <svg
