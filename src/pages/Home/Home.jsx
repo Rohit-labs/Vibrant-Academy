@@ -107,7 +107,8 @@ function Home() {
       if (name === 'standard') {
         const isClass7to10 = ['Class 7', 'Class 8', 'Class 9', 'Class 10'].includes(value);
         const isClass11to12 = ['Class 11', 'Class 12'].includes(value);
-        const isPharma = ['D-Pharma', 'B-Pharma'].includes(value);
+        const isPharma = ['D.Pharm', 'B.Pharm'].includes(value);
+        const isCAorCMA = ['Chartered Accountant (CA)', 'Cost and Management Accountant (CMA)'].includes(value);
 
         if (isClass7to10) {
           updated.examination = 'Plain Boards';
@@ -120,6 +121,10 @@ function Home() {
         } else if (isPharma) {
           updated.examination = 'Plain Boards';
           updated.stream = 'Science';
+          updated.board = '';
+        } else if (isCAorCMA) {
+          updated.examination = 'Plain Boards';
+          updated.stream = 'Commerce';
           updated.board = '';
         } else if (value === '') {
           updated.examination = '';
@@ -155,7 +160,7 @@ function Home() {
   };
 
   const showExamAndStream = ['Class 11', 'Class 12'].includes(formData.standard);
-  const showBoard = !['D-Pharma', 'B-Pharma'].includes(formData.standard);
+  const showBoard = !['B.Pharm', 'D.Pharm', 'Chartered Accountant (CA)', 'Cost and Management Accountant (CMA)'].includes(formData.standard);
 
   const courses = [
     {
@@ -459,10 +464,10 @@ function Home() {
                     <option value="Class 10">Class 10</option>
                     <option value="Class 11">Class 11</option>
                     <option value="Class 12">Class 12</option>
-                    <option value="B-Pharma">B-Pharma</option>
-                    <option value="D-Pharma">D-Pharma</option>
-                    <option value="Chartered Accountant(CA)">Chartered Accountant(CA)</option>
-                    <option value="Cost and Management Accountant(CMA)">Cost and Management Accountant(CMA)</option>
+                    <option value="B.Pharm">B.Pharm</option>
+                    <option value="D.Pharm">D.Pharm</option>
+                    <option value="Chartered Accountant (CA)">Chartered Accountant (CA)</option>
+                    <option value="Cost and Management Accountant (CMA)">Cost and Management Accountant (CMA)</option>
                   </select>
                 </div>
 
@@ -636,8 +641,10 @@ function Home() {
                     <option value="Class 10">Class 10</option>
                     <option value="Class 11">Class 11</option>
                     <option value="Class 12">Class 12</option>
-                    <option value="D-Pharma">D-Pharma</option>
-                    <option value="B-Pharma">B-Pharma</option>
+                    <option value="B.Pharm">B.Pharm</option>
+                    <option value="D.Pharm">D.Pharm</option>
+                    <option value="Chartered Accountant (CA)">Chartered Accountant (CA)</option>
+                    <option value="Cost and Management Accountant (CMA)">Cost and Management Accountant (CMA)</option>
                   </select>
                 </div>
 
