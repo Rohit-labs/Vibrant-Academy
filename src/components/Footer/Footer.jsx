@@ -1,40 +1,36 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { FaFacebook, FaInstagram, FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 import './Footer.css';
 
 function Footer() {
-  const location = useLocation();
-  const isResultsPage = location.pathname === '/results';
 
   return (
     <>
       <footer className="footer bg-brand-navy text-white pt-20 pb-24 md:pb-10 border-t-4 border-brand-yellow relative z-30">
         <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
-          <div className={`grid grid-cols-1 ${isResultsPage ? 'md:grid-cols-2 max-w-4xl mx-auto' : 'md:grid-cols-4'} gap-12 mb-16`}>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
             
             {/* Column 1 — Brand Info */}
-            {!isResultsPage && (
-              <div className="space-y-6">
-                <div className="bg-white px-3 py-1.5 rounded-lg shadow-sm flex items-center gap-0 w-fit h-12">
-                  <img src="/logo_mark.jpg" alt="V Logo Mark" className="h-full object-contain rounded" />
-                  <img src="/logo_vibrant.jpg" alt="Vibrant" className="h-[75%] object-contain" />
-                  <img src="/logo_academy.jpg" alt="Academy" className="h-full object-contain translate-y-[5px]" />
-                </div>
-                <p className="text-gray-400 font-dancing text-xl text-white/70 cursive">Believe in Excellence...</p>
-                <p className="text-white/60 text-sm leading-relaxed">
-                  A boutique educational institution dedicated to crafting academic success stories through personalized mentorship and modern teaching methodologies.
-                </p>
-                <div className="flex gap-4">
-                  <a className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-brand-purple transition-all" href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook">
-                    <FaFacebook size={18} />
-                  </a>
-                  <a className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-brand-teal transition-all" href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram">
-                    <FaInstagram size={18} />
-                  </a>
-                </div>
+            <div className="space-y-6">
+              <div className="bg-white px-3 py-1.5 rounded-lg shadow-sm flex items-center gap-0 w-fit h-12">
+                <img src="/logo_mark.jpg" alt="V Logo Mark" className="h-full object-contain rounded" />
+                <img src="/logo_vibrant.jpg" alt="Vibrant" className="h-[75%] object-contain" />
+                <img src="/logo_academy.jpg" alt="Academy" className="h-full object-contain translate-y-[5px]" />
               </div>
-            )}
+              <p className="text-gray-400 font-dancing text-xl text-white/70 cursive">Believe in Excellence...</p>
+              <p className="text-white/60 text-sm leading-relaxed">
+                A boutique educational institution dedicated to crafting academic success stories through personalized mentorship and modern teaching methodologies.
+              </p>
+              <div className="flex gap-4">
+                <a className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-brand-purple transition-all" href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook">
+                  <FaFacebook size={18} />
+                </a>
+                <a className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-brand-teal transition-all" href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram">
+                  <FaInstagram size={18} />
+                </a>
+              </div>
+            </div>
 
             {/* Column 2 — Quick Links */}
             <div>
@@ -49,19 +45,17 @@ function Footer() {
             </div>
 
             {/* Column 3 — Our Programs */}
-            {!isResultsPage && (
-              <div>
-                <h4 className="text-brand-yellow font-bold uppercase tracking-widest text-xs mb-4">Our Programs</h4>
-                <div className="h-[2px] w-8 bg-brand-yellow mb-6"></div>
-                <ul className="space-y-4 text-sm font-medium text-white/60">
-                  <li><a className="hover:text-brand-yellow transition-colors" href="#programs">Foundation Classes (7-10)</a></li>
-                  <li><a className="hover:text-brand-yellow transition-colors" href="#programs">Higher Secondary (11-12)</a></li>
-                  <li><a className="hover:text-brand-yellow transition-colors" href="#programs">Board Exam Prep</a></li>
-                  <li><a className="hover:text-brand-yellow transition-colors" href="#programs">Competitive Coaching</a></li>
-                  <li><a className="hover:text-brand-yellow transition-colors" href="#programs">Doubt Sessions</a></li>
-                </ul>
-              </div>
-            )}
+            <div>
+              <h4 className="text-brand-yellow font-bold uppercase tracking-widest text-xs mb-4">Our Programs</h4>
+              <div className="h-[2px] w-8 bg-brand-yellow mb-6"></div>
+              <ul className="space-y-4 text-sm font-medium text-white/60">
+                <li><a className="hover:text-brand-yellow transition-colors" href="#programs">Foundation Classes (7-10)</a></li>
+                <li><a className="hover:text-brand-yellow transition-colors" href="#programs">Higher Secondary (11-12)</a></li>
+                <li><a className="hover:text-brand-yellow transition-colors" href="#programs">Board Exam Prep</a></li>
+                <li><a className="hover:text-brand-yellow transition-colors" href="#programs">Competitive Coaching</a></li>
+                <li><a className="hover:text-brand-yellow transition-colors" href="#programs">Doubt Sessions</a></li>
+              </ul>
+            </div>
 
             {/* Column 4 — Get in Touch */}
             <div>

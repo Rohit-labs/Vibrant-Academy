@@ -13,7 +13,157 @@ import './Results.css';
 
 // Import data
 import toppers from '../../data/toppers';
-import testimonials from '../../data/testimonials';
+
+const hscToppers = [
+  { name: "Shivshankar Chaurasiya", score: "98.00%", school: "A.P. College", milestone: "1st Rank in College, MHT-CET 98.5%" },
+  { name: "Rashmi Upadhyay", score: "95.00%", school: "Royal College", milestone: "" },
+  { name: "Harshit Jha", score: "94.00%", school: "Royal College", milestone: "JEE Advanced Cleared" },
+  { name: "Rizvi Sakina M", score: "94.00%", school: "Royal College - Science", milestone: "1st Rank in College, MHT-CET 96.00%" },
+  { name: "Priyanshu Yadav", score: "93.33%", school: "L.R. Tiwari College", milestone: "1st Rank in College" },
+  { name: "Vijay Dubey", score: "92.00%", school: "A.P. College", milestone: "MHT-CET 96% / 99.00 Percentile" },
+  { name: "Virendra Vishwakarma", score: "92.00%", school: "Royal College", milestone: "MBBS Selection at J.J. Hospital" },
+  { name: "Anshika Sharma", score: "92.00%", school: "Royal College - Commerce", milestone: "" },
+  { name: "Khushi Sharma", score: "90.00%", school: "Royal College", milestone: "3rd Rank in College" },
+  { name: "Shefali Gajre", score: "90.00%", school: "RMC", milestone: "1st Rank in RMC - Science" },
+  { name: "Ronak Sharma", score: "90.00%", school: "Royal College - Science", milestone: "" },
+  { name: "Kruti Rathod", score: "89.00%", school: "T.P. Bhatiya College", milestone: "1st Rank in R.K." },
+  { name: "Rahul Rathod", score: "89.00%", school: "T.P. Bhatiya College", milestone: "MHT-CET 96%" },
+  { name: "Dimple Purohit", score: "89.00%", school: "R.M.C. Jr. College", milestone: "1st Rank in College" },
+  { name: "Zenab Behlim", score: "89.00%", school: "L.R. Tiwari College", milestone: "NEET Qualified / MBBS Selection" },
+  { name: "Bhoomi Singh", score: "89.00%", school: "Thakur College", milestone: "NEET Qualified / MBBS Selection" },
+  { name: "Shem Naoh", score: "89.00%", school: "Reena Mehta College", milestone: "MHT-CET 89%" },
+  { name: "Jyoti Jangid", score: "89.00%", school: "Jr. College of Bhayander", milestone: "1st Rank in College" },
+  { name: "Pratiksha Parulekar", score: "89.50%", school: "Abhinav Jr. College", milestone: "1st Rank in College" },
+  { name: "Pooja Chaurasiya", score: "87.00%", school: "Royal College - Science", milestone: "" },
+  { name: "Keval Sharma", score: "86.00%", school: "Reena Mehta College", milestone: "1st Rank in College" },
+  { name: "Kalash Singh", score: "85.00%", school: "Reena Mehta College", milestone: "" },
+  { name: "Maizah Shaikh", score: "85.00%", school: "Royal College - Science", milestone: "" },
+  { name: "Mamta Patel", score: "83.00%", school: "A.P. Jr. College", milestone: "1st Rank in College" },
+  { name: "Dhwani Singhal", score: "83.00%", school: "Reena Mehta College - Science", milestone: "1st Rank in College" },
+  { name: "Riya Mishra", score: "76.00%", school: "Reena Mehta College", milestone: "JEE Main / NIT Haryana" }
+];
+
+const sscToppers = [
+  { name: "Akshara Gupta", score: "96.00%", school: "SVPV", milestone: "" },
+  { name: "Jyoti Jangid", score: "96.00%", school: "Golden Nest School", milestone: "School Topper" },
+  { name: "Anjali Chaurasiya", score: "96.00%", school: "Relevant High School", milestone: "1st Rank in Reena Mehta / JEE Advanced Qualified" },
+  { name: "Gudiya Chaurasiya", score: "95.00%", school: "S.S. Classes Panel Data", milestone: "" },
+  { name: "Shreya Bhabal", score: "95.00%", school: "S.V.P.V. School", milestone: "" },
+  { name: "Darsh Kalathiya", score: "94.00%", school: "S.S. Classes Panel Data", milestone: "" },
+  { name: "Shefali Gajare", score: "94.00%", school: "Queen Mary's School", milestone: "" },
+  { name: "Nehal Mahto", score: "93.40%", school: "Queen Mary School", milestone: "" },
+  { name: "Prince Jha", score: "93.00%", school: "S.V.P. School", milestone: "" },
+  { name: "Krishna Thakur", score: "93.00%", school: "S.S. Classes Panel Data", milestone: "" },
+  { name: "Swayam Singh", score: "93.00%", school: "Golden Nest School", milestone: "" },
+  { name: "Shreya Patidar", score: "93.00%", school: "St. Paul's School / S.V.P.V. School", milestone: "" },
+  { name: "Ronak Prajapati", score: "92.00%", school: "S.V.P. School", milestone: "" },
+  { name: "Harsha Gupta", score: "92.00%", school: "S.S. Classes Panel Data", milestone: "" },
+  { name: "Abhijeet Pandey", score: "92.00%", school: "Bright International High School", milestone: "1st Rank in School" },
+  { name: "Pooja Chaurasiya", score: "91.00%", school: "Holy Trinity School", milestone: "" },
+  { name: "Ashwin Poddar", score: "91.00%", school: "S.V.P.V. School", milestone: "" },
+  { name: "Nitish Pasi", score: "91.00%", school: "Bright International High School", milestone: "" },
+  { name: "Anushka Patil", score: "91.00%", school: "S.V.P.V. School", milestone: "" },
+  { name: "Shreyash Jha", score: "91.00%", school: "St. Xavier's School", milestone: "" },
+  { name: "Rokaiya Khan", score: "91.00%", school: "S.S. Classes Panel Data", milestone: "" },
+  { name: "Priya Yadav", score: "90.00%", school: "Queen Mary's School", milestone: "2nd Rank in School" },
+  { name: "Ankita Chaurasiya", score: "90.00%", school: "S.S. Classes Panel Data", milestone: "" },
+  { name: "Sweta Gurnale", score: "90.00%", school: "S.V.P. School", milestone: "" },
+  { name: "Nidhi Malthane", score: "90.00%", school: "St. Paul's School", milestone: "" },
+  { name: "Affan Khan", score: "90.00%", school: "Golden Nest School", milestone: "" },
+  { name: "Sidhhi Pevekar", score: "90.00%", school: "S.V.P.V. School", milestone: "" },
+  { name: "Muzzamil Maraikar", score: "90.00%", school: "S.V.P.V. School", milestone: "" },
+  { name: "Harshi Kadam", score: "90.00%", school: "Cosmopolitan School", milestone: "" },
+  { name: "Krishna Parmar", score: "90.00%", school: "St. Xavier", milestone: "" },
+  { name: "Sandesh Kanji", score: "90.00%", school: "St. Xavier", milestone: "" },
+  { name: "Shreyash Pandey", score: "89.00%", school: "Golden Nest", milestone: "" }
+];
+
+const studentTestimonials = [
+  {
+    name: "Shivshankar Chaurasiya",
+    quote: "Vibrant Academy's guidance was key to my MHT-CET score. The focus on basic concepts helped me top my college!",
+    detail: "Class 12 Topper (98.00%) | A.P. College",
+    initial: "SC",
+    stars: 5
+  },
+  {
+    name: "Akshara Gupta",
+    quote: "The study material and test series prepared me perfectly for my board exams. I scored 96.00% and felt fully confident!",
+    detail: "Class 10 Topper (96.00%) | SVPV",
+    initial: "AG",
+    stars: 5
+  },
+  {
+    name: "Anjali Chaurasiya",
+    quote: "The teachers were always ready to solve my doubts, even after class hours. This solid foundation helped me clear JEE Advanced.",
+    detail: "Class 10 Topper (96.00%) | SVPV",
+    initial: "AC",
+    stars: 5
+  },
+  {
+    name: "Rashmi Upadhyay",
+    quote: "The small batch sizes made it easy to interact with the faculty and clear concepts immediately. Highly recommended academy!",
+    detail: "Class 12 Topper (95.00%) | Royal College",
+    initial: "RU",
+    stars: 5
+  },
+  {
+    name: "Harshit Jha",
+    quote: "Personalized mentorship and constant motivation kept me focused on my goals. They provide the best coaching for competitive exams.",
+    detail: "Class 12 Achiever (94.00%) | Royal College",
+    initial: "HJ",
+    stars: 5
+  },
+  {
+    name: "Rizvi Sakina M",
+    quote: "Vibrant helped me balance my college schedule and board preparation. I scored 94.00% and topped my stream easily.",
+    detail: "Class 12 Topper (94.00%) | Royal College - Science",
+    initial: "RS",
+    stars: 5
+  },
+  {
+    name: "Priyanshu Yadav",
+    quote: "Regular mock tests and practice papers helped me analyze my mistakes and improve my speed for the final boards.",
+    detail: "Class 12 Topper (93.33%) | L.R. Tiwari College",
+    initial: "PY",
+    stars: 5
+  },
+  {
+    name: "Vijay Dubey",
+    quote: "The physics and chemistry concepts were taught so well. Their tips and tricks helped me score 99 percentile in MHT-CET.",
+    detail: "Class 12 Achiever (92.00%) | A.P. College",
+    initial: "VD",
+    stars: 5
+  },
+  {
+    name: "Jyoti Jangid",
+    quote: "I joined in Class 9, and the consistent mock tests and personalized attention helped me become the school topper with 96.00%!",
+    detail: "Class 10 Topper (96.00%) | Golden Nest School",
+    initial: "JJ",
+    stars: 5
+  },
+  {
+    name: "Shreya Bhabal",
+    quote: "The teachers make even the most difficult math and science topics very simple and interesting. I am very grateful to them.",
+    detail: "Class 10 Topper (95.00%) | S.V.P.V. School",
+    initial: "SB",
+    stars: 5
+  },
+  {
+    name: "Swayam Singh",
+    quote: "The mock test papers were highly aligned with the actual SSC board questions. It felt like solving a regular class test.",
+    detail: "Class 10 Topper (93.00%) | Golden Nest School",
+    initial: "SS",
+    stars: 5
+  },
+  {
+    name: "Zenab Behlim",
+    quote: "Vibrant's specialized coaching for competitive biology and chemistry helped me qualify NEET and secure my MBBS seat!",
+    detail: "Class 12 Achiever (89.00%) | L.R. Tiwari College",
+    initial: "ZB",
+    stars: 5
+  }
+];
 
 function Results() {
   useEffect(() => {
@@ -267,89 +417,116 @@ function Results() {
         </div>
       </section>
 
-      {/* SECTION 5 — SUBJECT PERFORMANCE (3 Cards) */}
+      {/* SECTION 5 — HSC & SSC TOPPERS LIST (Side by Side Scroll lists) */}
       <section className="py-stack_xl bg-white">
         <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
 
-          <div className="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
-            <p className="text-brand-teal font-extrabold uppercase tracking-widest text-xs mb-3 text-[13px]">Subject Results</p>
+          <div className="text-center max-w-2xl mx-auto mb-12" data-aos="fade-up">
+            <p className="text-brand-teal font-extrabold uppercase tracking-widest text-xs mb-3 text-[13px]">Vibrant Stars</p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy mb-2 tracking-tight">
-              Subject Wise <span className="text-brand-purple">Performance.</span>
+              Toppers & <span className="text-brand-purple">Achievers.</span>
             </h2>
             <div className="h-1 w-[40px] bg-brand-purple rounded-full mx-auto mb-4"></div>
+            <p className="text-gray-500 text-sm md:text-base leading-relaxed">
+              Browse through the complete list of academic achievers from our board panels. Scroll inside each list to view more.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
 
-            {/* Science Card */}
-            <div className="bg-white rounded-xl p-8 border border-brand-navy/5 border-t-4 border-t-brand-teal shadow-md hover:translate-y-[-4px] hover:shadow-xl transition-all" data-aos="fade-up">
-              <div className="w-14 h-14 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center mb-6 mx-auto">
-                <span className="material-symbols-outlined text-2xl">science</span>
-              </div>
-              <h3 className="text-xl font-bold text-brand-navy mb-4 text-center">Science Stream</h3>
-              <p className="text-gray-500 text-sm leading-relaxed mb-6 text-center">Stellar analytical marks achieved in physics, chemistry, and genetics modules.</p>
-              <div className="space-y-4">
+            {/* HSC Toppers Scroll Column */}
+            <div className="bg-[#F9F7FA] rounded-2xl p-6 border border-brand-purple/10 flex flex-col h-[650px] shadow-sm animate-fade-right" data-aos="fade-right">
+              <div className="flex items-center justify-between mb-6 pb-4 border-b border-brand-purple/10">
                 <div>
-                  <div className="flex justify-between text-xs font-bold text-brand-navy/70 mb-1">
-                    <span>PASS RATE</span>
-                    <span>100%</span>
-                  </div>
-                  <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
-                    <div className="h-full bg-brand-teal rounded-full" style={{ width: '100%' }}></div>
-                  </div>
+                  <h3 className="text-xl font-bold text-brand-navy">H.S.C. (Class XII) Toppers</h3>
+                  <p className="text-xs text-brand-purple font-semibold uppercase tracking-wider mt-0.5">Science & Commerce Achievers</p>
                 </div>
-                <div className="flex justify-between border-t border-brand-navy/5 pt-4 text-xs font-semibold">
-                  <span className="text-gray-400">TOP SCORER:</span>
-                  <span className="text-brand-purple">98.5% Aditi Sharma</span>
+                <div className="w-10 h-10 rounded-xl bg-brand-purple/10 flex items-center justify-center text-brand-purple">
+                  <span className="material-symbols-outlined font-bold">school</span>
                 </div>
+              </div>
+              
+              <div className="flex-1 overflow-y-auto pr-2 space-y-3 topper-scroll-container">
+                {hscToppers.map((student, idx) => (
+                  <div 
+                    key={idx} 
+                    className="bg-white hover:bg-gray-50 border border-brand-navy/5 hover:border-brand-purple/20 p-4 rounded-xl flex items-center justify-between transition-all duration-300 hover:shadow-md hover:translate-y-[-2px]"
+                  >
+                    <div className="flex items-center gap-3 w-[78%]">
+                      <div className="w-9 h-9 rounded-full bg-brand-purple/10 text-brand-purple flex items-center justify-center font-bold text-xs flex-shrink-0">
+                        {idx + 1}
+                      </div>
+                      <div className="min-w-0">
+                        <h4 className="font-bold text-brand-navy text-sm md:text-base truncate">{student.name}</h4>
+                        <p className="text-gray-400 text-xs truncate">{student.school}</p>
+                        {student.milestone && (
+                          <div className="mt-1">
+                            <span className="inline-block text-[9px] font-bold px-2 py-0.5 rounded-full bg-brand-yellow/20 text-[#8F6B00]">
+                              {student.milestone}
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                    <div className="text-right flex-shrink-0">
+                      <span className="text-lg md:text-xl font-extrabold font-poppins text-brand-purple">
+                        {student.score}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="text-center text-gray-400 text-[11px] font-semibold pt-3 border-t border-brand-purple/5 mt-3 flex items-center justify-center gap-1">
+                <span className="material-symbols-outlined text-sm animate-bounce">arrow_downward</span>
+                Scroll inside list to view more ({hscToppers.length} students)
               </div>
             </div>
 
-            {/* Mathematics Card */}
-            <div className="bg-white rounded-xl p-8 border border-brand-navy/5 border-t-4 border-t-brand-purple shadow-md hover:translate-y-[-4px] hover:shadow-xl transition-all" data-aos="fade-up" data-aos-delay="100">
-              <div className="w-14 h-14 rounded-full bg-brand-purple/10 text-brand-purple flex items-center justify-center mb-6 mx-auto">
-                <span className="material-symbols-outlined text-2xl">calculate</span>
-              </div>
-              <h3 className="text-xl font-bold text-brand-navy mb-4 text-center">Mathematics</h3>
-              <p className="text-gray-500 text-sm leading-relaxed mb-6 text-center">Algebraic centums and complex geometry proofs solved with visual standards.</p>
-              <div className="space-y-4">
+            {/* SSC Toppers Scroll Column */}
+            <div className="bg-[#F5F9F9] rounded-2xl p-6 border border-brand-teal/10 flex flex-col h-[650px] shadow-sm animate-fade-left" data-aos="fade-left">
+              <div className="flex items-center justify-between mb-6 pb-4 border-b border-brand-teal/10">
                 <div>
-                  <div className="flex justify-between text-xs font-bold text-brand-navy/70 mb-1">
-                    <span>PASS RATE</span>
-                    <span>98%</span>
-                  </div>
-                  <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
-                    <div className="h-full bg-brand-purple rounded-full" style={{ width: '98%' }}></div>
-                  </div>
+                  <h3 className="text-xl font-bold text-brand-navy">S.S.C. (Class X) Toppers</h3>
+                  <p className="text-xs text-brand-teal font-semibold uppercase tracking-wider mt-0.5">High School Achievers</p>
                 </div>
-                <div className="flex justify-between border-t border-brand-navy/5 pt-4 text-xs font-semibold">
-                  <span className="text-gray-400">TOP SCORER:</span>
-                  <span className="text-brand-purple">100/100 Rohan Mehta</span>
+                <div className="w-10 h-10 rounded-xl bg-brand-teal/10 flex items-center justify-center text-brand-teal">
+                  <span className="material-symbols-outlined font-bold">workspace_premium</span>
                 </div>
               </div>
-            </div>
-
-            {/* English & Language Card */}
-            <div className="bg-white rounded-xl p-8 border border-brand-navy/5 border-t-4 border-t-brand-yellow shadow-md hover:translate-y-[-4px] hover:shadow-xl transition-all" data-aos="fade-up" data-aos-delay="200">
-              <div className="w-14 h-14 rounded-full bg-brand-yellow/10 text-brand-gold flex items-center justify-center mb-6 mx-auto">
-                <span className="material-symbols-outlined text-2xl">menu_book</span>
+              
+              <div className="flex-1 overflow-y-auto pr-2 space-y-3 topper-scroll-container teal-scroll">
+                {sscToppers.map((student, idx) => (
+                  <div 
+                    key={idx} 
+                    className="bg-white hover:bg-gray-50 border border-brand-navy/5 hover:border-brand-teal/20 p-4 rounded-xl flex items-center justify-between transition-all duration-300 hover:shadow-md hover:translate-y-[-2px]"
+                  >
+                    <div className="flex items-center gap-3 w-[78%]">
+                      <div className="w-9 h-9 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center font-bold text-xs flex-shrink-0">
+                        {idx + 1}
+                      </div>
+                      <div className="min-w-0">
+                        <h4 className="font-bold text-brand-navy text-sm md:text-base truncate">{student.name}</h4>
+                        <p className="text-gray-400 text-xs truncate">{student.school}</p>
+                        {student.milestone && (
+                          <div className="mt-1">
+                            <span className="inline-block text-[9px] font-bold px-2 py-0.5 rounded-full bg-brand-teal/10 text-brand-teal">
+                              {student.milestone}
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                    <div className="text-right flex-shrink-0">
+                      <span className="text-lg md:text-xl font-extrabold font-poppins text-brand-teal">
+                        {student.score}
+                      </span>
+                    </div>
+                  </div>
+                ))}
               </div>
-              <h3 className="text-xl font-bold text-brand-navy mb-4 text-center">English & Language</h3>
-              <p className="text-gray-500 text-sm leading-relaxed mb-6 text-center">Critical essay writing guidelines, grammar grids, and literature critiques.</p>
-              <div className="space-y-4">
-                <div>
-                  <div className="flex justify-between text-xs font-bold text-brand-navy/70 mb-1">
-                    <span>PASS RATE</span>
-                    <span>96%</span>
-                  </div>
-                  <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
-                    <div className="h-full bg-brand-yellow rounded-full" style={{ width: '96%' }}></div>
-                  </div>
-                </div>
-                <div className="flex justify-between border-t border-brand-navy/5 pt-4 text-xs font-semibold">
-                  <span className="text-gray-400">TOP SCORER:</span>
-                  <span className="text-brand-purple">96.5% Neha Deshmukh</span>
-                </div>
+              <div className="text-center text-gray-400 text-[11px] font-semibold pt-3 border-t border-brand-teal/5 mt-3 flex items-center justify-center gap-1">
+                <span className="material-symbols-outlined text-sm animate-bounce">arrow_downward</span>
+                Scroll inside list to view more ({sscToppers.length} students)
               </div>
             </div>
 
@@ -357,46 +534,77 @@ function Results() {
         </div>
       </section>
 
-      {/* SECTION 6 — TESTIMONIALS (3 Student Cards) */}
+      {/* SECTION 6 — TESTIMONIALS CAROUSEL (Group of 3 Student Cards) */}
       <section className="py-stack_xl bg-[#F5F0F7] border-t border-brand-navy/5">
         <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
 
-          <div className="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+          <div className="text-center max-w-2xl mx-auto mb-12" data-aos="fade-up">
             <p className="text-brand-teal font-extrabold uppercase tracking-widest text-xs mb-3 text-[13px]">Topper Reviews</p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy mb-2 tracking-tight">
               Testimonials from <span className="text-brand-purple">Achievers.</span>
             </h2>
             <div className="h-1 w-[40px] bg-brand-purple rounded-full mx-auto mb-4"></div>
+            <p className="text-gray-500 text-sm md:text-base leading-relaxed">
+              Read how our toppers achieved high percentages and cracked competitive exams with the help of Vibrant Academy.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.slice(0, 3).map((test) => (
-              <div
-                key={test.id}
-                className="bg-white rounded-xl p-8 border border-brand-purple/10 flex flex-col justify-between hover:translate-y-[-4px] hover:shadow-lg transition-all shadow-sm"
-                data-aos="fade-up"
-              >
-                <div>
-                  <span className="text-5xl text-brand-purple/20 font-serif leading-none font-bold block mb-2">“</span>
-                  <p className="text-gray-600 text-sm italic mb-4 leading-relaxed">{test.quote}</p>
-                </div>
-                <div>
-                  <div className="flex text-brand-yellow mb-4">
-                    {[...Array(test.stars)].map((_, i) => (
-                      <span key={i} className="material-symbols-outlined text-base" style={{ fontVariationSettings: '"FILL" 1' }}>star</span>
-                    ))}
-                  </div>
-                  <div className="h-px bg-brand-navy/5 w-full my-4"></div>
-                  <div className="flex items-center gap-3">
-                    <img alt={test.name} className="w-10 h-10 rounded-full object-cover border border-white shadow-inner" src={test.photo} />
+          <div className="px-4 md:px-8 relative" data-aos="zoom-in">
+            <Swiper
+              modules={[Autoplay, Pagination, Navigation]}
+              spaceBetween={24}
+              slidesPerView={1}
+              autoplay={{ delay: 4000, disableOnInteraction: false }}
+              pagination={{ clickable: true, el: '.reviews-pagination' }}
+              navigation={{
+                nextEl: '.reviews-next',
+                prevEl: '.reviews-prev',
+              }}
+              breakpoints={{
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 }
+              }}
+              className="w-full pb-16"
+            >
+              {studentTestimonials.map((test, idx) => (
+                <SwiperSlide key={idx} className="py-4 h-auto">
+                  <div className="bg-white rounded-xl p-8 border border-brand-purple/10 flex flex-col justify-between hover:translate-y-[-4px] hover:shadow-lg transition-all shadow-sm h-[320px]">
                     <div>
-                      <h5 className="font-bold text-brand-purple text-sm">{test.name}</h5>
-                      <p className="text-gray-400 text-[11px]">{test.detail}</p>
+                      <span className="text-5xl text-brand-purple/20 font-serif leading-none font-bold block mb-2">“</span>
+                      <p className="text-gray-600 text-sm italic mb-4 leading-relaxed line-clamp-4">{test.quote}</p>
+                    </div>
+                    <div>
+                      <div className="flex text-brand-yellow mb-3">
+                        {[...Array(test.stars)].map((_, i) => (
+                          <span key={i} className="material-symbols-outlined text-base" style={{ fontVariationSettings: '"FILL" 1' }}>star</span>
+                        ))}
+                      </div>
+                      <div className="h-px bg-brand-navy/5 w-full my-3"></div>
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-full bg-brand-purple/10 text-brand-purple flex items-center justify-center font-bold text-sm border border-white shadow-inner flex-shrink-0">
+                          {test.initial}
+                        </div>
+                        <div className="min-w-0">
+                          <h5 className="font-bold text-brand-purple text-sm truncate">{test.name}</h5>
+                          <p className="text-gray-400 text-[10px] truncate">{test.detail}</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-            ))}
+                </SwiperSlide>
+              ))}
+            </Swiper>
+
+            {/* Custom Pagination & Navigation Controls */}
+            <div className="flex items-center justify-center gap-6 mt-4">
+              <button className="reviews-prev w-10 h-10 rounded-full border border-brand-purple text-brand-purple hover:bg-brand-purple hover:text-white flex items-center justify-center transition-all disabled:opacity-30 disabled:pointer-events-none shadow-sm active:scale-95">
+                <span className="material-symbols-outlined text-xl">arrow_back</span>
+              </button>
+              <div className="reviews-pagination flex gap-2 !w-auto"></div>
+              <button className="reviews-next w-10 h-10 rounded-full border border-brand-purple text-brand-purple hover:bg-brand-purple hover:text-white flex items-center justify-center transition-all disabled:opacity-30 disabled:pointer-events-none shadow-sm active:scale-95">
+                <span className="material-symbols-outlined text-xl">arrow_forward</span>
+              </button>
+            </div>
           </div>
 
         </div>

@@ -100,6 +100,11 @@ function Navbar() {
           ))}
         </div>
 
+        <div className="text-center pb-4 pt-4 border-t border-white/10 w-full">
+          <p className="text-base font-medium text-white/90 tracking-wide">
+            Vibrant <span className="text-brand-yellow font-bold">है तो</span> Vibe <span className="text-brand-yellow font-bold">है</span>
+          </p>
+        </div>
 
       </div>
     </>
