@@ -1,28 +1,28 @@
 const faqs = [
   {
     id: 1,
-    question: "What subject do your lesson videos cover?",
-    answer: "We cover a wide range of engineering subjects including math, physics, and core engineering disciplines."
+    question: "Which courses and academic boards do you offer coaching for?",
+    answer: "We provide coaching for SSC, ICSE, and CBSE students from Class 7 to 10, Science students of Class 11–12, Commerce students, and B.Pharm/D.Pharm students. Specialized preparation is also available for JEE, NEET, CET, CA, and CMA aspirants."
   },
   {
     id: 2,
-    question: "How can I access the lesson videos?",
-    answer: "To access lesson videos, navigate to the 'Courses' section of our website. You can either watch them directly on the site."
+    question: "Do you provide coaching for competitive exams like JEE, NEET, CET, CA, and CMA?",
+    answer: "Yes. Our integrated programs are designed to help students prepare for board examinations alongside competitive exams such as JEE, NEET, MHT-CET, CA Foundation, and CMA Foundation."
   },
   {
     id: 3,
-    question: "Can I download the lesson videos for offline use?",
-    answer: "Currently, the download option for lesson videos is not available. However, you can watch all the videos directly on our website."
+    question: "How can I take admission to Vibrant Academy?",
+    answer: "You can visit our academy, call our admission team, or submit an inquiry through our website. Our counselors will guide you regarding batch availability, course details, fees, and enrollment procedures."
   },
   {
     id: 4,
-    question: "Can I ask questions about the lesson videos?",
-    answer: "Yes, you can ask questions directly in the query section below each lesson video. Our team will respond to your questions as soon as possible."
+    question: "Are demo lectures available before admission?",
+    answer: "Yes. Students can attend a demo lecture to experience our teaching methodology, interact with faculty members, and understand the classroom environment before making an admission decision."
   },
   {
     id: 5,
-    question: "How do I contact customer support?",
-    answer: "You can contact customer support through the 'Contact Us' section on our website. Simply fill out the form with your query, and our team will get back to you shortly."
+    question: "Do you provide study materials, notes, and regular tests?",
+    answer: "Yes. Every student receives carefully prepared study materials, chapter-wise notes, assignments, and regular assessments to track progress and strengthen conceptual understanding."
   }
 ];
 

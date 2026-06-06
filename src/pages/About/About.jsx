@@ -2,51 +2,26 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import AOS from 'aos';
 import './About.css';
+import mentors from '../../data/mentors';
 
 function About() {
   useEffect(() => {
     AOS.refresh();
   }, []);
 
-  const mentors = [
-    {
-      name: "Mr. Ravindra Singh",
-      role: "Founder & Physics Advisor",
-      exp: "20+ Years Exp",
-      board: "Ex-ICSE Moderator",
-      desc: "Mr. Ravindra Singh guides our pedagogical modules, ensuring all Physics lesson sheets comply directly with standardized board layouts.",
-      avatar: "/founder.jpg"
-    },
-    {
-      name: "Mr. Malhotra",
-      role: "Mathematics Chief",
-      exp: "15+ Years Exp",
-      board: "Boards Evaluator",
-      desc: "Specializes in high-speed calculation matrices, algebraic proofs, and geometry visual guides for advanced grades.",
-      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200"
-    },
-    {
-      name: "Miss Sneha",
-      role: "Chemistry Coordinator",
-      exp: "8+ Years Exp",
-      board: "Syllabus Expert",
-      desc: "Miss Sneha curates our stoichiometry grids, periodic memory maps, and organic reaction diagrams.",
-      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200"
-    }
-  ];
+
 
   return (
     <div className="about-page">
       
       {/* SECTION 1 — PAGE HERO (Strict bounded height split layout) */}
-      <section className="mt-[70px] flex flex-col md:flex-row md:h-[500px] overflow-hidden bg-white">
-        <div className="w-full md:w-[45%] h-[300px] md:h-full relative overflow-hidden">
-          <img 
-            alt="Vibrant Academy Dahisar Classroom" 
-            className="w-full h-full object-cover rounded-r-none md:rounded-r-[24px] object-[40%_center]" 
+      <section className="mt-[70px] flex flex-col md:flex-row md:h-[500px] overflow-hidden hero-pattern">
+        <div className="w-full md:w-[45%] h-[300px] md:h-full relative flex items-center justify-center overflow-hidden">
+          <img
+            alt="Vibrant Academy Dahisar Classroom"
+            className="w-[95%] h-[95%] object-cover rounded-[24px]"
             src="/classroom.jpg"
           />
-          <div className="absolute inset-0 bg-brand-navy/5"></div>
         </div>
         <div className="w-full md:w-[55%] flex items-center bg-white hero-pattern p-margin_mobile md:p-10 overflow-hidden">
           <div className="max-w-xl mx-auto md:mx-0" data-aos="fade-left">
@@ -59,7 +34,7 @@ function About() {
             </h1>
             <div className="h-1 w-[40px] bg-brand-purple rounded-full mb-6"></div>
             <p className="text-gray-500 text-base md:text-lg leading-relaxed mb-6">
-              We are a boutique educational institution dedicated to crafting academic success stories through highly personalized mentorship and modern teaching methodologies.
+              Powered by the trusted legacy of S.S. Classes, Vibrant Academy provides a supportive learning environment where students are encouraged to grow, excel, and develop a strong foundation for future success.
             </p>
             <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs font-semibold uppercase tracking-wider text-brand-navy/60 mb-8">
               <span className="flex items-center gap-1"><span className="material-symbols-outlined text-brand-purple text-base">check_circle</span> Experienced</span>
@@ -78,8 +53,8 @@ function About() {
         </div>
       </section>
 
-      {/* SECTION 2 — STATS STRIP */}
-      <section className="bg-white border-y border-brand-navy/5 relative z-30">
+      {/* SECTION 2 — ESTABLISHED METRICS */}
+      <section className="bg-white border-y border-brand-navy/5 relative z-30 mt-14">
         <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
           <div className="grid grid-cols-2 md:grid-cols-4 divide-y-0 divide-x divide-brand-navy/5">
             <div className="py-8 md:py-10 flex items-center gap-4 group hover:bg-brand-purple/5 transition-colors px-4 justify-center md:justify-start">
@@ -88,7 +63,7 @@ function About() {
               </div>
               <div>
                 <p className="text-[10px] font-bold text-brand-navy/50 uppercase tracking-widest mb-0.5">ESTABLISHED</p>
-                <p className="text-xl font-bold text-brand-navy">Since 2010</p>
+                <p className="text-xl font-bold text-brand-navy">Since 2002</p>
               </div>
             </div>
             <div className="py-8 md:py-10 flex items-center gap-4 group hover:bg-brand-purple/5 transition-colors px-4 justify-center md:justify-start">
@@ -97,7 +72,7 @@ function About() {
               </div>
               <div>
                 <p className="text-[10px] font-bold text-brand-navy/50 uppercase tracking-widest mb-0.5">EXPERT MENTORS</p>
-                <p className="text-xl font-bold text-brand-navy">15+ Teachers</p>
+                <p className="text-xl font-bold text-brand-navy">25+ Teachers</p>
               </div>
             </div>
             <div className="py-8 md:py-10 flex items-center gap-4 group hover:bg-brand-purple/5 transition-colors px-4 justify-center md:justify-start">
@@ -106,7 +81,7 @@ function About() {
               </div>
               <div>
                 <p className="text-[10px] font-bold text-brand-navy/50 uppercase tracking-widest mb-0.5">STUDENTS TAUGHT</p>
-                <p className="text-xl font-bold text-brand-navy">500+ Grads</p>
+                <p className="text-xl font-bold text-brand-navy">1000+</p>
               </div>
             </div>
             <div className="py-8 md:py-10 flex items-center gap-4 group hover:bg-brand-purple/5 transition-colors px-4 justify-center md:justify-start">
@@ -115,7 +90,7 @@ function About() {
               </div>
               <div>
                 <p className="text-[10px] font-bold text-brand-navy/50 uppercase tracking-widest mb-0.5">PASS RATE</p>
-                <p className="text-xl font-bold text-brand-navy">95% Success</p>
+                <p className="text-xl font-bold text-brand-navy">100% Success</p>
               </div>
             </div>
           </div>
@@ -129,22 +104,22 @@ function About() {
             <div className="w-full lg:w-1/2" data-aos="fade-right">
               <div className="inline-flex items-center gap-2 mb-4">
                 <span className="h-px w-8 bg-brand-teal"></span>
-                <span className="font-dancing text-brand-teal text-xl">Believe in Excellence...</span>
+                <span className="font-dancing text-brand-teal text-xl">Powered by S.S. Classes</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy mb-4 tracking-tight leading-tight">
                 Our Story & <br /><span className="text-brand-purple">Academic Mission.</span>
               </h2>
               <div className="h-1 w-[40px] bg-brand-purple rounded-full mb-6"></div>
               <p className="text-gray-600 text-base leading-relaxed mb-6">
-                Founded in 2010 as a small classroom project, Vibrant Academy has expanded into Dahisar East's leading boutique institute for secondary board preparation. 
+                Vibrant Academy is built on the trusted educational legacy of S.S. Classes, combining years of teaching excellence with modern learning approaches to help students achieve academic success. 
               </p>
               <div className="border-l-4 border-brand-purple pl-6 py-2 my-6 bg-[#F5F0F7] rounded-r-xl">
                 <p className="text-brand-navy italic font-semibold text-sm md:text-base">
-                  "Our goal is not simply to help students pass examinations, but to build cognitive frameworks that spark life-long computational and scientific interest."
+                  "Our mission is not just to improve marks, but to build confidence, curiosity, and a lifelong love for learning."
                 </p>
               </div>
               <p className="text-gray-600 text-base leading-relaxed">
-                By maintaining highly focused micro-batch architectures, our senior faculties evaluate analytical scorecards and custom draft progress reviews for every child.
+                With experienced faculty, focused batches, and personalized guidance, we help students across SSC, ICSE, CBSE, Science, Commerce, and Pharma streams reach their full potential.
               </p>
             </div>
             <div className="w-full lg:w-1/2 relative" data-aos="fade-left">
@@ -152,7 +127,7 @@ function About() {
                 <img 
                   alt="Student Studying with Mentor" 
                   className="w-full h-[350px] md:h-[450px] object-cover" 
-                  src="/student_studying_with_mentor.png"
+                  src="/images/teaching photos/whole class photo.jpeg"
                 />
               </div>
             </div>
@@ -170,7 +145,7 @@ function About() {
               </div>
               <h3 className="text-xl font-bold text-brand-navy mb-4">Our Mission</h3>
               <p className="text-gray-500 text-sm leading-relaxed">
-                To engineer standard board preparation modules that emphasize conceptual clarity, direct evaluation reports, and targeted doubt-solving systems.
+                At Vibrant Academy, we believe learning should be full of energy, curiosity, and excitement. Our mission is to turn classrooms into spaces where students enjoy learning, discover their strengths, and build the confidence to achieve their dreams.
               </p>
             </div>
             <div className="bg-white p-8 rounded-xl border border-brand-teal/10 border-t-4 border-t-brand-teal shadow-md hover:translate-y-[-4px] hover:shadow-lg transition-all" data-aos="fade-up" data-aos-delay="100">
@@ -179,7 +154,7 @@ function About() {
               </div>
               <h3 className="text-xl font-bold text-brand-navy mb-4">Our Vision</h3>
               <p className="text-gray-500 text-sm leading-relaxed">
-                To craft a collaborative hub where micro-batch learning formats ensure zero child-isolation, prompting excellent analytical results and state-wide ranks.
+                Our vision is to create a generation of confident learners who are not afraid to ask questions, embrace challenges, and shine in every stage of life. Because when learning is vibrant, every future becomes brighter.
               </p>
             </div>
           </div>
@@ -248,7 +223,11 @@ function About() {
                 data-aos="fade-up" 
                 data-aos-delay={idx * 100}
               >
-                <img alt={mentor.name} className="w-24 h-24 rounded-full object-cover border-2 border-brand-purple p-1 mb-6 shadow-md" src={mentor.avatar} />
+                {mentor.avatar ? (
+                  <img alt={mentor.name} className="w-24 h-24 rounded-full object-cover border-2 border-brand-purple p-1 mb-6 shadow-md" src={mentor.avatar} />
+                ) : (
+                  <span className="material-symbols-outlined text-brand-purple/60 w-24 h-24 flex items-center justify-center text-[96px] mb-6">account_circle</span>
+                )}
                 <h4 className="font-bold text-brand-purple text-lg mb-1">{mentor.name}</h4>
                 <p className="text-brand-navy/60 text-xs font-semibold uppercase tracking-wider mb-2">{mentor.role}</p>
                 <div className="flex gap-2 justify-center mb-4">
@@ -258,21 +237,6 @@ function About() {
                 <p className="text-gray-500 text-sm leading-relaxed">{mentor.desc}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 7 — BOARD PILLS STRIP */}
-      <section className="py-12 bg-brand-navy text-white">
-        <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter text-center">
-          <p className="text-brand-yellow font-bold uppercase tracking-wider text-xs mb-6">AFFILIATED SYLLABUS BOARDS & SUBJECT PILLS</p>
-          <div className="flex flex-wrap justify-center gap-3">
-            <span className="px-4 py-2 border border-white/20 rounded-full text-sm font-semibold uppercase tracking-wider bg-white/5">ICSE Board</span>
-            <span className="px-4 py-2 border border-white/20 rounded-full text-sm font-semibold uppercase tracking-wider bg-white/5">SSC Board</span>
-            <span className="px-4 py-2 border border-white/20 rounded-full text-sm font-semibold uppercase tracking-wider bg-white/5">Class 7 to 10</span>
-            <span className="px-4 py-2 border border-white/20 rounded-full text-sm font-semibold uppercase tracking-wider bg-white/5">Class 11 & 12 Boards</span>
-            <span className="px-4 py-2 border border-white/20 rounded-full text-sm font-semibold uppercase tracking-wider bg-white/5">Science Stream</span>
-            <span className="px-4 py-2 border border-white/20 rounded-full text-sm font-semibold uppercase tracking-wider bg-white/5">Algebra & Geometry</span>
           </div>
         </div>
       </section>
