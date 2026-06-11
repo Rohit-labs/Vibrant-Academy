@@ -237,7 +237,7 @@ function Home() {
 
 
       {/* SECTION 1 — HERO */}
-      <section className="mt-[70px] relative h-[380px] md:h-[65vh] w-full overflow-hidden hero-pattern">
+      <section className="mt-[70px] relative h-[380px] md:h-[70vh] w-full overflow-hidden hero-pattern">
         <div className="flex flex-col md:flex-row w-full h-full ">
           <div className="hidden md:flex w-full md:w-[45%] h-[250px] md:h-full relative overflow-hidden items-center justify-center object-cover ">
             <img

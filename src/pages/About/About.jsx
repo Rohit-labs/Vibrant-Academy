@@ -15,7 +15,7 @@ function About() {
     <div className="about-page">
       
       {/* SECTION 1 — PAGE HERO (Strict bounded height split layout) */}
-      <section className="mt-[70px] flex flex-col md:flex-row md:h-[500px] overflow-hidden hero-pattern">
+      <section className="mt-[70px] flex flex-col md:flex-row md:h-[70vh] overflow-hidden hero-pattern">
         <div className="w-full md:w-[45%] h-[300px] md:h-full relative flex items-center justify-center overflow-hidden">
           <img
             alt="Vibrant Academy Dahisar Classroom"

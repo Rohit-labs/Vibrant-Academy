@@ -47,26 +47,26 @@ const sscToppers = [
   { name: "Akshara Gupta", score: "96.00%", school: "SVPV", milestone: "" },
   { name: "Jyoti Jangid", score: "96.00%", school: "Golden Nest School", milestone: "School Topper" },
   { name: "Anjali Chaurasiya", score: "96.00%", school: "Relevant High School", milestone: "1st Rank in Reena Mehta / JEE Advanced Qualified" },
-  { name: "Gudiya Chaurasiya", score: "95.00%", school: "S.S. Classes Panel Data", milestone: "" },
+  { name: "Gudiya Chaurasiya", score: "95.00%", school: "S.S. Classes", milestone: "" },
   { name: "Shreya Bhabal", score: "95.00%", school: "S.V.P.V. School", milestone: "" },
-  { name: "Darsh Kalathiya", score: "94.00%", school: "S.S. Classes Panel Data", milestone: "" },
+  { name: "Darsh Kalathiya", score: "94.00%", school: "S.S. Classes ", milestone: "" },
   { name: "Shefali Gajare", score: "94.00%", school: "Queen Mary's School", milestone: "" },
   { name: "Nehal Mahto", score: "93.40%", school: "Queen Mary School", milestone: "" },
   { name: "Prince Jha", score: "93.00%", school: "S.V.P. School", milestone: "" },
-  { name: "Krishna Thakur", score: "93.00%", school: "S.S. Classes Panel Data", milestone: "" },
+  { name: "Krishna Thakur", score: "93.00%", school: "S.S. Classes ", milestone: "" },
   { name: "Swayam Singh", score: "93.00%", school: "Golden Nest School", milestone: "" },
   { name: "Shreya Patidar", score: "93.00%", school: "S.V.P.V. School", milestone: "" },
   { name: "Ronak Prajapati", score: "92.00%", school: "S.V.P. School", milestone: "" },
-  { name: "Harsha Gupta", score: "92.00%", school: "S.S. Classes Panel Data", milestone: "" },
+  { name: "Harsha Gupta", score: "92.00%", school: "S.S. Classes ", milestone: "" },
   { name: "Abhijeet Pandey", score: "92.00%", school: "Bright International High School", milestone: "1st Rank in School" },
   { name: "Pooja Chaurasiya", score: "91.00%", school: "Holy Trinity School", milestone: "" },
   { name: "Ashwin Poddar", score: "91.00%", school: "S.V.P.V. School", milestone: "" },
   { name: "Nitish Pasi", score: "91.00%", school: "Bright International High School", milestone: "" },
   { name: "Anushka Patil", score: "91.00%", school: "S.V.P.V. School", milestone: "" },
   { name: "Shreyash Jha", score: "91.00%", school: "St. Xavier's School", milestone: "" },
-  { name: "Rokaiya Khan", score: "91.00%", school: "S.S. Classes Panel Data", milestone: "" },
+  { name: "Rokaiya Khan", score: "91.00%", school: "S.S. Classes ", milestone: "" },
   { name: "Priya Yadav", score: "90.00%", school: "Queen Mary's School", milestone: "2nd Rank in School" },
-  { name: "Ankita Chaurasiya", score: "90.00%", school: "S.S. Classes Panel Data", milestone: "" },
+  { name: "Ankita Chaurasiya", score: "90.00%", school: "S.S. Classes ", milestone: "" },
   { name: "Sweta Gurnale", score: "90.00%", school: "S.V.P. School", milestone: "" },
   { name: "Nidhi Malthane", score: "90.00%", school: "St. Paul's School", milestone: "" },
   { name: "Affan Khan", score: "90.00%", school: "Golden Nest School", milestone: "" },
@@ -174,16 +174,15 @@ function Results() {
     <div className="results-page">
 
       {/* SECTION 1 — PAGE HERO (Split Layout) */}
-      <section className="mt-[70px] flex flex-col md:flex-row min-h-[500px] overflow-hidden hero-pattern">
-        <div className="w-full md:w-[45%] h-[250px] md:h-auto relative overflow-hidden">
+      <section className="mt-[70px] flex flex-col md:flex-row md:h-[70vh] overflow-hidden hero-pattern">
+        <div className="w-full md:w-[45%] h-[250px] md:h-auto relative overflow-hidden flex items-center justify-center">
           <img
             alt="Celebrating Students Results"
-            className="w-[95%] h-[95%] mx-auto object-cover rounded-r-none md:rounded-r-[24px]"
+            className="w-[95%] h-[95%] object-cover rounded-r-none md:rounded-r-[24px]"
             src="/images/teaching photos/Award Photo.jpeg"
           />
-          <div className="absolute inset-0 "></div>
         </div>
-        <div className="w-full md:w-[55%] flex items-center bg-white hero-pattern p-margin_mobile md:p-stack_xl">
+        <div className="w-full md:w-[55%] flex items-center hero-pattern p-margin_mobile md:p-stack_xl">
           <div className="max-w-xl mx-auto md:mx-0" data-aos="fade-left">
             <div className="inline-flex items-center gap-2 mb-4">
               <span className="h-px w-8 bg-brand-teal"></span>
@@ -619,7 +618,7 @@ function Results() {
           </h2>
           <div className="h-1 w-[40px] bg-brand-yellow rounded-full mx-auto mb-6"></div>
           <p className="text-white/80 text-base leading-relaxed mb-8 max-w-xl mx-auto">
-            Our admissions are strictly merit and micro-batch capacity based. Book a diagnostic scoring session with Mr. Ravindra Singh to evaluate your conceptual foundations.
+            Every student receives focused guidance and individualized support. Book a consultation session to explore how we can help unlock your full potential.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact" className="px-10 py-4 border-2 border-white hover:bg-white hover:text-brand-purple text-white font-bold rounded-lg transition-all text-sm uppercase tracking-wider">
