@@ -237,21 +237,21 @@ function Home() {
 
 
       {/* SECTION 1 — HERO */}
-      <section className="mt-[70px] relative h-[380px] md:h-[75vh] w-full overflow-hidden bg-white">
-        <div className="flex flex-col md:flex-row w-full h-full">
-          <div className="hidden md:flex w-full md:w-[45%] h-[250px] md:h-full relative overflow-hidden bg-white items-center justify-center object-cover">
+      <section className="mt-[70px] relative h-[380px] md:h-[65vh] w-full overflow-hidden hero-pattern">
+        <div className="flex flex-col md:flex-row w-full h-full ">
+          <div className="hidden md:flex w-full md:w-[45%] h-[250px] md:h-full relative overflow-hidden items-center justify-center object-cover ">
             <img
-              alt="Vibrant Academy Logo Banner"
-              className="max-w-full max-h-full object-contain"
-              src="/vibrant_logo_banner.jpg"
+              alt="Vibrant Academy Entrance"
+              className="w-[95%] h-[95%] mx-auto rounded-xl"
+              src="/images/Classes photos/Classes entrance.png"
             />
-            <div className="absolute inset-0 bg-brand-purple/5 pointer-events-none"></div>
+            <div className="absolute inset-0  pointer-events-none"></div>
           </div>
-          <div className="w-full md:w-[55%] flex items-start md:items-center bg-white hero-pattern px-margin_mobile pt-6 pb-20 md:p-stack_xl">
-            <div className="max-w-xl mx-auto md:mx-0">
+          <div className="w-full md:w-[55%] flex items-start md:items-center px-margin_mobile pt-6 pb-20 md:p-stack_xl ">
+            <div className="max-w-xl mx-auto md:mx-0 ">
               <div className="inline-flex items-center gap-2 mb-2 md:mb-3">
-                <span className="h-px w-8 bg-brand-teal"></span>
-                <span className="font-dancing text-Meteorite text-lg md:text-xl">Believe in Excellence...</span>
+                <span className="h-px w-8 bg-brand-teal "></span>
+                <span className="font-dancing text-brand-teal text-lg md:text-xl">Believe in Excellence...</span>
               </div>
               <h1 className="text-2xl md:text-5xl lg:text-6xl font-extrabold text-brand-teal mb-2 md:mb-4 tracking-tight leading-tight">
                 Welcome to <br /><span className="text-brand-purple">Vibrant Academy.</span>
@@ -541,9 +541,9 @@ function Home() {
             {/* Photo Container */}
             <div className="h-[280px] md:h-[340px] rounded-xl overflow-hidden shadow-sm border border-brand-navy/5">
               <img
-                src="/academy_entrance.jpg"
+                src="/images/Classes photos/Classes entrance.png"
                 alt="Vibrant Academy Entrance"
-                className="w-full h-full object-cover"
+                className="w-full h-full "
                 onError={(e) => {
                   e.target.src = "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200";
                 }}
@@ -782,7 +782,7 @@ function Home() {
                 <img
                   alt="High School Study Environment"
                   className="w-full h-[350px] md:h-[450px] object-cover"
-                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1200"
+                  src="/images/teaching photos/PTA meeting.jpeg"
                 />
               </div>
 

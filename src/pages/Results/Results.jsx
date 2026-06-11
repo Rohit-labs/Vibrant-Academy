@@ -55,7 +55,7 @@ const sscToppers = [
   { name: "Prince Jha", score: "93.00%", school: "S.V.P. School", milestone: "" },
   { name: "Krishna Thakur", score: "93.00%", school: "S.S. Classes Panel Data", milestone: "" },
   { name: "Swayam Singh", score: "93.00%", school: "Golden Nest School", milestone: "" },
-  { name: "Shreya Patidar", score: "93.00%", school: "St. Paul's School / S.V.P.V. School", milestone: "" },
+  { name: "Shreya Patidar", score: "93.00%", school: "S.V.P.V. School", milestone: "" },
   { name: "Ronak Prajapati", score: "92.00%", school: "S.V.P. School", milestone: "" },
   { name: "Harsha Gupta", score: "92.00%", school: "S.S. Classes Panel Data", milestone: "" },
   { name: "Abhijeet Pandey", score: "92.00%", school: "Bright International High School", milestone: "1st Rank in School" },
@@ -174,14 +174,14 @@ function Results() {
     <div className="results-page">
 
       {/* SECTION 1 — PAGE HERO (Split Layout) */}
-      <section className="mt-[70px] flex flex-col md:flex-row min-h-[500px] overflow-hidden bg-white">
+      <section className="mt-[70px] flex flex-col md:flex-row min-h-[500px] overflow-hidden hero-pattern">
         <div className="w-full md:w-[45%] h-[250px] md:h-auto relative overflow-hidden">
           <img
             alt="Celebrating Students Results"
-            className="w-full h-full object-cover rounded-r-none md:rounded-r-[24px]"
-            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200"
+            className="w-[95%] h-[95%] mx-auto object-cover rounded-r-none md:rounded-r-[24px]"
+            src="/images/teaching photos/Award Photo.jpeg"
           />
-          <div className="absolute inset-0 bg-brand-navy/5"></div>
+          <div className="absolute inset-0 "></div>
         </div>
         <div className="w-full md:w-[55%] flex items-center bg-white hero-pattern p-margin_mobile md:p-stack_xl">
           <div className="max-w-xl mx-auto md:mx-0" data-aos="fade-left">
@@ -197,9 +197,9 @@ function Results() {
               We are proud of every student who has walked through our doors. Their success is our greatest achievement and the true measure of our excellence.
             </p>
             <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs font-semibold uppercase tracking-wider text-brand-navy/60 mb-8">
-              <span className="flex items-center gap-1"><span className="material-symbols-outlined text-brand-purple text-base">check_circle</span> ICSE Toppers</span>
+              <span className="flex items-center gap-1"><span className="material-symbols-outlined text-brand-purple text-base">check_circle</span> HSC Toppers</span>
               <span className="flex items-center gap-1"><span className="material-symbols-outlined text-brand-purple text-base">check_circle</span> SSC Toppers</span>
-              <span className="flex items-center gap-1"><span className="material-symbols-outlined text-brand-purple text-base">check_circle</span> 95% Pass Rate</span>
+              <span className="flex items-center gap-1"><span className="material-symbols-outlined text-brand-purple text-base">check_circle</span> 100% Pass Rate</span>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <a href="#toppers" className="px-8 py-3.5 border-2 border-brand-purple hover:bg-brand-purple hover:text-white text-brand-purple font-bold rounded-lg transition-all text-sm uppercase tracking-wider text-center">
@@ -625,9 +625,6 @@ function Results() {
             Our admissions are strictly merit and micro-batch capacity based. Book a diagnostic scoring session with Mr. Ravindra Singh to evaluate your conceptual foundations.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/contact" className="px-10 py-4 bg-brand-yellow hover:bg-[#E0B000] text-[#1F2937] font-bold rounded-lg shadow-md transition-all text-sm uppercase tracking-wider">
-              Book Scoring Session
-            </Link>
             <Link to="/contact" className="px-10 py-4 border-2 border-white hover:bg-white hover:text-brand-purple text-white font-bold rounded-lg transition-all text-sm uppercase tracking-wider">
               Enquire Batches
             </Link>
