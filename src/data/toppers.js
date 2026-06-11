@@ -6,8 +6,6 @@ const toppers = [
     score: "96.00%",
     board: "SSC",
     class: "Class 10",
-    subject: "Science Distinction",
-    year: "2024",
     photo: studentPhotos.akshara_gupta,
     school: "SVPV"
   },
@@ -17,8 +15,6 @@ const toppers = [
     score: "92.00%",
     board: "Commerce",
     class: "Class 12",
-    subject: "Maths Centum",
-    year: "2024",
     photo: studentPhotos.anshika_sharma,
     school: "Royal College"
   },
@@ -28,8 +24,6 @@ const toppers = [
     score: "98.05%",
     board: "MHT-CET",
     class: "Class 12",
-    subject: "Pharma Top Grade",
-    year: "2024",
     photo: studentPhotos.shivshankar_chaurasiya,
     school: "A.P. college"
   },
@@ -39,8 +33,6 @@ const toppers = [
     score: "91.00%",
     board: "SSC",
     class: "Class 10",
-    subject: "Pharma Top Grade",
-    year: "2024",
     photo: studentPhotos.shiloh_noah_cristian,
     school: "Holy Cross School"
   },
@@ -50,8 +42,6 @@ const toppers = [
     score: "94.00%",
     board: "SSC",
     class: "Class 10",
-    subject: "Pharma Top Grade",
-    year: "2024",
     photo: studentPhotos.shubham_pal,
     school: "SVPV"
   },
@@ -61,8 +51,6 @@ const toppers = [
     score: "96.00%",
     board: "SSC",
     class: "Class 10",
-    subject: "Pharma Top Grade",
-    year: "2024",
     photo: studentPhotos.jyoti_jangid,
     school: "Golden Nest School"
   },
@@ -72,8 +60,6 @@ const toppers = [
     score: "92.44%",
     board: "JEE",
     class: "Class 12",
-    subject: "Pharma Top Grade",
-    year: "2024",
     photo: studentPhotos.anjali_chaurasiya,
     school: "Reena Mheta College"
   },
@@ -83,8 +69,6 @@ const toppers = [
     score: "90.00%",
     board: "SSC",
     class: "Class 10",
-    subject: "Pharma Top Grade",
-    year: "2024",
     photo: studentPhotos.affan_khan,
     school: "Golden Nest SChool"
   },
@@ -94,8 +78,6 @@ const toppers = [
     score: "93.00%",
     board: "SSC",
     class: "Class 10",
-    subject: "Pharma Top Grade",
-    year: "2024",
     photo: studentPhotos.swayam_singh,
     school: "Golden Nest SChool"
   },
@@ -105,8 +87,6 @@ const toppers = [
     score: "92.00%",
     board: "SSC",
     class: "Class 10",
-    subject: "Pharma Top Grade",
-    year: "2024",
     photo: studentPhotos.abhijeet_pandey,
     school: "Bright High School"
   },
@@ -116,8 +96,6 @@ const toppers = [
     score: "93.00%",
     board: "SSC",
     class: "Class 10",
-    subject: "Pharma Top Grade",
-    year: "2024",
     photo: studentPhotos.shreya_patidar,
     school: "St. Paul"
   },
