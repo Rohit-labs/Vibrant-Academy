@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaFacebook, FaInstagram, FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaWhatsapp, FaInstagram, FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 import './Footer.css';
 
 function Footer() {
@@ -23,8 +23,8 @@ function Footer() {
                 A boutique educational institution dedicated to crafting academic success stories through personalized mentorship and modern teaching methodologies.
               </p>
               <div className="flex gap-4">
-                <a className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-brand-purple transition-all" href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook">
-                  <FaFacebook size={18} />
+                <a className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-[#25D366] transition-all" href="https://wa.me/919137964830" target="_blank" rel="noreferrer" aria-label="WhatsApp">
+                  <FaWhatsapp size={18} />
                 </a>
                 <a className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-brand-teal transition-all" href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram">
                   <FaInstagram size={18} />
