@@ -19,7 +19,7 @@ const testimonials = [
   },
   {
     id: 3,
-    quote: "Mr. Ravindra Singh is an exceptional Physics teacher. His teaching methods made difficult topics easy to understand. Because of his guidance, my child scored outstanding marks in the Physics examination.",
+    quote: "Mr. Ravindra Singh is an exceptional Mathematics teacher. His teaching methods made difficult topics easy to understand. Because of his guidance, my child scored outstanding marks in the Mathematics examination.",
     name: "Anjali Verma",
     detail: "Parent of Class 12 Student",
     stars: 5,

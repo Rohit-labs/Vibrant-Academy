@@ -212,37 +212,45 @@ function Results() {
         </div>
       </section>
 
-      {/* SECTION 2 — ACHIEVEMENT STATS (4 Counters) */}
-      <section className="bg-white border-y border-brand-navy/5 relative z-30 py-12">
+      {/* SECTION 2 — ESTABLISHED METRICS */}
+      <section className="bg-white border-y border-brand-navy/5 relative z-30 mt-12">
         <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6">
-            <div className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-sm border border-brand-navy/5 hover:translate-y-[-4px] hover:shadow-md transition-all duration-300" data-aos="fade-up">
-              <div className="w-16 h-16 rounded-full bg-brand-yellow/10 flex items-center justify-center text-brand-gold mb-4 text-2xl">
-                <span className="material-symbols-outlined text-3xl">groups</span>
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-y-0 divide-x divide-brand-navy/5">
+            <div className="py-8 md:py-10 flex items-center gap-4 group hover:bg-brand-purple/5 transition-colors px-4 justify-center md:justify-start">
+              <div className="w-12 h-12 rounded-full bg-brand-yellow/10 flex items-center justify-center text-brand-gold">
+                <span className="material-symbols-outlined text-xl">emoji_events</span>
               </div>
-              <p className="text-3xl md:text-4xl font-extrabold text-brand-navy font-poppins mb-1">500+</p>
-              <p className="text-xs font-bold text-brand-navy/50 uppercase tracking-widest">Total Students</p>
+              <div>
+                <p className="text-[10px] font-bold text-brand-navy/50 uppercase tracking-widest mb-0.5">ESTABLISHED</p>
+                <p className="text-xl font-bold text-brand-navy">Since 2002</p>
+              </div>
             </div>
-            <div className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-sm border border-brand-navy/5 hover:translate-y-[-4px] hover:shadow-md transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
-              <div className="w-16 h-16 rounded-full bg-brand-purple/10 flex items-center justify-center text-brand-purple mb-4 text-2xl">
-                <span className="material-symbols-outlined text-3xl">star</span>
+            <div className="py-8 md:py-10 flex items-center gap-4 group hover:bg-brand-purple/5 transition-colors px-4 justify-center md:justify-start">
+              <div className="w-12 h-12 rounded-full bg-brand-purple/10 flex items-center justify-center text-brand-purple">
+                <span className="material-symbols-outlined text-xl">groups</span>
               </div>
-              <p className="text-3xl md:text-4xl font-extrabold text-brand-navy font-poppins mb-1">95%</p>
-              <p className="text-xs font-bold text-brand-navy/50 uppercase tracking-widest">Pass Rate</p>
+              <div>
+                <p className="text-[10px] font-bold text-brand-navy/50 uppercase tracking-widest mb-0.5">EXPERT MENTORS</p>
+                <p className="text-xl font-bold text-brand-navy">25+ Teachers</p>
+              </div>
             </div>
-            <div className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-sm border border-brand-navy/5 hover:translate-y-[-4px] hover:shadow-md transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
-              <div className="w-16 h-16 rounded-full bg-brand-teal/10 flex items-center justify-center text-brand-teal mb-4 text-2xl">
-                <span className="material-symbols-outlined text-3xl">school</span>
+            <div className="py-8 md:py-10 flex items-center gap-4 group hover:bg-brand-purple/5 transition-colors px-4 justify-center md:justify-start">
+              <div className="w-12 h-12 rounded-full bg-brand-teal/10 flex items-center justify-center text-brand-teal">
+                <span className="material-symbols-outlined text-xl">school</span>
               </div>
-              <p className="text-3xl md:text-4xl font-extrabold text-brand-navy font-poppins mb-1">10+</p>
-              <p className="text-xs font-bold text-brand-navy/50 uppercase tracking-widest">Years Experience</p>
+              <div>
+                <p className="text-[10px] font-bold text-brand-navy/50 uppercase tracking-widest mb-0.5">STUDENTS TAUGHT</p>
+                <p className="text-xl font-bold text-brand-navy">1000+</p>
+              </div>
             </div>
-            <div className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-sm border border-brand-navy/5 hover:translate-y-[-4px] hover:shadow-md transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
-              <div className="w-16 h-16 rounded-full bg-brand-yellow/10 flex items-center justify-center text-brand-gold mb-4 text-2xl">
-                <span className="material-symbols-outlined text-3xl">workspace_premium</span>
+            <div className="py-8 md:py-10 flex items-center gap-4 group hover:bg-brand-purple/5 transition-colors px-4 justify-center md:justify-start">
+              <div className="w-12 h-12 rounded-full bg-brand-yellow/10 flex items-center justify-center text-brand-gold">
+                <span className="material-symbols-outlined text-xl">star</span>
               </div>
-              <p className="text-3xl md:text-4xl font-extrabold text-brand-navy font-poppins mb-1">50+</p>
-              <p className="text-xs font-bold text-brand-navy/50 uppercase tracking-widest">Top Scorers</p>
+              <div>
+                <p className="text-[10px] font-bold text-brand-navy/50 uppercase tracking-widest mb-0.5">PASS RATE</p>
+                <p className="text-xl font-bold text-brand-navy">100% Success</p>
+              </div>
             </div>
           </div>
         </div>
@@ -317,104 +325,8 @@ function Results() {
         </div>
       </section>
 
-      {/* SECTION 4 — BOARD RESULTS (ICSE / SSC Side by Side) */}
-      <section className="py-stack_xl bg-[#F5F0F7] overflow-hidden">
-        <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
-
-          <div className="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
-            <p className="text-brand-teal font-extrabold uppercase tracking-widest text-xs mb-3">Board Results</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy mb-2 tracking-tight">
-              ICSE & <span className="text-brand-purple">SSC Results.</span>
-            </h2>
-            <div className="h-1 w-[40px] bg-brand-purple rounded-full mx-auto mb-4"></div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-
-            {/* Card 1: ICSE Results */}
-            <div className="bg-white rounded-xl shadow-md overflow-hidden flex flex-col justify-between border border-brand-navy/5" data-aos="fade-right">
-              <div>
-                <div className="bg-brand-purple text-center py-6 px-4 text-white">
-                  <h3 className="text-2xl font-bold font-poppins">ICSE Board</h3>
-                  <p className="text-brand-yellow text-xs font-semibold uppercase tracking-wider mt-1">Class 7 to 10</p>
-                </div>
-                <div className="p-8">
-                  <ul className="space-y-4 text-sm md:text-base font-medium text-brand-navy/80">
-                    <li className="flex items-start gap-2.5 py-3 border-b border-brand-navy/5">
-                      <span className="material-symbols-outlined text-brand-teal">check_circle</span>
-                      <span>98.5% highest score achieved</span>
-                    </li>
-                    <li className="flex items-start gap-2.5 py-3 border-b border-brand-navy/5">
-                      <span className="material-symbols-outlined text-brand-teal">check_circle</span>
-                      <span>100% pass rate in Science</span>
-                    </li>
-                    <li className="flex items-start gap-2.5 py-3 border-b border-brand-navy/5">
-                      <span className="material-symbols-outlined text-brand-teal">check_circle</span>
-                      <span>95% pass rate in Commerce</span>
-                    </li>
-                    <li className="flex items-start gap-2.5 py-3 border-b border-brand-navy/5">
-                      <span className="material-symbols-outlined text-brand-teal">check_circle</span>
-                      <span>20+ students scored above 90%</span>
-                    </li>
-                    <li className="flex items-start gap-2.5 py-3">
-                      <span className="material-symbols-outlined text-brand-teal">check_circle</span>
-                      <span>5 students in district top 10</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div className="p-8 pt-0">
-                <Link to="/contact" className="w-full py-3 bg-brand-yellow hover:bg-[#E0B000] text-[#1F2937] font-bold rounded-lg uppercase text-xs tracking-wider transition-all text-center block">
-                  View ICSE Details
-                </Link>
-              </div>
-            </div>
-
-            {/* Card 2: SSC Results */}
-            <div className="bg-white rounded-xl shadow-md overflow-hidden flex flex-col justify-between border border-brand-navy/5" data-aos="fade-left">
-              <div>
-                <div className="bg-brand-teal text-center py-6 px-4 text-white">
-                  <h3 className="text-2xl font-bold font-poppins">SSC Board</h3>
-                  <p className="text-brand-yellow text-xs font-semibold uppercase tracking-wider mt-1">Class 7 to 10</p>
-                </div>
-                <div className="p-8">
-                  <ul className="space-y-4 text-sm md:text-base font-medium text-brand-navy/80">
-                    <li className="flex items-start gap-2.5 py-3 border-b border-brand-navy/5">
-                      <span className="material-symbols-outlined text-brand-teal">check_circle</span>
-                      <span>97.2% highest score achieved</span>
-                    </li>
-                    <li className="flex items-start gap-2.5 py-3 border-b border-brand-navy/5">
-                      <span className="material-symbols-outlined text-brand-teal">check_circle</span>
-                      <span>100% pass rate in Science</span>
-                    </li>
-                    <li className="flex items-start gap-2.5 py-3 border-b border-brand-navy/5">
-                      <span className="material-symbols-outlined text-brand-teal">check_circle</span>
-                      <span>94% pass rate in Commerce</span>
-                    </li>
-                    <li className="flex items-start gap-2.5 py-3 border-b border-brand-navy/5">
-                      <span className="material-symbols-outlined text-brand-teal">check_circle</span>
-                      <span>18+ students scored above 90%</span>
-                    </li>
-                    <li className="flex items-start gap-2.5 py-3">
-                      <span className="material-symbols-outlined text-brand-teal">check_circle</span>
-                      <span>3 students in state top 20</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div className="p-8 pt-0">
-                <Link to="/contact" className="w-full py-3 bg-brand-yellow hover:bg-[#E0B000] text-[#1F2937] font-bold rounded-lg uppercase text-xs tracking-wider transition-all text-center block">
-                  View SSC Details
-                </Link>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
       {/* SECTION 5 — HSC & SSC TOPPERS LIST (Side by Side Scroll lists) */}
-      <section className="py-stack_xl bg-white">
+      <section className="py-stack_xl bg-[#F5F0F7]">
         <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
 
           <div className="text-center max-w-2xl mx-auto mb-12" data-aos="fade-up">
@@ -525,6 +437,53 @@ function Results() {
                 Scroll inside list to view more ({sscToppers.length} students)
               </div>
             </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 4 — BOARD RESULTS (ICSE / SSC Side by Side) */}
+      <section className="py-stack_xl overflow-hidden">
+        <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
+
+          <div className="text-center max-w-2xl mx-auto mb-10" data-aos="fade-up">
+            <p className="text-brand-teal font-extrabold uppercase tracking-widest text-xs mb-3">COURSES OFFERED</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy mb-2 tracking-tight">
+              Programs<span className="text-brand-purple"> for Every Learner.</span>
+            </h2>
+            <div className="h-1 w-[40px] bg-brand-purple rounded-full mx-auto mb-4"></div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+            {[
+              { title: "ICSE Board", sub: "Class 7 to 10", color: "bg-brand-purple", points: ["Strong foundation in Mathematics & Science", "Concept-based learning approach", "Regular tests and performance analysis", "Individual attention for every student", "Board-oriented preparation strategy"] },
+              { title: "SSC Board", sub: "Class 7 to 10", color: "bg-brand-teal", points: ["Comprehensive syllabus coverage", "Focus on scoring and conceptual clarity", "Weekly assessments and revisions", "Dedicated doubt-solving sessions", "Structured board exam preparation"] },
+              { title: "CBSE Board", sub: "Class 7 to 10", color: "bg-brand-purple", points: ["NCERT-focused teaching methodology", "Emphasis on analytical thinking", "Continuous practice through worksheets", "Exam-oriented preparation techniques", "Personalized academic guidance"] },
+              { title: "HSC Science", sub: "Class 11 to 12", color: "bg-brand-teal", points: ["In-depth coverage of PCM/PCB subjects", "Strong focus on board examination success", "Regular practical and theory revision", "Chapter-wise testing and evaluation", "Board + Entrance Exam preparation"] },
+              { title: "HSC Commerce", sub: "Class 11 to 12", color: "bg-brand-purple", points: ["Expert guidance in Accounts & Economics", "Conceptual understanding of commerce subjects", "Board-focused preparation strategy", "Regular assessments and progress tracking", "Preparation for professional courses"] },
+              { title: "CA Foundation", sub: "Chartered Accountant", color: "bg-brand-teal", points: ["Comprehensive coverage of all foundation subjects", "Strong emphasis on conceptual clarity", "Exam-oriented problem-solving techniques", "Regular mock tests and evaluations", "Guidance from experienced faculty"] },
+              { title: "CMA", sub: "Cost and Management Accountant", color: "bg-brand-purple", points: ["Structured preparation for CMA examinations", "Focus on accounting and business concepts", "Practice-based learning methodology", "Continuous assessment and feedback", "Strategic exam preparation support"] },
+              { title: "B.Pharma", sub: "", color: "bg-brand-teal", points: ["Guidance in core pharmaceutical subjects", "Support for semester examinations", "Concept-based learning approach", "Assistance with practical understanding", "Regular academic progress monitoring"] },
+              { title: "D.Pharm", sub: "", color: "bg-brand-purple", points: ["Strong foundation in pharmacy education", "Simplified explanation of technical concepts", "Practical and theory-focused learning", "Semester exam preparation support", "Personalized academic mentoring"] },
+            ].map((card, idx) => (
+              <div key={idx} className="bg-white rounded-xl shadow-sm overflow-hidden flex flex-col border border-brand-navy/5" data-aos="fade-up" data-aos-delay={idx * 50}>
+                <div className={`${card.color} text-center py-5 px-4 text-white`}>
+                  <h3 className="text-lg font-bold font-poppins">{card.title}</h3>
+                  {card.sub && <p className="text-brand-yellow text-[10px] font-semibold uppercase tracking-wider mt-0.5">{card.sub}</p>}
+                </div>
+                <div className="p-6">
+                  <ul className="space-y-1.5">
+                    {card.points.map((point, i) => (
+                      <li key={i} className="flex items-start gap-2 py-1.5 border-b border-brand-navy/5 last:border-0">
+                        <span className="material-symbols-outlined text-brand-teal text-base leading-5">check_circle</span>
+                        <span className="text-sm text-brand-navy/75">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
 
           </div>
         </div>

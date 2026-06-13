@@ -184,10 +184,10 @@ function About() {
               <p className="text-brand-purple font-semibold text-sm mb-4">Founder & Curriculum Advisor</p>
               <div className="h-1 w-[40px] bg-brand-purple rounded-full mb-6"></div>
               <p className="text-gray-600 text-base leading-relaxed mb-6">
-                Mr. Ravindra Singh has spent over two decades in high school physics and curriculum curation. As a senior academic coordinator and ex-ICSE Board moderator, he designs the testing grids and analytical sheets at Vibrant Academy.
+                Mr. Ravindra Singh holds an M.Sc. and B.Ed. degree with over 20 years of experience teaching Mathematics. His clear teaching style and strong subject expertise have helped students consistently achieve excellent academic results.
               </p>
               <p className="text-gray-600 text-base leading-relaxed mb-6">
-                His structural diagnostic notes have guided hundreds of students to achieve 100/100 distinctions in board physics papers year after year.
+                At Vibrant Academy, he guides students with structured learning methods, regular assessments, and personalized support, helping them build confidence and a strong foundation in Mathematics.
               </p>
               <div className="flex gap-6 border-t border-brand-navy/5 pt-6">
                 <div>
@@ -195,7 +195,7 @@ function About() {
                   <p className="text-gray-400 text-xs uppercase tracking-wider mt-0.5">Teaching Experience</p>
                 </div>
                 <div>
-                  <h4 className="font-bold text-brand-teal text-lg">MA, B.Ed</h4>
+                  <h4 className="font-bold text-brand-teal text-lg">M.SC, B.ED, PHD</h4>
                   <p className="text-gray-400 text-xs uppercase tracking-wider mt-0.5">Qualifications</p>
                 </div>
               </div>
@@ -207,37 +207,58 @@ function About() {
       {/* SECTION 6 — FACULTY LISTING */}
       <section id="faculty" className="py-stack_xl bg-white border-t border-brand-navy/5">
         <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
-          <div className="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
-            <p className="text-brand-teal font-extrabold uppercase tracking-widest text-xs mb-3">Our Core Team</p>
+
+          <div className="text-center max-w-2xl mx-auto mb-14" data-aos="fade-up">
+            <p className="text-brand-teal font-extrabold uppercase tracking-widest text-xs mb-3">Our Faculty</p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy mb-2 tracking-tight">
-              Meet Our <span className="text-brand-purple">Mentors.</span>
+              Faculty <span className="text-brand-purple">Directory.</span>
             </h2>
             <div className="h-1 w-[40px] bg-brand-purple rounded-full mx-auto mb-4"></div>
+            <p className="text-gray-500 text-sm leading-relaxed">Qualified educators across all streams and boards committed to student excellence.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {mentors.map((mentor, idx) => (
-              <div 
-                key={idx}
-                className="bg-white rounded-xl p-8 border border-brand-navy/5 shadow-md flex flex-col items-center text-center hover:translate-y-[-6px] hover:shadow-xl transition-all duration-300"
-                data-aos="fade-up" 
-                data-aos-delay={idx * 100}
-              >
-                {mentor.avatar ? (
-                  <img alt={mentor.name} className="w-24 h-24 rounded-full object-cover border-2 border-brand-purple p-1 mb-6 shadow-md" src={mentor.avatar} />
-                ) : (
-                  <span className="material-symbols-outlined text-brand-purple/60 w-24 h-24 flex items-center justify-center text-[96px] mb-6">account_circle</span>
-                )}
-                <h4 className="font-bold text-brand-purple text-lg mb-1">{mentor.name}</h4>
-                <p className="text-brand-navy/60 text-xs font-semibold uppercase tracking-wider mb-2">{mentor.role}</p>
-                <div className="flex gap-2 justify-center mb-4">
-                  <span className="px-3 py-0.5 bg-brand-purple/10 text-brand-purple text-[10px] font-bold rounded-full uppercase tracking-wider">{mentor.exp}</span>
-                  <span className="px-3 py-0.5 bg-brand-teal/10 text-brand-teal text-[10px] font-bold rounded-full uppercase tracking-wider">{mentor.board}</span>
-                </div>
-                <p className="text-gray-500 text-sm leading-relaxed">{mentor.desc}</p>
+          {(() => {
+            const groups = {};
+            mentors.forEach(m => {
+              if (!groups[m.subject]) groups[m.subject] = [];
+              groups[m.subject].push(m);
+            });
+
+            const order = ['Mathematics', 'Physics', 'Chemistry', 'Biology', 'English', 'Marathi', 'Hindi', 'History & Civics', 'Geography & Economics', 'Computer Science', 'O.C.M.', 'S.P.', 'Book Keeping & Accountancy'];
+            const sortedKeys = [...order.filter(k => groups[k]), ...Object.keys(groups).filter(k => !order.includes(k))];
+
+            const headingColors = ['bg-brand-purple', 'bg-brand-teal'];
+
+            return (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {sortedKeys.map((subject, si) => (
+                  <div key={si} className="bg-white border border-brand-navy/10 rounded-xl shadow-sm overflow-hidden" data-aos="fade-up" data-aos-delay={(si % 3) * 80}>
+                    {/* Subject heading with colored background */}
+                    <div className={`${headingColors[si % headingColors.length]} px-6 py-4`}>
+                      <h3 className="text-base font-extrabold uppercase tracking-[0.15em] text-white">{subject}</h3>
+                    </div>
+                    {/* Faculty rows */}
+                    <ul className="divide-y divide-brand-navy/5">
+                      {groups[subject].map((f, fi) => (
+                        <li key={fi} className="px-6 py-4">
+                          <div className="flex items-start justify-between gap-3">
+                            <div className="flex-1 min-w-0">
+                              <p className="font-semibold text-brand-navy text-sm leading-snug">{f.name}</p>
+                              <p className="text-gray-400 text-xs mt-0.5">{f.qualification}</p>
+                            </div>
+                            {f.exp && (
+                              <span className="flex-shrink-0 text-[9px] font-bold uppercase tracking-wider text-brand-purple bg-brand-purple/10 border border-brand-purple/20 rounded px-2 py-0.5 mt-0.5 whitespace-nowrap">{f.exp}</span>
+                            )}
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            );
+          })()}
+
         </div>
       </section>
 
