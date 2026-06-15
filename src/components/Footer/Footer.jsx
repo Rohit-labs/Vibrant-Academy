@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaWhatsapp, FaInstagram, FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import { SiGmail } from 'react-icons/si';
 import './Footer.css';
 
 function Footer() {
@@ -26,8 +27,11 @@ function Footer() {
                 <a className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-[#25D366] transition-all" href="https://wa.me/919137964830" target="_blank" rel="noreferrer" aria-label="WhatsApp">
                   <FaWhatsapp size={18} />
                 </a>
-                <a className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-brand-teal transition-all" href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram">
+                <a className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-gradient-to-br hover:from-[#833AB4] hover:via-[#E1306C] hover:to-[#F77737] transition-all" href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram">
                   <FaInstagram size={18} />
+                </a>
+                <a className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-[#EA4335] transition-all" href="mailto:info@vibrantacademy.com" aria-label="Gmail">
+                  <SiGmail size={18} />
                 </a>
               </div>
             </div>

@@ -36,7 +36,7 @@ function Contact() {
         const isClass7to10 = ['Class 7', 'Class 8', 'Class 9', 'Class 10'].includes(value);
         const isClass11to12 = ['Class 11', 'Class 12'].includes(value);
         const isPharma = ['D.Pharm', 'B.Pharm'].includes(value);
-        const isCAorCMA = ['Chartered Accountant (CA)', 'Cost and Management Accountant (CMA)'].includes(value);
+        const isCAorCMA = ['Chartered Accountant Foundation(CA)', 'Cost and Management Accountant (CMA)'].includes(value);
         
         if (isClass7to10) {
           updated.examination = 'Plain Boards';
@@ -65,30 +65,25 @@ function Contact() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-
-    setTimeout(() => {
+    try {
+      const data = new FormData();
+      data.append('access_key', '90a3264e-e1e4-46a4-83d9-2ec67c545d4c');
+      Object.entries(formData).forEach(([k, v]) => data.append(k, v));
+      await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
       setSubmittedInfo({ name: formData.name, phone: formData.phone });
-      setFormData({
-        name: '',
-        parentName: '',
-        phone: '',
-        gender: '',
-        standard: '',
-        examination: 'Plain Boards',
-        stream: '',
-        board: '',
-        message: ''
-      });
+      setFormData({ name: '', parentName: '', phone: '', gender: '', standard: '', examination: 'Plain Boards', stream: '', board: '', message: '' });
       setIsSubmitting(false);
       setShowThankYou(true);
-    }, 2000);
+    } catch {
+      setIsSubmitting(false);
+    }
   };
 
   const showExamAndStream = ['Class 11', 'Class 12'].includes(formData.standard);
-  const showBoard = !['B.Pharm', 'D.Pharm', 'Chartered Accountant (CA)', 'Cost and Management Accountant (CMA)'].includes(formData.standard);
+  const showBoard = !['B.Pharm', 'D.Pharm', 'Chartered Accountant Foundation(CA)', 'Cost and Management Accountant (CMA)'].includes(formData.standard);
 
   return (
     <div className="contact-page bg-gray-50 min-h-screen">
@@ -224,6 +219,9 @@ function Contact() {
                     placeholder="Mobile Number"
                     className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold"
                     required
+                    inputMode="numeric"
+                    pattern="[0-9]*"
+                    onKeyDown={(e) => { if (!/[0-9]|Backspace|Delete|Tab|ArrowLeft|ArrowRight/.test(e.key)) e.preventDefault(); }}
                   />
                 </div>
 
@@ -264,7 +262,7 @@ function Contact() {
                     <option value="Class 12">Class 12</option>
                     <option value="B.Pharm">B.Pharm</option>
                     <option value="D.Pharm">D.Pharm</option>
-                    <option value="Chartered Accountant (CA)">Chartered Accountant (CA)</option>
+                    <option value="Chartered Accountant (CA)">Chartered Accountant Foundation(CA)</option>
                     <option value="Cost and Management Accountant (CMA)">Cost and Management Accountant (CMA)</option>
                   </select>
                 </div>

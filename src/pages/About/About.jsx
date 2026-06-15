@@ -224,8 +224,7 @@ function About() {
               groups[m.subject].push(m);
             });
 
-            const order = ['Mathematics', 'Physics', 'Chemistry', 'Biology', 'English', 'Marathi', 'Hindi', 'History & Civics', 'Geography & Economics', 'Computer Science', 'O.C.M.', 'S.P.', 'Book Keeping & Accountancy'];
-            const sortedKeys = [...order.filter(k => groups[k]), ...Object.keys(groups).filter(k => !order.includes(k))];
+            const sortedKeys = Object.keys(groups).sort((a, b) => groups[b].length - groups[a].length);
 
             const headingColors = ['bg-brand-purple', 'bg-brand-teal'];
 
