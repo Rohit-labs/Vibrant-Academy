@@ -27,10 +27,10 @@ function Footer() {
                 <a className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-[#25D366] transition-all" href="https://wa.me/919137964830" target="_blank" rel="noreferrer" aria-label="WhatsApp">
                   <FaWhatsapp size={18} />
                 </a>
-                <a className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-gradient-to-br hover:from-[#833AB4] hover:via-[#E1306C] hover:to-[#F77737] transition-all" href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram">
+                <a className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-gradient-to-br hover:from-[#833AB4] hover:via-[#E1306C] hover:to-[#F77737] transition-all" href="https://www.instagram.com/vibrant_academy12?igsh=MW9mMzdveXMxN2s3ZQ%3D%3D&utm_source=qr" target="_blank" rel="noreferrer" aria-label="Instagram">
                   <FaInstagram size={18} />
                 </a>
-                <a className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-[#EA4335] transition-all" href="mailto:info@vibrantacademy.com" aria-label="Gmail">
+                <a className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-[#EA4335] transition-all" href="mailto:vibrantacademy@gmail.com" aria-label="Gmail">
                   <SiGmail size={18} />
                 </a>
               </div>
@@ -76,7 +76,7 @@ function Footer() {
                 </li>
                 <li className="flex items-center gap-3">
                   <FaEnvelope className="text-brand-teal text-lg" />
-                  <a href="mailto:info@vibrantacademy.com" className="text-white/60 hover:text-white transition-colors">info@vibrantacademy.com</a>
+                  <a href="mailto:vibrantacademy@gmail.com" className="text-white/60 hover:text-white transition-colors">vibrantacademy@gmail.com</a>
                 </li>
               </ul>
             </div>

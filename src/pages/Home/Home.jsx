@@ -536,8 +536,8 @@ function Home() {
                   </div>
                   <div className="min-w-0">
                     <p className="text-[9px] font-bold text-gray-400 uppercase tracking-wider">Email</p>
-                    <a href="mailto:info@vibrantacademy.com" className="text-[11px] font-semibold text-brand-navy hover:text-brand-purple transition-colors truncate block">
-                      info@vibrantacademy.com
+                    <a href="mailto:vibrantacademy@gmail.com" className="text-[11px] font-semibold text-brand-navy hover:text-brand-purple transition-colors truncate block">
+                      vibrantacademy@gmail.com
                     </a>
                   </div>
                 </div>
