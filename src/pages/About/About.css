@@ -2,3 +2,116 @@
 .about-page {
   scroll-behavior: smooth;
 }
+
+/* Collage containers */
+.collage-outer-wrapper {
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.collage-container {
+  position: relative;
+  left: 50%;
+  transform-origin: top center;
+  transition: transform 0.2s ease, height 0.2s ease;
+}
+
+.diamond-wrapper {
+  position: absolute;
+  overflow: hidden;
+  transform: rotate(45deg);
+  border: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  background: #eaeaea;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+  z-index: 10;
+}
+
+.diamond-wrapper:hover {
+  transform: rotate(45deg) scale(1.05);
+  box-shadow: 0 16px 36px rgba(123, 45, 139, 0.25);
+  z-index: 20;
+}
+
+/* Dimensions */
+.diamond-large {
+  width: 220px;
+  height: 220px;
+}
+
+.diamond-medium {
+  width: 140px;
+  height: 140px;
+}
+
+.diamond-small {
+  width: 80px;
+  height: 80px;
+}
+
+/* Image inside rotated diamond - counter rotate by -45deg and scale slightly to avoid borders */
+.diamond-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 145%;
+  height: 145%;
+  object-fit: cover;
+  transform: translate(-50%, -50%) rotate(-45deg) scale(1);
+  transform-origin: center center;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
+}
+
+.diamond-wrapper:hover .diamond-img {
+  transform: translate(-50%, -50%) rotate(-45deg) scale(1.12);
+}
+
+/* Semi-transparent hover overlay */
+.diamond-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(123, 45, 139, 0.45); /* Brand-purple overlay */
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.35s ease;
+  z-index: 15;
+}
+
+.diamond-wrapper:hover .diamond-overlay {
+  opacity: 1;
+}
+
+/* Zoom icon inside overlay - counter rotated so it is upright */
+.zoom-icon {
+  color: #ffffff;
+  font-size: 24px;
+  transform: rotate(-45deg);
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.25));
+  transition: transform 0.3s ease;
+}
+
+.diamond-wrapper:hover .zoom-icon {
+  transform: rotate(-45deg) scale(1.15);
+}
+
+/* Lightbox Animation */
+.animate-fade-in {
+  animation: lightboxFadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes lightboxFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

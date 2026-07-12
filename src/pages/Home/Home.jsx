@@ -15,7 +15,8 @@ function Home() {
   const [quickForm, setQuickForm] = useState({
     name: '',
     phone: '',
-    standard: ''
+    standard: '',
+    school: ''
   });
   const [activeFAQIndex, setActiveFAQIndex] = useState(null);
 
@@ -72,11 +73,12 @@ function Home() {
       data.append('name', quickForm.name);
       data.append('phone', quickForm.phone);
       data.append('standard', quickForm.standard);
+      data.append('school', quickForm.school);
       await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
       setSubmittedInfo({ name: quickForm.name, phone: quickForm.phone });
       setIsSubmitting(false);
       setShowEnquiryModal(false);
-      setQuickForm({ name: '', phone: '', standard: '' });
+      setQuickForm({ name: '', phone: '', standard: '', school: '' });
       setShowThankYou(true);
     } catch {
       setIsSubmitting(false);
@@ -86,7 +88,7 @@ function Home() {
   const closeEnquiryModal = () => {
     setShowEnquiryModal(false);
     setSubmitted(false);
-    setQuickForm({ name: '', phone: '', standard: '' });
+    setQuickForm({ name: '', phone: '', standard: '', school: '' });
   };
 
   const [formData, setFormData] = useState({
@@ -239,37 +241,27 @@ function Home() {
 
 
 
-      {/* SECTION 1 — HERO */}
-      <section className="mt-[70px] relative h-[380px] md:h-[70vh] w-full overflow-hidden hero-pattern">
-        <div className="flex flex-col md:flex-row w-full h-full ">
-          <div className="hidden md:flex w-full md:w-[45%] h-[250px] md:h-full relative overflow-hidden items-center justify-center object-cover ">
-            <img
-              alt="Vibrant Academy Entrance"
-              className="w-[95%] h-[95%] mx-auto rounded-xl"
-              src="/images/Classes photos/Classes entrance.png"
-            />
-            <div className="absolute inset-0  pointer-events-none"></div>
-          </div>
-          <div className="w-full md:w-[55%] flex items-start md:items-center px-margin_mobile pt-6 pb-20 md:p-stack_xl ">
-            <div className="max-w-xl mx-auto md:mx-0 ">
-              <div className="inline-flex items-center gap-2 mb-2 md:mb-3">
-                <span className="h-px w-8 bg-brand-teal "></span>
-                <span className="font-dancing text-brand-teal text-lg md:text-xl">Believe in Excellence...</span>
-              </div>
-              <h1 className="text-2xl md:text-5xl lg:text-6xl font-extrabold text-brand-teal mb-2 md:mb-4 tracking-tight leading-tight">
-                Welcome to <br /><span className="text-brand-purple">Vibrant Academy.</span>
-              </h1>
-              <p className="text-gray-500 text-sm md:text-lg leading-relaxed mb-4 md:mb-6">
-                Crafting academic success stories through highly personalized mentorship, comprehensive curriculum guides, and expert-led board coaching since 2002.
-              </p>
-              <div className="flex gap-4">
-                <button onClick={() => setShowEnquiryModal(true)} className="px-6 py-3 bg-brand-yellow hover:bg-[#E0B000] text-[#1F2937] font-bold rounded-lg shadow-md transition-all text-xs uppercase tracking-wider">
-                  Apply Now
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+      {/* SECTION 1 — HERO (Full Image Banner) */}
+      <section className="mt-[60px] relative w-full overflow-hidden h-auto md:h-[calc(100vh-60px)]">
+        {/* Desktop Banner */}
+        <img
+          src="/images/home_hero_banner.png"
+          alt="Vibrant Academy Toppers Banner"
+          className="hidden md:block w-full h-full object-cover"
+          style={{ objectPosition: 'center 20%' }}
+        />
+        {/* Mobile Banner */}
+        <img
+          src="/images/hero banner mobile.png"
+          alt="Vibrant Academy Toppers Banner Mobile"
+          className="block md:hidden w-full h-auto object-contain"
+        />
+        <button 
+          onClick={() => setShowEnquiryModal(true)}
+          className="absolute bottom-4 left-4 md:bottom-12 md:left-12 z-50 px-5 py-2.5 md:px-8 md:py-3.5 bg-brand-yellow text-brand-purple font-extrabold rounded-lg shadow-lg border-2 border-brand-purple/20 apply-now-btn uppercase tracking-wider text-[10px] md:text-sm pointer-events-auto"
+        >
+          Apply Now
+        </button>
       </section>
       {/* SECTION 6 — RESULTS BANNER (TOPPERS STRIP) */}
       <section className="py-stack_xl bg-white border-t border-brand-navy/5">
@@ -411,14 +403,14 @@ function Home() {
             </button>
 
             <div className="mb-6">
-              <span className="font-dancing text-brand-teal text-xl block mb-1">Request a Free Counselling Session</span>
-              <h3 className="text-2xl md:text-3xl font-extrabold text-brand-navy tracking-tight">Quick Enquiry</h3>
+              <span className="font-dancing text-brand-teal text-xl block mb-1">Begin Your Journey to Excellence</span>
+              <h3 className="text-2xl md:text-3xl font-extrabold text-brand-navy tracking-tight">Admission Application</h3>
             </div>
 
             {submitted ? (
               <div className="bg-brand-teal/10 border border-brand-teal/20 text-brand-teal p-6 rounded-xl text-center font-bold">
                 <span className="material-symbols-outlined text-4xl mb-2 block">check_circle</span>
-                Thank you! Your academic enquiry has been submitted. We will contact you at {quickForm.phone} within 24 hours.
+                Thank you! Your application has been submitted. We will contact you at {quickForm.phone} within 24 hours.
               </div>
             ) : (
               <form onSubmit={handleQuickSubmit} className="space-y-4">
@@ -430,7 +422,7 @@ function Home() {
                     name="name"
                     value={quickForm.name}
                     onChange={handleQuickChange}
-                    placeholder="Enter Name"
+                    placeholder="Enter Student Name"
                     required
                     className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 text-brand-navy placeholder-gray-400 focus:bg-white focus:border-brand-teal transition-all outline-none text-sm"
                   />
@@ -438,16 +430,16 @@ function Home() {
 
                 {/* Field 2: Phone */}
                 <div className="space-y-1.5">
-                  <label className="text-xs font-semibold uppercase tracking-wider text-gray-600 ml-1">Phone Number</label>
+                  <label className="text-xs font-semibold uppercase tracking-wider text-gray-600 ml-1">Mobile Number</label>
                   <input
                     type="tel"
                     name="phone"
                     value={quickForm.phone}
                     onChange={handleQuickChange}
-                    placeholder="Enter Phone"
+                    placeholder="Enter 10-digit Mobile Number"
                     required
                     inputMode="numeric"
-                    pattern="[0-9]*"
+                    pattern="[0-9]{10}"
                     onKeyDown={(e) => { if (!/[0-9]|Backspace|Delete|Tab|ArrowLeft|ArrowRight/.test(e.key)) e.preventDefault(); }}
                     className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 text-brand-navy placeholder-gray-400 focus:bg-white focus:border-brand-teal transition-all outline-none text-sm"
                   />
@@ -477,13 +469,27 @@ function Home() {
                   </select>
                 </div>
 
+                {/* Field 4: School */}
+                <div className="space-y-1.5">
+                  <label className="text-xs font-semibold uppercase tracking-wider text-gray-600 ml-1">School / College Name</label>
+                  <input
+                    type="text"
+                    name="school"
+                    value={quickForm.school}
+                    onChange={handleQuickChange}
+                    placeholder="Enter School or College Name"
+                    required
+                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 text-brand-navy placeholder-gray-400 focus:bg-white focus:border-brand-teal transition-all outline-none text-sm"
+                  />
+                </div>
+
                 {/* Submit Button */}
                 <button
                   type="submit"
                   disabled={isSubmitting}
                   className="w-full py-3 bg-brand-yellow hover:bg-brand-yellow/90 disabled:bg-brand-yellow/60 text-[#1F2937] font-bold rounded-lg transition-all text-xs uppercase tracking-widest shadow-lg"
                 >
-                  {isSubmitting ? 'Submitting...' : 'Enquire Now'}
+                  {isSubmitting ? 'Submitting...' : 'Apply Now'}
                 </button>
               </form>
             )}
@@ -751,50 +757,38 @@ function Home() {
         </div>
       </section>
 
-      {/* SECTION 4 — HIGHER SECONDARY SECTION */}
+      {/* SECTION 4 — WHY CHOOSE US SECTION */}
       <section className="py-stack_xl bg-[#F5F0F7] overflow-hidden">
         <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
-          <div className="flex flex-col lg:flex-row items-center gap-16">
-            <div className="w-full lg:w-1/2" data-aos="fade-right">
-              <div className="inline-flex items-center gap-2 mb-4">
-                <span className="h-px w-8 bg-brand-teal"></span>
-                <span className="font-dancing text-brand-teal text-xl">Powered by S.S. Classes </span>
-              </div>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy mb-4 tracking-tight leading-tight">
-                Why Choose <br /><span className="text-brand-purple">Vibrant Academy?</span>
-              </h2>
-              <div className="h-1 w-[40px] bg-brand-purple rounded-full mb-6"></div>
-              <p className="text-gray-600 text-base leading-relaxed mb-8">
-                We provide comprehensive coaching programs for SSC, ICSE, and CBSE students from Classes 7 to 10, along with specialized guidance for Science, Commerce, and Pharmacy aspirants. Our structured teaching approach focuses on conceptual understanding, academic excellence, and career-oriented preparation.
-              </p>
-              <div className="space-y-4 mb-8">
-                <div className="flex items-start gap-3">
-                  <span className="material-symbols-outlined text-brand-teal mt-0.5">check_circle</span>
-                  <span className="text-sm font-medium text-brand-navy/80">ICSE, SSC, CBSE state board integration models</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="material-symbols-outlined text-brand-teal mt-0.5">check_circle</span>
-                  <span className="text-sm font-medium text-brand-navy/80">JEE, NEET, MHT-CET & Plain Boards Preparation</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="material-symbols-outlined text-brand-teal mt-0.5">check_circle</span>
-                  <span className="text-sm font-medium text-brand-navy/80">CA & CMA Foundation Coaching</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="material-symbols-outlined text-brand-teal mt-0.5">check_circle</span>
-                  <span className="text-sm font-medium text-brand-navy/80">B.Pharm & D.Pharm Support</span>
-                </div>
-              </div>
+          <div className="max-w-3xl mx-auto" data-aos="fade-up">
+            <div className="inline-flex items-center gap-2 mb-4">
+              <span className="h-px w-8 bg-brand-teal"></span>
+              <span className="font-dancing text-brand-teal text-xl">Powered by S.S. Classes </span>
             </div>
-            <div className="w-full lg:w-1/2 relative" data-aos="fade-left">
-              <div className="rounded-2xl overflow-hidden shadow-2xl">
-                <img
-                  alt="High School Study Environment"
-                  className="w-full h-[350px] md:h-[450px] object-cover"
-                  src="/images/teaching photos/PTA meeting.jpeg"
-                />
+            <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy mb-4 tracking-tight leading-tight">
+              Why Choose <span className="text-brand-purple">Vibrant Academy?</span>
+            </h2>
+            <div className="h-1 w-[40px] bg-brand-purple rounded-full mb-6"></div>
+            <p className="text-gray-600 text-base leading-relaxed mb-8">
+              We provide comprehensive coaching programs for SSC, ICSE, and CBSE students from Classes 7 to 10, along with specialized guidance for Science, Commerce, and Pharmacy aspirants. Our structured teaching approach focuses on conceptual understanding, academic excellence, and career-oriented preparation.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+              <div className="flex items-start gap-3 bg-white p-4 rounded-xl border border-brand-purple/5 shadow-sm">
+                <span className="material-symbols-outlined text-brand-teal mt-0.5">check_circle</span>
+                <span className="text-sm font-semibold text-brand-navy/80">ICSE, SSC, CBSE state board integration models</span>
               </div>
-
+              <div className="flex items-start gap-3 bg-white p-4 rounded-xl border border-brand-purple/5 shadow-sm">
+                <span className="material-symbols-outlined text-brand-teal mt-0.5">check_circle</span>
+                <span className="text-sm font-semibold text-brand-navy/80">JEE, NEET, MHT-CET & Plain Boards Preparation</span>
+              </div>
+              <div className="flex items-start gap-3 bg-white p-4 rounded-xl border border-brand-purple/5 shadow-sm">
+                <span className="material-symbols-outlined text-brand-teal mt-0.5">check_circle</span>
+                <span className="text-sm font-semibold text-brand-navy/80">CA & CMA Foundation Coaching</span>
+              </div>
+              <div className="flex items-start gap-3 bg-white p-4 rounded-xl border border-brand-purple/5 shadow-sm">
+                <span className="material-symbols-outlined text-brand-teal mt-0.5">check_circle</span>
+                <span className="text-sm font-semibold text-brand-navy/80">B.Pharm & D.Pharm Support</span>
+              </div>
             </div>
           </div>
         </div>

@@ -29,7 +29,7 @@ function Navbar() {
 
   return (
     <>
-      <nav className={`navbar fixed top-0 w-full h-[70px] bg-white z-[100] border-b border-brand-navy/5 shadow-sm transition-all duration-300 ${scrolled ? 'scrolled shadow-md' : ''}`} style={{ boxShadow: 'rgba(0, 0, 0, 0.08) 0px 2px 20px' }}>
+      <nav className={`navbar fixed top-0 w-full h-[60px] bg-white z-[100] border-b border-brand-navy/5 shadow-sm transition-all duration-300 ${scrolled ? 'scrolled shadow-md' : ''}`} style={{ boxShadow: 'rgba(0, 0, 0, 0.08) 0px 2px 20px' }}>
         <div className="flex justify-between items-center h-full px-margin_mobile md:px-gutter max-w-container_max_width mx-auto">
 
           <Link to="/" className="h-10 md:h-[48px] flex items-center gap-0">

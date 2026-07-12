@@ -178,3 +178,84 @@
     padding-left: 32px;
   }
 }
+
+/* Custom Swiper styling for Hero Carousel */
+.home-hero-carousel {
+  --swiper-theme-color: #7B2D8B; /* brand-purple */
+  --swiper-navigation-size: 28px;
+}
+
+.home-hero-carousel .swiper-button-next,
+.home-hero-carousel .swiper-button-prev {
+  background-color: rgba(255, 255, 255, 0.75);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  color: #7B2D8B;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(4px);
+}
+
+.home-hero-carousel .swiper-button-next:hover,
+.home-hero-carousel .swiper-button-prev:hover {
+  background-color: #7B2D8B;
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+.home-hero-carousel .swiper-button-next::after,
+.home-hero-carousel .swiper-button-prev::after {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.home-hero-carousel .swiper-pagination-bullet {
+  background: #ffffff;
+  opacity: 0.65;
+  width: 10px;
+  height: 10px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.home-hero-carousel .swiper-pagination-bullet-active {
+  background: #7B2D8B;
+  opacity: 1;
+  width: 24px;
+  border-radius: 5px;
+}
+
+/* Attention grabbing Apply Now button animation (glow + vibration pulse) */
+@keyframes apply-glow-vibrate {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(224, 176, 0, 0.7), 0 4px 14px rgba(0, 0, 0, 0.15);
+    transform: scale(1);
+  }
+  15% {
+    transform: scale(1.05) rotate(1.5deg);
+  }
+  20% {
+    transform: scale(1.05) rotate(-1.5deg);
+  }
+  25% {
+    transform: scale(1.05) rotate(1.5deg);
+  }
+  30% {
+    transform: scale(1.05) rotate(0deg);
+  }
+  50% {
+    box-shadow: 0 0 0 15px rgba(224, 176, 0, 0), 0 6px 20px rgba(123, 45, 139, 0.25);
+    transform: scale(1);
+  }
+}
+
+.apply-now-btn {
+  animation: apply-glow-vibrate 2.5s infinite ease-in-out;
+  transition: all 0.3s ease;
+}
+
+.apply-now-btn:hover {
+  animation-play-state: paused;
+  transform: scale(1.1) !important;
+  box-shadow: 0 8px 25px rgba(123, 45, 139, 0.4);
+}

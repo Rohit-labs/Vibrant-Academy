@@ -173,43 +173,55 @@ function Results() {
   return (
     <div className="results-page">
 
-      {/* SECTION 1 — PAGE HERO (Split Layout) */}
-      <section className="mt-[70px] flex flex-col md:flex-row md:h-[70vh] overflow-hidden hero-pattern">
-        <div className="w-full md:w-[45%] h-[250px] md:h-auto relative overflow-hidden flex items-center justify-center">
-          <img
-            alt="Celebrating Students Results"
-            className="w-[95%] h-[95%] object-cover rounded-r-none md:rounded-r-[24px]"
-            src="/images/teaching photos/Award Photo.jpeg"
-          />
-        </div>
-        <div className="w-full md:w-[55%] flex items-center hero-pattern p-margin_mobile md:p-stack_xl">
-          <div className="max-w-xl mx-auto md:mx-0" data-aos="fade-left">
-            <div className="inline-flex items-center gap-2 mb-4">
-              <span className="h-px w-8 bg-brand-teal"></span>
-              <span className="font-dancing text-brand-teal text-xl">Believe in Excellence...</span>
-            </div>
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-brand-navy mb-4 tracking-tight leading-tight">
-              Our Student <br /><span className="text-brand-purple">Results.</span>
-            </h1>
-            <div className="h-1 w-[40px] bg-brand-purple rounded-full mb-6"></div>
-            <p className="text-gray-500 text-base md:text-lg leading-relaxed mb-6">
-              We are proud of every student who has walked through our doors. Their success is our greatest achievement and the true measure of our excellence.
-            </p>
-            <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs font-semibold uppercase tracking-wider text-brand-navy/60 mb-8">
-              <span className="flex items-center gap-1"><span className="material-symbols-outlined text-brand-purple text-base">check_circle</span> HSC Toppers</span>
-              <span className="flex items-center gap-1"><span className="material-symbols-outlined text-brand-purple text-base">check_circle</span> SSC Toppers</span>
-              <span className="flex items-center gap-1"><span className="material-symbols-outlined text-brand-purple text-base">check_circle</span> 100% Pass Rate</span>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#toppers" className="px-8 py-3.5 border-2 border-brand-purple hover:bg-brand-purple hover:text-white text-brand-purple font-bold rounded-lg transition-all text-sm uppercase tracking-wider text-center">
-                View Toppers
-              </a>
-              <Link to="/contact" className="px-8 py-3.5 bg-brand-yellow hover:bg-[#E0B000] text-[#1F2937] font-bold rounded-lg shadow-md hover:translate-y-[-2px] active:scale-95 transition-all text-sm uppercase tracking-wider text-center">
-                Enquire Now
-              </Link>
-            </div>
-          </div>
-        </div>
+      {/* SECTION 1 — PAGE HERO (Full Image Banner Carousel) */}
+      <section className="mt-[60px] relative w-full overflow-hidden h-auto md:h-[calc(100vh-60px)] results-hero-carousel">
+        <Swiper
+          modules={[Autoplay, Pagination, Navigation]}
+          spaceBetween={0}
+          slidesPerView={1}
+          autoplay={{ delay: 5000, disableOnInteraction: false }}
+          pagination={{ clickable: true }}
+          navigation={true}
+          loop={true}
+          className="w-full h-full"
+        >
+          <SwiperSlide className="w-full h-auto md:h-full">
+            {/* Desktop Banner */}
+            <img
+              src="/images/hero banner 2.png"
+              alt="Vibrant Academy SSC Toppers Banner"
+              className="hidden md:block w-full h-full object-cover"
+              style={{ objectPosition: 'center 14%' }}
+            />
+            {/* Mobile Banner */}
+            <img
+              src="/images/hero banner 2 mobile.png"
+              alt="Vibrant Academy SSC Toppers Banner Mobile"
+              className="block md:hidden w-full h-auto object-contain"
+            />
+          </SwiperSlide>
+          <SwiperSlide className="w-full h-auto md:h-full">
+            {/* Desktop Banner */}
+            <img
+              src="/images/hero banner 3.png"
+              alt="Vibrant Academy Achievers Banner"
+              className="hidden md:block w-full h-full object-cover"
+              style={{ objectPosition: 'center 11%' }}
+            />
+            {/* Mobile Banner */}
+            <img
+              src="/images/hero banner 3 mobile.png"
+              alt="Vibrant Academy Achievers Banner Mobile"
+              className="block md:hidden w-full h-auto object-contain"
+            />
+          </SwiperSlide>
+        </Swiper>
+        <Link 
+          to="/contact" 
+          className="absolute bottom-4 left-4 md:bottom-12 md:left-12 z-50 px-5 py-2.5 md:px-8 md:py-3.5 bg-brand-yellow text-brand-purple font-extrabold rounded-lg shadow-lg border-2 border-brand-purple/20 results-apply-now-btn uppercase tracking-wider text-[10px] md:text-sm pointer-events-auto"
+        >
+          Apply Now
+        </Link>
       </section>
 
       {/* SECTION 2 — ESTABLISHED METRICS */}
@@ -442,52 +454,7 @@ function Results() {
         </div>
       </section>
 
-      {/* SECTION 4 — BOARD RESULTS (ICSE / SSC Side by Side) */}
-      <section className="py-stack_xl overflow-hidden">
-        <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
 
-          <div className="text-center max-w-2xl mx-auto mb-10" data-aos="fade-up">
-            <p className="text-brand-teal font-extrabold uppercase tracking-widest text-xs mb-3">COURSES OFFERED</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy mb-2 tracking-tight">
-              Programs<span className="text-brand-purple"> for Every Learner.</span>
-            </h2>
-            <div className="h-1 w-[40px] bg-brand-purple rounded-full mx-auto mb-4"></div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-
-            {[
-              { title: "ICSE Board", sub: "Class 7 to 10", color: "bg-brand-purple", points: ["Strong foundation in Mathematics & Science", "Concept-based learning approach", "Regular tests and performance analysis", "Individual attention for every student", "Board-oriented preparation strategy"] },
-              { title: "SSC Board", sub: "Class 7 to 10", color: "bg-brand-teal", points: ["Comprehensive syllabus coverage", "Focus on scoring and conceptual clarity", "Weekly assessments and revisions", "Dedicated doubt-solving sessions", "Structured board exam preparation"] },
-              { title: "CBSE Board", sub: "Class 7 to 10", color: "bg-brand-purple", points: ["NCERT-focused teaching methodology", "Emphasis on analytical thinking", "Continuous practice through worksheets", "Exam-oriented preparation techniques", "Personalized academic guidance"] },
-              { title: "HSC Science", sub: "Class 11 to 12", color: "bg-brand-teal", points: ["In-depth coverage of PCM/PCB subjects", "Strong focus on board examination success", "Regular practical and theory revision", "Chapter-wise testing and evaluation", "Board + Entrance Exam preparation"] },
-              { title: "HSC Commerce", sub: "Class 11 to 12", color: "bg-brand-purple", points: ["Expert guidance in Accounts & Economics", "Conceptual understanding of commerce subjects", "Board-focused preparation strategy", "Regular assessments and progress tracking", "Preparation for professional courses"] },
-              { title: "CA Foundation", sub: "Chartered Accountant", color: "bg-brand-teal", points: ["Comprehensive coverage of all foundation subjects", "Strong emphasis on conceptual clarity", "Exam-oriented problem-solving techniques", "Regular mock tests and evaluations", "Guidance from experienced faculty"] },
-              { title: "CMA", sub: "Cost and Management Accountant", color: "bg-brand-purple", points: ["Structured preparation for CMA examinations", "Focus on accounting and business concepts", "Practice-based learning methodology", "Continuous assessment and feedback", "Strategic exam preparation support"] },
-              { title: "B.Pharma", sub: "", color: "bg-brand-teal", points: ["Guidance in core pharmaceutical subjects", "Support for semester examinations", "Concept-based learning approach", "Assistance with practical understanding", "Regular academic progress monitoring"] },
-              { title: "D.Pharm", sub: "", color: "bg-brand-purple", points: ["Strong foundation in pharmacy education", "Simplified explanation of technical concepts", "Practical and theory-focused learning", "Semester exam preparation support", "Personalized academic mentoring"] },
-            ].map((card, idx) => (
-              <div key={idx} className="bg-white rounded-xl shadow-sm overflow-hidden flex flex-col border border-brand-navy/5" data-aos="fade-up" data-aos-delay={idx * 50}>
-                <div className={`${card.color} text-center py-5 px-4 text-white`}>
-                  <h3 className="text-lg font-bold font-poppins">{card.title}</h3>
-                  {card.sub && <p className="text-brand-yellow text-[10px] font-semibold uppercase tracking-wider mt-0.5">{card.sub}</p>}
-                </div>
-                <div className="p-6">
-                  <ul className="space-y-1.5">
-                    {card.points.map((point, i) => (
-                      <li key={i} className="flex items-start gap-2 py-1.5 border-b border-brand-navy/5 last:border-0">
-                        <span className="material-symbols-outlined text-brand-teal text-base leading-5">check_circle</span>
-                        <span className="text-sm text-brand-navy/75">{point}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
-
-          </div>
-        </div>
-      </section>
 
       {/* SECTION 6 — TESTIMONIALS CAROUSEL (Group of 3 Student Cards) */}
       <section className="py-stack_xl bg-[#F5F0F7] border-t border-brand-navy/5">

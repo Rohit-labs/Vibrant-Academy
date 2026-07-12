@@ -1,21 +1,232 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { FaSearchPlus, FaTimes } from 'react-icons/fa';
 import AOS from 'aos';
 import './About.css';
 import mentors from '../../data/mentors';
 
+const desktopCoordinates = {
+  1: { left: 286, top: 269 },
+  2: { left: 29, top: 577 },
+  3: { left: 354, top: 535 },
+  4: { left: 750, top: 365 },
+  5: { left: 46, top: 198 },
+  6: { left: 255, top: 634 },
+  7: { left: 101, top: 70 },
+  8: { left: 453, top: 634 },
+  9: { left: 470, top: 396 },
+  10: { left: 439, top: 167 },
+  11: { left: 654, top: 523 },
+  12: { left: 17, top: 42 },
+  13: { left: 130, top: 424 },
+  14: { left: 241, top: 139 },
+  15: { left: 750, top: 111 },
+  16: { left: 45, top: 126 },
+  17: { left: 583, top: 198 },
+  18: { left: 538, top: 68 },
+  19: { left: 354, top: 54 },
+  20: { left: 186, top: 42 }
+};
+
+const mobileCoordinates = {
+  1: { left: 115, top: 1330 },
+  2: { left: 282, top: 563 },
+  3: { left: 282, top: 875 },
+  4: { left: 42, top: 1228 },
+  5: { left: 101, top: 1033 },
+  6: { left: 282, top: 1186 },
+  7: { left: 15, top: 56 },
+  8: { left: 282, top: 54 },
+  9: { left: 87, top: 736 },
+  10: { left: 28, top: 931 },
+  11: { left: 58, top: 453 },
+  12: { left: 15, top: 254 },
+  13: { left: 186, top: 269 },
+  14: { left: 28, top: 1497 },
+  15: { left: 282, top: 1497 },
+  16: { left: 72, top: 311 },
+  17: { left: 58, top: 85 },
+  18: { left: 127, top: 1596 },
+  19: { left: 254, top: 1667 },
+  20: { left: 15, top: 367 }
+};
+
+const galleryPhotos = [
+  {
+    id: 1,
+    size: 'large',
+    src: 'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&q=80&w=800',
+    caption: 'Student Bonding & Camps'
+  },
+  {
+    id: 2,
+    size: 'medium',
+    src: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=800',
+    caption: 'Personalized Academic Mentorship'
+  },
+  {
+    id: 3,
+    size: 'medium',
+    src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800',
+    caption: 'Expert Conceptual Guidance'
+  },
+  {
+    id: 4,
+    size: 'medium',
+    src: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=800',
+    caption: 'Celebrating Great Achievements'
+  },
+  {
+    id: 5,
+    size: 'large',
+    src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800',
+    caption: 'Collaborative Study Sessions'
+  },
+  {
+    id: 6,
+    size: 'medium',
+    src: 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&q=80&w=800',
+    caption: 'Capturing Lifelong Memories'
+  },
+  {
+    id: 7,
+    size: 'small',
+    src: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=800',
+    caption: 'Daily Interactive Discussions'
+  },
+  {
+    id: 8,
+    size: 'medium',
+    src: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=800',
+    caption: 'Focused Skill Building'
+  },
+  {
+    id: 9,
+    size: 'large',
+    src: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80&w=800',
+    caption: 'Warm Learning Environment'
+  },
+  {
+    id: 10,
+    size: 'medium',
+    src: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=800',
+    caption: 'Unlocking Student Potential'
+  },
+  {
+    id: 11,
+    size: 'large',
+    src: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=800',
+    caption: 'Student Commute & Travel Journeys'
+  },
+  {
+    id: 12,
+    size: 'small',
+    src: 'https://images.unsplash.com/photo-1533873984035-25970ab07461?auto=format&fit=crop&q=80&w=800',
+    caption: 'A Brighter Future Ahead'
+  },
+  {
+    id: 13,
+    size: 'large',
+    src: 'https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&q=80&w=800',
+    caption: 'Scaling New Heights Together'
+  },
+  {
+    id: 14,
+    size: 'medium',
+    src: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&q=80&w=800',
+    caption: 'Creative Inspiration'
+  },
+  {
+    id: 15,
+    size: 'medium',
+    src: 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80&w=800',
+    caption: 'Campus Vibe'
+  },
+  {
+    id: 16,
+    size: 'small',
+    src: 'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&q=80&w=800',
+    caption: 'Student Gathering'
+  },
+  {
+    id: 17,
+    size: 'large',
+    src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800',
+    caption: 'Excellence in Action'
+  },
+  {
+    id: 18,
+    size: 'medium',
+    src: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=800',
+    caption: 'Triumphant Achievements'
+  },
+  {
+    id: 19,
+    size: 'medium',
+    src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800',
+    caption: 'Innovative Ideas'
+  },
+  {
+    id: 20,
+    size: 'small',
+    src: 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&q=80&w=800',
+    caption: 'Campus Memories'
+  }
+];
+
 function About() {
+  const [activePhoto, setActivePhoto] = useState(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [scale, setScale] = useState(1);
+  const containerRef = useRef(null);
+
+  const openLightbox = (photo) => {
+    setActivePhoto(photo);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeLightbox = () => {
+    setActivePhoto(null);
+    document.body.style.overflow = '';
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        closeLightbox();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      const isMob = width < 768;
+      setIsMobile(isMob);
+
+      if (containerRef.current) {
+        const parentWidth = containerRef.current.parentElement.getBoundingClientRect().width;
+        const targetBaseWidth = isMob ? 453 : 920;
+        const newScale = Math.min(1, parentWidth / (targetBaseWidth + 20));
+        setScale(newScale);
+      }
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   useEffect(() => {
     AOS.refresh();
   }, []);
-
-
 
   return (
     <div className="about-page">
       
       {/* SECTION 1 — PAGE HERO (Strict bounded height split layout) */}
-      <section className="mt-[70px] flex flex-col md:flex-row md:h-[70vh] overflow-hidden hero-pattern">
+      <section className="mt-[60px] flex flex-col md:flex-row md:h-[70vh] overflow-hidden hero-pattern">
         <div className="w-full md:w-[45%] h-[300px] md:h-full relative flex items-center justify-center overflow-hidden">
           <img
             alt="Vibrant Academy Dahisar Classroom"
@@ -161,8 +372,55 @@ function About() {
         </div>
       </section>
 
+      {/* SECTION 4.5 — PROGRAMS / COURSES OFFERED */}
+      <section className="py-stack_xl overflow-hidden bg-white border-t border-brand-navy/5">
+        <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
+
+          <div className="text-center max-w-2xl mx-auto mb-10" data-aos="fade-up">
+            <p className="text-brand-teal font-extrabold uppercase tracking-widest text-xs mb-3">COURSES OFFERED</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy mb-2 tracking-tight">
+              Programs<span className="text-brand-purple"> for Every Learner.</span>
+            </h2>
+            <div className="h-1 w-[40px] bg-brand-purple rounded-full mx-auto mb-4"></div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+            {[
+              { title: "ICSE Board", sub: "Class 7 to 10", color: "bg-brand-purple", points: ["Strong foundation in Mathematics & Science", "Concept-based learning approach", "Regular tests and performance analysis", "Individual attention for every student", "Board-oriented preparation strategy"] },
+              { title: "SSC Board", sub: "Class 7 to 10", color: "bg-brand-teal", points: ["Comprehensive syllabus coverage", "Focus on scoring and conceptual clarity", "Weekly assessments and revisions", "Dedicated doubt-solving sessions", "Structured board exam preparation"] },
+              { title: "CBSE Board", sub: "Class 7 to 10", color: "bg-brand-purple", points: ["NCERT-focused teaching methodology", "Emphasis on analytical thinking", "Continuous practice through worksheets", "Exam-oriented preparation techniques", "Personalized academic guidance"] },
+              { title: "HSC Science", sub: "Class 11 to 12", color: "bg-brand-teal", points: ["In-depth coverage of PCM/PCB subjects", "Strong focus on board examination success", "Regular practical and theory revision", "Chapter-wise testing and evaluation", "Board + Entrance Exam preparation"] },
+              { title: "HSC Commerce", sub: "Class 11 to 12", color: "bg-brand-purple", points: ["Expert guidance in Accounts & Economics", "Conceptual understanding of commerce subjects", "Board-focused preparation strategy", "Regular assessments and progress tracking", "Preparation for professional courses"] },
+              { title: "CA Foundation", sub: "Chartered Accountant", color: "bg-brand-teal", points: ["Comprehensive coverage of all foundation subjects", "Strong emphasis on conceptual clarity", "Exam-oriented problem-solving techniques", "Regular mock tests and evaluations", "Guidance from experienced faculty"] },
+              { title: "CMA", sub: "Cost and Management Accountant", color: "bg-brand-purple", points: ["Structured preparation for CMA examinations", "Focus on accounting and business concepts", "Practice-based learning methodology", "Continuous assessment and feedback", "Strategic exam preparation support"] },
+              { title: "B.Pharma", sub: "", color: "bg-brand-teal", points: ["Guidance in core pharmaceutical subjects", "Support for semester examinations", "Concept-based learning approach", "Assistance with practical understanding", "Regular academic progress monitoring"] },
+              { title: "D.Pharm", sub: "", color: "bg-brand-purple", points: ["Strong foundation in pharmacy education", "Simplified explanation of technical concepts", "Practical and theory-focused learning", "Semester exam preparation support", "Personalized academic mentoring"] },
+            ].map((card, idx) => (
+              <div key={idx} className="bg-white rounded-xl shadow-sm overflow-hidden flex flex-col border border-brand-navy/5" data-aos="fade-up" data-aos-delay={(idx % 3) * 50}>
+                <div className={`${card.color} text-center py-5 px-4 text-white`}>
+                  <h3 className="text-lg font-bold font-poppins">{card.title}</h3>
+                  {card.sub && <p className="text-brand-yellow text-[10px] font-semibold uppercase tracking-wider mt-0.5">{card.sub}</p>}
+                </div>
+                <div className="p-6">
+                  <ul className="space-y-1.5">
+                    {card.points.map((point, i) => (
+                      <li key={i} className="flex items-start gap-2 py-1.5 border-b border-brand-navy/5 last:border-0">
+                        <span className="material-symbols-outlined text-brand-teal text-base leading-5">check_circle</span>
+                        <span className="text-sm text-brand-navy/75">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+
+          </div>
+        </div>
+      </section>
+
       {/* SECTION 5 — FOUNDER PROFILE */}
-      <section className="py-stack_xl bg-white overflow-hidden">
+      <section className="py-stack_xl bg-white overflow-hidden border-t border-brand-navy/5">
         <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
           <div className="flex flex-col lg:flex-row items-center gap-16">
             <div className="w-full lg:w-1/3 flex justify-center" data-aos="fade-right">
@@ -260,6 +518,103 @@ function About() {
 
         </div>
       </section>
+
+      {/* SECTION 6 — VIBRANT MOMENTS (PHOTO COLLAGE) */}
+      <section className="py-stack_xl bg-gray-50 border-t border-brand-navy/5 overflow-hidden">
+        <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
+          
+          {/* Header */}
+          <div className="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+            <p className="text-brand-teal font-extrabold uppercase tracking-widest text-xs mb-3">GALLERY</p>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-brand-navy mb-2 tracking-tight">
+              Vibrant <span className="text-brand-purple">Moments.</span>
+            </h2>
+            <div className="h-1 w-[40px] bg-brand-purple rounded-full mx-auto mb-4"></div>
+            <p className="text-gray-500 text-sm md:text-base leading-relaxed">
+              Take a visual tour through academy life, student bonding camps, collaborative study, and campus events. Click any photo to expand.
+            </p>
+          </div>
+
+          {/* Outer scale container */}
+          <div className="collage-outer-wrapper" ref={containerRef}>
+            <div 
+              className="collage-container"
+              style={{
+                transform: `translate(-50%, 0) scale(${scale})`,
+                height: isMobile ? `${1840 * scale}px` : `${810 * scale}px`,
+                width: isMobile ? '453px' : '920px'
+              }}
+            >
+              {galleryPhotos.map((photo) => {
+                let sizeClass = 'diamond-medium';
+                if (photo.size === 'large') sizeClass = 'diamond-large';
+                if (photo.size === 'small') sizeClass = 'diamond-small';
+
+                const coords = isMobile ? mobileCoordinates[photo.id] : desktopCoordinates[photo.id];
+
+                return (
+                  <div 
+                    key={photo.id}
+                    style={{
+                      position: 'absolute',
+                      left: `${coords.left}px`,
+                      top: `${coords.top}px`
+                    }}
+                    data-aos="zoom-in"
+                    data-aos-delay={(photo.id % 5) * 40}
+                  >
+                    <div 
+                      className={`diamond-wrapper ${sizeClass}`}
+                      onClick={() => openLightbox(photo)}
+                    >
+                      <img 
+                        src={photo.src} 
+                        alt={photo.caption} 
+                        className="diamond-img"
+                      />
+                      <div className="diamond-overlay">
+                        <FaSearchPlus className="zoom-icon" />
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Lightbox Modal */}
+      {activePhoto && (
+        <div 
+          className="fixed inset-0 bg-black/95 z-[300] flex flex-col items-center justify-center p-4 backdrop-blur-md transition-opacity duration-300"
+          onClick={closeLightbox}
+          role="dialog"
+          aria-modal="true"
+        >
+          <button 
+            className="absolute top-6 right-6 text-white/80 hover:text-white text-2xl transition-transform hover:scale-110 z-[310] flex items-center justify-center w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 active:scale-95"
+            onClick={closeLightbox}
+          >
+            <FaTimes />
+          </button>
+          
+          <div 
+            className="relative max-w-4xl max-h-[85vh] flex flex-col items-center animate-fade-in px-4"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img 
+              src={activePhoto.src} 
+              alt={activePhoto.caption}
+              className="max-w-full max-h-[75vh] object-contain rounded-lg shadow-2xl border border-white/10"
+            />
+            <p className="text-white text-sm md:text-base font-semibold mt-6 text-center tracking-wider font-poppins bg-brand-purple/90 px-6 py-2.5 rounded-full shadow-lg border border-brand-purple/20">
+              {activePhoto.caption}
+            </p>
+          </div>
+        </div>
+      )}
 
     </div>
   );
