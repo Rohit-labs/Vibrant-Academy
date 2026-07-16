@@ -69,7 +69,7 @@ function Home() {
     setIsSubmitting(true);
     try {
       const data = new FormData();
-      data.append('access_key', '90a3264e-e1e4-46a4-83d9-2ec67c545d4c');
+      data.append('access_key', '646459c4-28e2-4768-a836-2d456dbd13e0');
       data.append('name', quickForm.name);
       data.append('phone', quickForm.phone);
       data.append('standard', quickForm.standard);
@@ -152,7 +152,7 @@ function Home() {
     setIsContactSubmitting(true);
     try {
       const data = new FormData();
-      data.append('access_key', '90a3264e-e1e4-46a4-83d9-2ec67c545d4c');
+      data.append('access_key', '646459c4-28e2-4768-a836-2d456dbd13e0');
       Object.entries(formData).forEach(([k, v]) => data.append(k, v));
       await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
       setSubmittedInfo({ name: formData.name, phone: formData.phone });
@@ -256,12 +256,15 @@ function Home() {
           alt="Vibrant Academy Toppers Banner Mobile"
           className="block md:hidden w-full h-auto object-contain"
         />
-        <button 
-          onClick={() => setShowEnquiryModal(true)}
-          className="absolute bottom-4 left-4 md:bottom-12 md:left-12 z-50 px-5 py-2.5 md:px-8 md:py-3.5 bg-brand-yellow text-brand-purple font-extrabold rounded-lg shadow-lg border-2 border-brand-purple/20 apply-now-btn uppercase tracking-wider text-[10px] md:text-sm pointer-events-auto"
-        >
-          Apply Now
-        </button>
+        {/* Apply Now Button — perfectly centered at bottom of hero */}
+        <div className="absolute bottom-6 md:bottom-12 left-0 right-0 flex justify-center z-50 pointer-events-none">
+          <button
+            onClick={() => setShowEnquiryModal(true)}
+            className="apply-now-btn pointer-events-auto px-7 py-2.5 md:px-12 md:py-4 bg-brand-yellow text-brand-purple font-extrabold rounded-xl shadow-2xl border-2 border-brand-purple/20 uppercase tracking-widest text-[10px] md:text-sm whitespace-nowrap"
+          >
+            Apply Now
+          </button>
+        </div>
       </section>
       {/* SECTION 6 — RESULTS BANNER (TOPPERS STRIP) */}
       <section className="py-stack_xl bg-white border-t border-brand-navy/5">

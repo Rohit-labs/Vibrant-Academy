@@ -174,7 +174,7 @@ function Results() {
     <div className="results-page">
 
       {/* SECTION 1 — PAGE HERO (Full Image Banner Carousel) */}
-      <section className="mt-[60px] relative w-full overflow-hidden h-auto md:h-[calc(100vh-60px)] results-hero-carousel">
+      <section className="mt-[60px] relative w-full overflow-hidden results-hero-carousel mb-16" style={{ height: '82vh', minHeight: '480px' }}>
         <Swiper
           modules={[Autoplay, Pagination, Navigation]}
           spaceBetween={0}
@@ -185,47 +185,43 @@ function Results() {
           loop={true}
           className="w-full h-full"
         >
-          <SwiperSlide className="w-full h-auto md:h-full">
+          <SwiperSlide className="w-full h-full">
             {/* Desktop Banner */}
             <img
               src="/images/hero banner 2.png"
               alt="Vibrant Academy SSC Toppers Banner"
               className="hidden md:block w-full h-full object-cover"
-              style={{ objectPosition: 'center 14%' }}
+              style={{ objectPosition: 'center center' }}
             />
             {/* Mobile Banner */}
             <img
               src="/images/hero banner 2 mobile.png"
               alt="Vibrant Academy SSC Toppers Banner Mobile"
-              className="block md:hidden w-full h-auto object-contain"
+              className="block md:hidden w-full h-full object-cover"
+              style={{ objectPosition: 'center top' }}
             />
           </SwiperSlide>
-          <SwiperSlide className="w-full h-auto md:h-full">
+          <SwiperSlide className="w-full h-full">
             {/* Desktop Banner */}
             <img
               src="/images/hero banner 3.png"
               alt="Vibrant Academy Achievers Banner"
               className="hidden md:block w-full h-full object-cover"
-              style={{ objectPosition: 'center 11%' }}
+              style={{ objectPosition: 'center center' }}
             />
             {/* Mobile Banner */}
             <img
               src="/images/hero banner 3 mobile.png"
               alt="Vibrant Academy Achievers Banner Mobile"
-              className="block md:hidden w-full h-auto object-contain"
+              className="block md:hidden w-full h-full object-cover"
+              style={{ objectPosition: 'center top' }}
             />
           </SwiperSlide>
         </Swiper>
-        <Link 
-          to="/contact" 
-          className="absolute bottom-4 left-4 md:bottom-12 md:left-12 z-50 px-5 py-2.5 md:px-8 md:py-3.5 bg-brand-yellow text-brand-purple font-extrabold rounded-lg shadow-lg border-2 border-brand-purple/20 results-apply-now-btn uppercase tracking-wider text-[10px] md:text-sm pointer-events-auto"
-        >
-          Apply Now
-        </Link>
       </section>
 
       {/* SECTION 2 — ESTABLISHED METRICS */}
-      <section className="bg-white border-y border-brand-navy/5 relative z-30 mt-12">
+      <section className="bg-white border-y border-brand-navy/5 relative z-30">
         <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
           <div className="grid grid-cols-2 md:grid-cols-4 divide-y-0 divide-x divide-brand-navy/5">
             <div className="py-8 md:py-10 flex items-center gap-4 group hover:bg-brand-purple/5 transition-colors px-4 justify-center md:justify-start">

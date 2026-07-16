@@ -224,9 +224,9 @@ function About() {
 
   return (
     <div className="about-page">
-      
+
       {/* SECTION 1 — PAGE HERO (Strict bounded height split layout) */}
-      <section className="mt-[60px] flex flex-col md:flex-row md:h-[70vh] overflow-hidden hero-pattern">
+      <section className="mt-[60px] flex flex-col md:flex-row md:h-[90vh] overflow-hidden hero-pattern">
         <div className="w-full md:w-[45%] h-[300px] md:h-full relative flex items-center justify-center overflow-hidden">
           <img
             alt="Vibrant Academy Dahisar Classroom"
@@ -322,7 +322,7 @@ function About() {
               </h2>
               <div className="h-1 w-[40px] bg-brand-purple rounded-full mb-6"></div>
               <p className="text-gray-600 text-base leading-relaxed mb-6">
-                Vibrant Academy is built on the trusted educational legacy of S.S. Classes, combining years of teaching excellence with modern learning approaches to help students achieve academic success. 
+                Vibrant Academy is built on the trusted educational legacy of S.S. Classes, combining years of teaching excellence with modern learning approaches to help students achieve academic success.
               </p>
               <div className="border-l-4 border-brand-purple pl-6 py-2 my-6 bg-[#F5F0F7] rounded-r-xl">
                 <p className="text-brand-navy italic font-semibold text-sm md:text-base">
@@ -335,9 +335,9 @@ function About() {
             </div>
             <div className="w-full lg:w-1/2 relative" data-aos="fade-left">
               <div className="rounded-2xl overflow-hidden shadow-2xl">
-                <img 
-                  alt="Student Studying with Mentor" 
-                  className="w-full h-[350px] md:h-[450px] object-cover" 
+                <img
+                  alt="Student Studying with Mentor"
+                  className="w-full h-[350px] md:h-[450px] object-cover"
                   src="/images/teaching photos/whole class photo.jpeg"
                 />
               </div>
@@ -426,9 +426,9 @@ function About() {
             <div className="w-full lg:w-1/3 flex justify-center" data-aos="fade-right">
               <div className="relative">
                 <div className="absolute inset-0 border-2 border-brand-purple rounded-2xl transform translate-x-4 translate-y-4"></div>
-                <img 
-                  alt="Founder Mr. Ravindra Singh" 
-                  className="relative rounded-2xl w-[280px] h-[340px] object-cover shadow-xl border-4 border-white" 
+                <img
+                  alt="Founder Mr. Ravindra Singh"
+                  className="relative rounded-2xl w-[280px] h-[340px] object-cover shadow-xl border-4 border-white"
                   src="/founder.jpg"
                 />
               </div>
@@ -522,7 +522,7 @@ function About() {
       {/* SECTION 6 — VIBRANT MOMENTS (PHOTO COLLAGE) */}
       <section className="py-stack_xl bg-gray-50 border-t border-brand-navy/5 overflow-hidden">
         <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
-          
+
           {/* Header */}
           <div className="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
             <p className="text-brand-teal font-extrabold uppercase tracking-widest text-xs mb-3">GALLERY</p>
@@ -537,7 +537,7 @@ function About() {
 
           {/* Outer scale container */}
           <div className="collage-outer-wrapper" ref={containerRef}>
-            <div 
+            <div
               className="collage-container"
               style={{
                 transform: `translate(-50%, 0) scale(${scale})`,
@@ -553,7 +553,7 @@ function About() {
                 const coords = isMobile ? mobileCoordinates[photo.id] : desktopCoordinates[photo.id];
 
                 return (
-                  <div 
+                  <div
                     key={photo.id}
                     style={{
                       position: 'absolute',
@@ -563,13 +563,13 @@ function About() {
                     data-aos="zoom-in"
                     data-aos-delay={(photo.id % 5) * 40}
                   >
-                    <div 
+                    <div
                       className={`diamond-wrapper ${sizeClass}`}
                       onClick={() => openLightbox(photo)}
                     >
-                      <img 
-                        src={photo.src} 
-                        alt={photo.caption} 
+                      <img
+                        src={photo.src}
+                        alt={photo.caption}
                         className="diamond-img"
                       />
                       <div className="diamond-overlay">
@@ -587,25 +587,25 @@ function About() {
 
       {/* Lightbox Modal */}
       {activePhoto && (
-        <div 
+        <div
           className="fixed inset-0 bg-black/95 z-[300] flex flex-col items-center justify-center p-4 backdrop-blur-md transition-opacity duration-300"
           onClick={closeLightbox}
           role="dialog"
           aria-modal="true"
         >
-          <button 
+          <button
             className="absolute top-6 right-6 text-white/80 hover:text-white text-2xl transition-transform hover:scale-110 z-[310] flex items-center justify-center w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 active:scale-95"
             onClick={closeLightbox}
           >
             <FaTimes />
           </button>
-          
-          <div 
+
+          <div
             className="relative max-w-4xl max-h-[85vh] flex flex-col items-center animate-fade-in px-4"
             onClick={(e) => e.stopPropagation()}
           >
-            <img 
-              src={activePhoto.src} 
+            <img
+              src={activePhoto.src}
               alt={activePhoto.caption}
               className="max-w-full max-h-[75vh] object-contain rounded-lg shadow-2xl border border-white/10"
             />

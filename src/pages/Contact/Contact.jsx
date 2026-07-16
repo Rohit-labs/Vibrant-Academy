@@ -70,7 +70,7 @@ function Contact() {
     setIsSubmitting(true);
     try {
       const data = new FormData();
-      data.append('access_key', '90a3264e-e1e4-46a4-83d9-2ec67c545d4c');
+      data.append('access_key', '646459c4-28e2-4768-a836-2d456dbd13e0');
       Object.entries(formData).forEach(([k, v]) => data.append(k, v));
       await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
       setSubmittedInfo({ name: formData.name, phone: formData.phone });

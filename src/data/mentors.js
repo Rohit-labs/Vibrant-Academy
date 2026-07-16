@@ -8,7 +8,7 @@ const mentors = [
   { name: "Kunj Joshi", designation: "Biology Faculty", subject: "Biology", qualification: "M.Sc., B.Ed.", exp: null },
   { name: "Shraddha Pandey", designation: "Biology Faculty", subject: "Biology", qualification: "M.Sc.", exp: null },
   { name: "Sandhya Pal", designation: "Biology Faculty", subject: "Biology", qualification: "M.Sc.", exp: null },
-  { name: "Irfana Batatawale", designation: "Computer Science Faculty", subject: "Computer Science", qualification: "M.Com.", exp: "5 Years" },
+  { name: "Irfana Batatawala", designation: "Computer Science Faculty", subject: "Computer Science", qualification: "M.Sc Applied Mathematics", exp: "5 Years" },
   { name: "Pravin Talekar", designation: "English Faculty", subject: "English", qualification: "M.Com., B.Ed.", exp: "12 Years" },
   { name: "Hawabi Shaikh", designation: "English Faculty", subject: "English", qualification: "M.A.", exp: null },
   { name: "Karuna Mam", designation: "Marathi Faculty", subject: "Marathi", qualification: "M.A., B.Ed.", exp: null },
