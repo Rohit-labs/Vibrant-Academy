@@ -45,6 +45,8 @@ function Footer() {
                 <li><Link className="hover:text-brand-yellow transition-colors" to="/about">About Academy</Link></li>
                 <li><Link className="hover:text-brand-yellow transition-colors" to="/results">Success Results</Link></li>
                 <li><Link className="hover:text-brand-yellow transition-colors" to="/contact">Contact Support</Link></li>
+                <li><Link className="hover:text-brand-yellow transition-colors" to="/privacy-policy">Privacy Policy</Link></li>
+                <li><Link className="hover:text-brand-yellow transition-colors" to="/terms-and-conditions">Terms &amp; Conditions</Link></li>
               </ul>
             </div>
 
@@ -56,8 +58,9 @@ function Footer() {
                 <li><a className="hover:text-brand-yellow transition-colors" href="#programs">Foundation Classes (7-10)</a></li>
                 <li><a className="hover:text-brand-yellow transition-colors" href="#programs">Higher Secondary (11-12)</a></li>
                 <li><a className="hover:text-brand-yellow transition-colors" href="#programs">Board Exam Prep</a></li>
-                <li><a className="hover:text-brand-yellow transition-colors" href="#programs">Competitive Coaching</a></li>
-                <li><a className="hover:text-brand-yellow transition-colors" href="#programs">Doubt Sessions</a></li>
+                <li><a className="hover:text-brand-yellow transition-colors" href="#programs">B-Pharm,D-Pharm</a></li>
+                <li><a className="hover:text-brand-yellow transition-colors" href="#programs">Chartered Accountant Foundation(CA)</a></li>
+                <li><a className="hover:text-brand-yellow transition-colors" href="#programs">Cost and Management Accountant(CMA)</a></li>
               </ul>
             </div>
 
@@ -86,12 +89,8 @@ function Footer() {
           <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium text-white/40">
             <p>© 2024 Vibrant Academy. All rights reserved.</p>
             <div className="flex gap-8">
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-              <a className="hover:text-white" href="#">Terms</a>
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-              <a className="hover:text-white" href="#">Privacy</a>
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-              <a className="hover:text-white" href="#">Cookie Policy</a>
+              <Link className="hover:text-white transition-colors" to="/terms-and-conditions">Terms</Link>
+              <Link className="hover:text-white transition-colors" to="/privacy-policy">Privacy</Link>
             </div>
           </div>
         </div>
