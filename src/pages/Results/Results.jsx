@@ -199,7 +199,7 @@ function Results() {
 
       {/* SECTION 1 — PAGE HERO (Full Image Banner Carousel) */}
       <div className="w-full mb-16" style={{ paddingTop: '6vh' }}>
-        <section className="relative w-full overflow-hidden">
+        <section className="relative w-full overflow-hidden" style={{ maxHeight: 'calc(100vh - 60px)' }}>
         {/* Slides */}
         <div
           className="flex transition-transform duration-700 ease-in-out w-full"

@@ -262,26 +262,26 @@ function Home() {
 
 
       {/* SECTION 1 — HERO (Carousel Banner) */}
-      <section className="mt-[60px] relative w-full overflow-hidden h-auto md:h-[calc(100vh-60px)]">
+      <div className="w-full mb-8" style={{ paddingTop: '6vh' }}>
+        <section className="relative w-full overflow-hidden" style={{ maxHeight: 'calc(100vh - 60px)' }}>
         {/* Slides */}
         <div
-          className="flex transition-transform duration-700 ease-in-out h-full"
+          className="flex transition-transform duration-700 ease-in-out w-full"
           style={{ transform: `translateX(-${heroIndex * 100}%)` }}
         >
           {heroSlides.map((slide, idx) => (
-            <div key={idx} className="w-full flex-shrink-0 h-full relative">
+            <div key={idx} className="w-full flex-shrink-0 relative">
               {/* Desktop */}
               <img
                 src={slide.desktop}
                 alt={`Vibrant Academy Banner ${idx + 1}`}
-                className="hidden md:block w-full h-full object-cover"
-                style={{ objectPosition: 'center 20%' }}
+                className="hidden md:block w-full h-auto"
               />
               {/* Mobile */}
               <img
                 src={slide.mobile}
                 alt={`Vibrant Academy Banner ${idx + 1}`}
-                className="block md:hidden w-full h-auto object-contain"
+                className="block md:hidden w-full h-auto"
               />
             </div>
           ))}
@@ -331,6 +331,7 @@ function Home() {
           </div>
         </div>
       </section>
+      </div>
       {/* SECTION 6 — RESULTS BANNER (TOPPERS STRIP) */}
       <section className="py-stack_xl bg-white border-t border-brand-navy/5">
         <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
