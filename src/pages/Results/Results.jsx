@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import AOS from 'aos';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -166,6 +166,30 @@ const studentTestimonials = [
 ];
 
 function Results() {
+  // Hero carousel — custom (same as home page)
+  const heroSlides = [
+    {
+      desktop: '/images/hero banner 2.png',
+      desktopAlt: 'Vibrant Academy SSC Toppers Banner',
+      mobile: '/images/hero banner 2 mobile.png',
+      mobileAlt: 'Vibrant Academy SSC Toppers Banner Mobile',
+    },
+    {
+      desktop: '/images/hero banner 3.png',
+      desktopAlt: 'Vibrant Academy Achievers Banner',
+      mobile: '/images/hero banner 3 mobile.png',
+      mobileAlt: 'Vibrant Academy Achievers Banner Mobile',
+    },
+  ];
+  const [heroIndex, setHeroIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setHeroIndex(prev => (prev + 1) % heroSlides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [heroSlides.length]);
+
   useEffect(() => {
     AOS.refresh();
   }, []);
@@ -174,51 +198,62 @@ function Results() {
     <div className="results-page">
 
       {/* SECTION 1 — PAGE HERO (Full Image Banner Carousel) */}
-      <section className="mt-[60px] relative w-full overflow-hidden results-hero-carousel mb-16" style={{ height: '82vh', minHeight: '480px' }}>
-        <Swiper
-          modules={[Autoplay, Pagination, Navigation]}
-          spaceBetween={0}
-          slidesPerView={1}
-          autoplay={{ delay: 5000, disableOnInteraction: false }}
-          pagination={{ clickable: true }}
-          navigation={true}
-          loop={true}
-          className="w-full h-full"
+      <div className="w-full mb-16" style={{ paddingTop: '6vh' }}>
+        <section className="relative w-full overflow-hidden">
+        {/* Slides */}
+        <div
+          className="flex transition-transform duration-700 ease-in-out w-full"
+          style={{ transform: `translateX(-${heroIndex * 100}%)` }}
         >
-          <SwiperSlide className="w-full h-full">
-            {/* Desktop Banner */}
-            <img
-              src="/images/hero banner 2.png"
-              alt="Vibrant Academy SSC Toppers Banner"
-              className="hidden md:block w-full h-full object-cover"
-              style={{ objectPosition: 'center center' }}
+          {heroSlides.map((slide, idx) => (
+            <div key={idx} className="w-full flex-shrink-0 relative">
+              <img
+                src={slide.desktop}
+                alt={slide.desktopAlt}
+                className="hidden md:block w-full h-auto"
+              />
+              <img
+                src={slide.mobile}
+                alt={slide.mobileAlt}
+                className="block md:hidden w-full h-auto"
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Left Arrow */}
+        <button
+          onClick={() => setHeroIndex(prev => (prev - 1 + heroSlides.length) % heroSlides.length)}
+          aria-label="Previous slide"
+          className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 z-50 w-9 h-9 md:w-12 md:h-12 rounded-full bg-white/70 hover:bg-white backdrop-blur-sm flex items-center justify-center shadow-lg border border-white/40 transition-all duration-200 hover:scale-105"
+        >
+          <span className="material-symbols-outlined text-brand-purple text-xl md:text-2xl">chevron_left</span>
+        </button>
+
+        {/* Right Arrow */}
+        <button
+          onClick={() => setHeroIndex(prev => (prev + 1) % heroSlides.length)}
+          aria-label="Next slide"
+          className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 z-50 w-9 h-9 md:w-12 md:h-12 rounded-full bg-white/70 hover:bg-white backdrop-blur-sm flex items-center justify-center shadow-lg border border-white/40 transition-all duration-200 hover:scale-105"
+        >
+          <span className="material-symbols-outlined text-brand-purple text-xl md:text-2xl">chevron_right</span>
+        </button>
+
+        {/* Dots */}
+        <div className="absolute bottom-6 left-0 right-0 flex justify-center items-center gap-2 z-50">
+          {heroSlides.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setHeroIndex(idx)}
+              aria-label={`Go to slide ${idx + 1}`}
+              className={`rounded-full transition-all duration-300 ${
+                heroIndex === idx ? 'bg-brand-yellow w-6 h-2.5' : 'bg-white/70 w-2.5 h-2.5'
+              }`}
             />
-            {/* Mobile Banner */}
-            <img
-              src="/images/hero banner 2 mobile.png"
-              alt="Vibrant Academy SSC Toppers Banner Mobile"
-              className="block md:hidden w-full h-full object-cover"
-              style={{ objectPosition: 'center top' }}
-            />
-          </SwiperSlide>
-          <SwiperSlide className="w-full h-full">
-            {/* Desktop Banner */}
-            <img
-              src="/images/hero banner 3.png"
-              alt="Vibrant Academy Achievers Banner"
-              className="hidden md:block w-full h-full object-cover"
-              style={{ objectPosition: 'center center' }}
-            />
-            {/* Mobile Banner */}
-            <img
-              src="/images/hero banner 3 mobile.png"
-              alt="Vibrant Academy Achievers Banner Mobile"
-              className="block md:hidden w-full h-full object-cover"
-              style={{ objectPosition: 'center top' }}
-            />
-          </SwiperSlide>
-        </Swiper>
+          ))}
+        </div>
       </section>
+      </div>
 
       {/* SECTION 2 — ESTABLISHED METRICS */}
       <section className="bg-white border-y border-brand-navy/5 relative z-30">
@@ -320,12 +355,12 @@ function Results() {
 
             {/* Custom Pagination & Navigation Controls */}
             <div className="flex items-center justify-center gap-6 mt-4">
-              <button className="toppers-prev w-10 h-10 rounded-full border border-brand-purple text-brand-purple hover:bg-brand-purple hover:text-white flex items-center justify-center transition-all disabled:opacity-30 disabled:pointer-events-none shadow-sm active:scale-95">
-                <span className="material-symbols-outlined text-xl">arrow_back</span>
+              <button className="toppers-prev carousel-arrow-btn">
+                <span className="material-symbols-outlined text-xl">chevron_left</span>
               </button>
-              <div className="toppers-pagination flex gap-2 !w-auto"></div>
-              <button className="toppers-next w-10 h-10 rounded-full border border-brand-purple text-brand-purple hover:bg-brand-purple hover:text-white flex items-center justify-center transition-all disabled:opacity-30 disabled:pointer-events-none shadow-sm active:scale-95">
-                <span className="material-symbols-outlined text-xl">arrow_forward</span>
+              <div className="toppers-pagination swiper-custom-pagination flex gap-2 !w-auto"></div>
+              <button className="toppers-next carousel-arrow-btn">
+                <span className="material-symbols-outlined text-xl">chevron_right</span>
               </button>
             </div>
           </div>
@@ -515,12 +550,12 @@ function Results() {
 
             {/* Custom Pagination & Navigation Controls */}
             <div className="flex items-center justify-center gap-6 mt-4">
-              <button className="reviews-prev w-10 h-10 rounded-full border border-brand-purple text-brand-purple hover:bg-brand-purple hover:text-white flex items-center justify-center transition-all disabled:opacity-30 disabled:pointer-events-none shadow-sm active:scale-95">
-                <span className="material-symbols-outlined text-xl">arrow_back</span>
+              <button className="reviews-prev carousel-arrow-btn">
+                <span className="material-symbols-outlined text-xl">chevron_left</span>
               </button>
-              <div className="reviews-pagination flex gap-2 !w-auto"></div>
-              <button className="reviews-next w-10 h-10 rounded-full border border-brand-purple text-brand-purple hover:bg-brand-purple hover:text-white flex items-center justify-center transition-all disabled:opacity-30 disabled:pointer-events-none shadow-sm active:scale-95">
-                <span className="material-symbols-outlined text-xl">arrow_forward</span>
+              <div className="reviews-pagination swiper-custom-pagination flex gap-2 !w-auto"></div>
+              <button className="reviews-next carousel-arrow-btn">
+                <span className="material-symbols-outlined text-xl">chevron_right</span>
               </button>
             </div>
           </div>

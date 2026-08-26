@@ -35,62 +35,54 @@
   background: rgba(13, 148, 136, 0.6);
 }
 
-/* Custom Swiper styling for Results Hero Carousel */
+/* Custom Swiper styling for Results toppers & reviews (non-hero) carousels */
 .results-hero-carousel {
   --swiper-theme-color: #7B2D8B;
-  --swiper-navigation-size: 22px;
 }
 
-/* Beautiful pill-shaped navigation arrows */
-.results-hero-carousel .swiper-button-next,
-.results-hero-carousel .swiper-button-prev {
-  background: rgba(255, 255, 255, 0.92);
-  width: 52px;
-  height: 52px;
+/* --- Toppers & Reviews carousel controls --- */
+
+/* Arrow buttons below the slider */
+.carousel-arrow-btn {
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0,0,0,0.12);
+  background: rgba(255, 255, 255, 0.70);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   color: #7B2D8B;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  backdrop-filter: blur(8px);
-  border: 2px solid rgba(123, 45, 139, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  cursor: pointer;
 }
 
-.results-hero-carousel .swiper-button-next:hover,
-.results-hero-carousel .swiper-button-prev:hover {
-  background: #7B2D8B;
-  color: #ffffff;
-  transform: scale(1.1);
-  box-shadow: 0 8px 28px rgba(123, 45, 139, 0.45);
-  border-color: transparent;
+.carousel-arrow-btn:hover {
+  background: #ffffff;
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
-.results-hero-carousel .swiper-button-next::after,
-.results-hero-carousel .swiper-button-prev::after {
-  font-size: 18px;
-  font-weight: 900;
+.carousel-arrow-btn:disabled,
+.carousel-arrow-btn.swiper-button-disabled {
+  opacity: 0.35;
+  pointer-events: none;
 }
 
-/* Clearly visible pagination dots */
-.results-hero-carousel .swiper-pagination {
-  bottom: 20px !important;
-}
-
-.results-hero-carousel .swiper-pagination-bullet {
-  background: rgba(255, 255, 255, 0.6);
+/* Swiper pagination dots shared style for toppers & reviews */
+.swiper-custom-pagination .swiper-pagination-bullet {
+  background: rgba(123, 45, 139, 0.20);
   opacity: 1;
   width: 10px;
   height: 10px;
-  border: 2px solid rgba(255, 255, 255, 0.9);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  margin: 0 5px !important;
+  border-radius: 9999px;
 }
 
-.results-hero-carousel .swiper-pagination-bullet-active {
-  background: #7B2D8B;
-  border-color: #ffffff;
-  width: 28px;
-  height: 10px;
-  border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(123, 45, 139, 0.5);
+.swiper-custom-pagination .swiper-pagination-bullet-active {
+  background: #E0B000; /* brand-yellow */
+  width: 24px;
+  border-radius: 9999px;
 }

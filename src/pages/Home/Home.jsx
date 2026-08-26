@@ -12,6 +12,26 @@ import testimonials from '../../data/testimonials';
 import faqs from '../../data/faqs';
 
 function Home() {
+  // Hero carousel state
+  const [heroIndex, setHeroIndex] = useState(0);
+  const heroSlides = [
+    {
+      desktop: '/images/home_hero_banner.png',
+      mobile: '/images/hero banner mobile.png',
+    },
+    {
+      desktop: '/images/home_hero_banner.png',
+      mobile: '/images/hero banner mobile.png',
+    },
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setHeroIndex(prev => (prev + 1) % heroSlides.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [heroSlides.length]);
+
   const [quickForm, setQuickForm] = useState({
     name: '',
     phone: '',
@@ -241,29 +261,74 @@ function Home() {
 
 
 
-      {/* SECTION 1 — HERO (Full Image Banner) */}
+      {/* SECTION 1 — HERO (Carousel Banner) */}
       <section className="mt-[60px] relative w-full overflow-hidden h-auto md:h-[calc(100vh-60px)]">
-        {/* Desktop Banner */}
-        <img
-          src="/images/home_hero_banner.png"
-          alt="Vibrant Academy Toppers Banner"
-          className="hidden md:block w-full h-full object-cover"
-          style={{ objectPosition: 'center 20%' }}
-        />
-        {/* Mobile Banner */}
-        <img
-          src="/images/hero banner mobile.png"
-          alt="Vibrant Academy Toppers Banner Mobile"
-          className="block md:hidden w-full h-auto object-contain"
-        />
+        {/* Slides */}
+        <div
+          className="flex transition-transform duration-700 ease-in-out h-full"
+          style={{ transform: `translateX(-${heroIndex * 100}%)` }}
+        >
+          {heroSlides.map((slide, idx) => (
+            <div key={idx} className="w-full flex-shrink-0 h-full relative">
+              {/* Desktop */}
+              <img
+                src={slide.desktop}
+                alt={`Vibrant Academy Banner ${idx + 1}`}
+                className="hidden md:block w-full h-full object-cover"
+                style={{ objectPosition: 'center 20%' }}
+              />
+              {/* Mobile */}
+              <img
+                src={slide.mobile}
+                alt={`Vibrant Academy Banner ${idx + 1}`}
+                className="block md:hidden w-full h-auto object-contain"
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Left Arrow */}
+        <button
+          onClick={() => setHeroIndex(prev => (prev - 1 + heroSlides.length) % heroSlides.length)}
+          aria-label="Previous slide"
+          className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 z-50 w-9 h-9 md:w-12 md:h-12 rounded-full bg-white/70 hover:bg-white backdrop-blur-sm flex items-center justify-center shadow-lg border border-white/40 transition-all duration-200 hover:scale-105"
+        >
+          <span className="material-symbols-outlined text-brand-purple text-xl md:text-2xl">chevron_left</span>
+        </button>
+
+        {/* Right Arrow */}
+        <button
+          onClick={() => setHeroIndex(prev => (prev + 1) % heroSlides.length)}
+          aria-label="Next slide"
+          className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 z-50 w-9 h-9 md:w-12 md:h-12 rounded-full bg-white/70 hover:bg-white backdrop-blur-sm flex items-center justify-center shadow-lg border border-white/40 transition-all duration-200 hover:scale-105"
+        >
+          <span className="material-symbols-outlined text-brand-purple text-xl md:text-2xl">chevron_right</span>
+        </button>
+
         {/* Apply Now Button — perfectly centered at bottom of hero */}
-        <div className="absolute bottom-6 md:bottom-12 left-0 right-0 flex justify-center z-50 pointer-events-none">
+        <div className="absolute bottom-6 md:bottom-12 left-0 right-0 flex flex-col items-center gap-3 z-50 pointer-events-none">
           <button
             onClick={() => setShowEnquiryModal(true)}
             className="apply-now-btn pointer-events-auto px-7 py-2.5 md:px-12 md:py-4 bg-brand-yellow text-brand-purple font-extrabold rounded-xl shadow-2xl border-2 border-brand-purple/20 uppercase tracking-widest text-[10px] md:text-sm whitespace-nowrap"
           >
             Apply Now
           </button>
+
+          {/* Carousel Dots */}
+          <div className="flex items-center gap-2 pointer-events-auto">
+            {heroSlides.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setHeroIndex(idx)}
+                aria-label={`Go to slide ${idx + 1}`}
+                className={`rounded-full transition-all duration-300 ${
+                  heroIndex === idx
+                    ? 'bg-brand-yellow w-6 h-2.5'
+                    : 'bg-white/70 w-2.5 h-2.5'
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </section>
       {/* SECTION 6 — RESULTS BANNER (TOPPERS STRIP) */}
