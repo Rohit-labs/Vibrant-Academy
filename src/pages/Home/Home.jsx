@@ -16,12 +16,16 @@ function Home() {
   const [heroIndex, setHeroIndex] = useState(0);
   const heroSlides = [
     {
-      desktop: '/images/home_hero_banner.png',
-      mobile: '/images/hero banner mobile.png',
+      desktop: '/images/home_hero_banner.jpeg',
+      mobile: '/images/hero banner mobile.jpeg',
     },
     {
-      desktop: '/images/home_hero_banner.png',
-      mobile: '/images/hero banner mobile.png',
+      desktop: '/images/home_hero_banner(2).jpeg',
+      mobile: '/images/hero banner mobile(2).jpeg',
+    },
+    {
+      desktop: '/images/home_hero_banner(3).jpeg',
+      mobile: '/images/hero banner mobile(3).jpeg',
     },
   ];
 
@@ -249,7 +253,7 @@ function Home() {
           <div className="relative">
             <Link to="/contact">
               <img
-                src="/Popup_advertisement.jpeg"
+                src="/Popup_advertisement(2).jpeg"
                 alt="Academy Announcement"
                 className="max-w-[90vw] max-h-[85vh] rounded-2xl shadow-2xl"
               />
@@ -263,7 +267,7 @@ function Home() {
 
       {/* SECTION 1 — HERO (Carousel Banner) */}
       <div className="w-full mb-8" style={{ paddingTop: '6vh' }}>
-        <section className="relative w-full overflow-hidden" style={{ maxHeight: 'calc(100vh - 60px)' }}>
+        <section className="relative w-full overflow-hidden">
         {/* Slides */}
         <div
           className="flex transition-transform duration-700 ease-in-out w-full"
@@ -271,18 +275,22 @@ function Home() {
         >
           {heroSlides.map((slide, idx) => (
             <div key={idx} className="w-full flex-shrink-0 relative">
-              {/* Desktop */}
-              <img
-                src={slide.desktop}
-                alt={`Vibrant Academy Banner ${idx + 1}`}
-                className="hidden md:block w-full h-auto"
-              />
-              {/* Mobile */}
-              <img
-                src={slide.mobile}
-                alt={`Vibrant Academy Banner ${idx + 1}`}
-                className="block md:hidden w-full h-auto"
-              />
+              {/* Desktop — 1600x900 = 56.25% aspect ratio */}
+              <div className="hidden md:block w-full" style={{ paddingTop: '56.25%', position: 'relative' }}>
+                <img
+                  src={slide.desktop}
+                  alt={`Vibrant Academy Banner ${idx + 1}`}
+                  style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+                />
+              </div>
+              {/* Mobile — 1081x1600 ≈ 148% aspect ratio */}
+              <div className="block md:hidden w-full" style={{ paddingTop: '148%', position: 'relative' }}>
+                <img
+                  src={slide.mobile}
+                  alt={`Vibrant Academy Banner ${idx + 1}`}
+                  style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+                />
+              </div>
             </div>
           ))}
         </div>
@@ -332,7 +340,7 @@ function Home() {
         </div>
       </section>
       </div>
-      {/* SECTION 6 — RESULTS BANNER (TOPPERS STRIP) */}
+      {/* SECTION 2 — RESULTS BANNER (TOPPERS STRIP) */}
       <section className="py-stack_xl bg-white border-t border-brand-navy/5">
         <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
 
@@ -622,7 +630,7 @@ function Home() {
             {/* Photo Container */}
             <div className="h-[280px] md:h-[340px] rounded-xl overflow-hidden shadow-sm border border-brand-navy/5">
               <img
-                src="/images/Classes photos/Classes entrance.png"
+                src="/images/Classes photos/Vibrant Entrance.png"
                 alt="Vibrant Academy Entrance"
                 className="w-full h-full "
                 onError={(e) => {
@@ -870,27 +878,38 @@ function Home() {
             <div className="w-full lg:w-1/2 order-2 lg:order-1" data-aos="fade-right">
               <div className="grid grid-cols-2 gap-6">
                 <div className="bg-[#F0F9FC] p-6 rounded-xl border border-brand-teal/5 flex flex-col justify-center h-[180px]">
-
                   <div>
-                    <h4 className="font-bold text-brand-navy text-sm mb-1">Micro Batches</h4>
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="material-symbols-outlined text-brand-teal text-xl">groups</span>
+                      <h4 className="font-bold text-brand-navy text-sm">Micro Batches</h4>
+                    </div>
                     <p className="text-gray-500 text-xs leading-relaxed">Max 25 students per batch for personalized attention and focused learning.</p>
                   </div>
                 </div>
                 <div className="bg-[#F5F0F7] p-6 rounded-xl border border-brand-purple/5 flex flex-col justify-center h-[180px]">
                   <div>
-                    <h4 className="font-bold text-brand-navy text-sm mb-1">Weekly Tests</h4>
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="material-symbols-outlined text-brand-purple text-xl">assignment</span>
+                      <h4 className="font-bold text-brand-navy text-sm">Weekly Tests</h4>
+                    </div>
                     <p className="text-gray-500 text-xs leading-relaxed">Periodic diagnostic tests to evaluate progress and strengthen exam readiness.</p>
                   </div>
                 </div>
                 <div className="bg-[#FFFCEB] p-6 rounded-xl border border-brand-yellow/5 flex flex-col justify-center h-[180px]">
                   <div>
-                    <h4 className="font-bold text-brand-navy text-sm mb-1">Senior Mentors</h4>
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="material-symbols-outlined text-brand-gold text-xl">school</span>
+                      <h4 className="font-bold text-brand-navy text-sm">Senior Mentors</h4>
+                    </div>
                     <p className="text-gray-500 text-xs leading-relaxed">Experienced faculty and subject experts guide every student.</p>
                   </div>
                 </div>
                 <div className="bg-[#F5F0F7] p-6 rounded-xl border border-brand-purple/5 flex flex-col justify-center h-[180px]">
                   <div>
-                    <h4 className="font-bold text-brand-navy text-sm mb-1">Syllabus Grids</h4>
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="material-symbols-outlined text-brand-purple text-xl">menu_book</span>
+                      <h4 className="font-bold text-brand-navy text-sm">Syllabus Grids</h4>
+                    </div>
                     <p className="text-gray-500 text-xs leading-relaxed">Structured notes, worksheets, and exam-oriented resources.</p>
                   </div>
                 </div>

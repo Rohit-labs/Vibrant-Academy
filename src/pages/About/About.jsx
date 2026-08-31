@@ -55,55 +55,55 @@ const galleryPhotos = [
   {
     id: 1,
     size: 'large',
-    src: 'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&q=80&w=800',
+    src: '../images/Vibrant moments photos/turf image.jpeg',
     caption: 'Student Bonding & Camps'
   },
   {
     id: 2,
     size: 'medium',
-    src: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=800',
+    src: '../images/Vibrant moments photos/turf image(2).jpeg',
     caption: 'Personalized Academic Mentorship'
   },
   {
     id: 3,
     size: 'medium',
-    src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800',
+    src: '../images/Vibrant moments photos/trip image.jpeg',
     caption: 'Expert Conceptual Guidance'
   },
   {
     id: 4,
     size: 'medium',
-    src: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=800',
+    src: '../images/Vibrant moments photos/trip image(2).jpeg',
     caption: 'Celebrating Great Achievements'
   },
   {
     id: 5,
     size: 'large',
-    src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800',
+    src: '../images/Vibrant moments photos/Award Photo.jpeg',
     caption: 'Collaborative Study Sessions'
   },
   {
     id: 6,
     size: 'medium',
-    src: 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&q=80&w=800',
+    src: '../images/Vibrant moments photos/celebration.jpeg',
     caption: 'Capturing Lifelong Memories'
   },
   {
     id: 7,
     size: 'small',
-    src: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=800',
+    src: '../images/Vibrant moments photos/farewell.jpeg',
     caption: 'Daily Interactive Discussions'
   },
   {
     id: 8,
     size: 'medium',
-    src: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=800',
+    src: '../images/Vibrant moments photos/farewell(2).jpeg',
     caption: 'Focused Skill Building'
   },
   {
     id: 9,
     size: 'large',
-    src: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80&w=800',
+    src: '../images/Vibrant moments photos/farewell.jpeg',
     caption: 'Warm Learning Environment'
   },
   {

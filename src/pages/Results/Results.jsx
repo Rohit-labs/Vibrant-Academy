@@ -199,7 +199,7 @@ function Results() {
 
       {/* SECTION 1 — PAGE HERO (Full Image Banner Carousel) */}
       <div className="w-full mb-16" style={{ paddingTop: '6vh' }}>
-        <section className="relative w-full overflow-hidden" style={{ maxHeight: 'calc(100vh - 60px)' }}>
+        <section className="relative w-full overflow-hidden">
         {/* Slides */}
         <div
           className="flex transition-transform duration-700 ease-in-out w-full"
@@ -207,16 +207,22 @@ function Results() {
         >
           {heroSlides.map((slide, idx) => (
             <div key={idx} className="w-full flex-shrink-0 relative">
-              <img
-                src={slide.desktop}
-                alt={slide.desktopAlt}
-                className="hidden md:block w-full h-auto"
-              />
-              <img
-                src={slide.mobile}
-                alt={slide.mobileAlt}
-                className="block md:hidden w-full h-auto"
-              />
+              {/* Desktop — 1672x941 = 56.28% aspect ratio */}
+              <div className="hidden md:block w-full" style={{ paddingTop: '56.28%', position: 'relative' }}>
+                <img
+                  src={slide.desktop}
+                  alt={slide.desktopAlt}
+                  style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+                />
+              </div>
+              {/* Mobile — avg ~178% aspect ratio */}
+              <div className="block md:hidden w-full" style={{ paddingTop: '178%', position: 'relative' }}>
+                <img
+                  src={slide.mobile}
+                  alt={slide.mobileAlt}
+                  style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+                />
+              </div>
             </div>
           ))}
         </div>
