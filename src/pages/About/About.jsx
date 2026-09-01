@@ -55,32 +55,32 @@ const galleryPhotos = [
   {
     id: 1,
     size: 'large',
-    src: '../images/Vibrant moments photos/turf image.jpeg',
-    caption: 'Student Bonding & Camps'
+    src: '../images/Vibrant moments photos/Traditional Dancer at Grand Annual Function.png',
+    caption: 'A little rhythm, a lot of joy'
   },
   {
     id: 2,
     size: 'medium',
     src: '../images/Vibrant moments photos/turf image(2).jpeg',
-    caption: 'Personalized Academic Mentorship'
+    caption: 'Together we played, competed, and created memories to celebrate'
   },
   {
     id: 3,
     size: 'medium',
     src: '../images/Vibrant moments photos/trip image.jpeg',
-    caption: 'Expert Conceptual Guidance'
+    caption: 'Good vibes, great company, and memories made along the way.'
   },
   {
     id: 4,
     size: 'medium',
-    src: '../images/Vibrant moments photos/trip image(2).jpeg',
-    caption: 'Celebrating Great Achievements'
+    src: '../images/Vibrant moments photos/Good People, Great Vibes, Unforgettable Memories.png',
+    caption: 'One frame, countless memories, and a whole lot of energy!'
   },
   {
     id: 5,
     size: 'large',
     src: '../images/Vibrant moments photos/Award Photo.jpeg',
-    caption: 'Collaborative Study Sessions'
+    caption: 'Celebrating Great Achievements'
   },
   {
     id: 6,
@@ -91,86 +91,86 @@ const galleryPhotos = [
   {
     id: 7,
     size: 'small',
-    src: '../images/Vibrant moments photos/farewell.jpeg',
-    caption: 'Daily Interactive Discussions'
+    src: '../images/Vibrant moments photos/farewell(4).png',
+    caption: 'Elegance, confidence, and a moment to remember'
   },
   {
     id: 8,
     size: 'medium',
     src: '../images/Vibrant moments photos/farewell(2).jpeg',
-    caption: 'Focused Skill Building'
+    caption: 'A moment of mentorship, connection, and memories beyond the classroom.'
   },
   {
     id: 9,
     size: 'large',
-    src: '../images/Vibrant moments photos/farewell.jpeg',
-    caption: 'Warm Learning Environment'
+    src: '../images/Vibrant moments photos/farewell(3).png',
+    caption: 'A memorable moment, celebrating achievements and new beginnings.'
   },
   {
     id: 10,
     size: 'medium',
-    src: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=800',
-    caption: 'Unlocking Student Potential'
+    src: '../images/Vibrant moments photos/S.S. Classes Farewell Party Performance.png',
+    caption: 'Stealing the spotlight, one dance move at a time!'
   },
   {
     id: 11,
     size: 'large',
-    src: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=800',
-    caption: 'Student Commute & Travel Journeys'
+    src: '../images/Vibrant moments photos/farewell.jpeg',
+    caption: 'Celebrating friendship, guidance, and the unforgettable moments we create together.'
   },
   {
     id: 12,
     size: 'small',
-    src: 'https://images.unsplash.com/photo-1533873984035-25970ab07461?auto=format&fit=crop&q=80&w=800',
-    caption: 'A Brighter Future Ahead'
+    src: '../images/Vibrant moments photos/Festive Farewell Gown Stage Portrait.png',
+    caption: 'Grace in every step, confidence in every moment.'
   },
   {
     id: 13,
     size: 'large',
-    src: 'https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&q=80&w=800',
-    caption: 'Scaling New Heights Together'
+    src: '../images/Vibrant moments photos/Festive Group Celebration Portrait.png',
+    caption: 'Smiles, celebrations, and memories that will always bring us together.'
   },
   {
     id: 14,
     size: 'medium',
-    src: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&q=80&w=800',
-    caption: 'Creative Inspiration'
+    src: '../images/Vibrant moments photos/Festive Farewell Party Stage.png',
+    caption: 'Where memories were made and goodbyes became unforgettable.'
   },
   {
     id: 15,
     size: 'medium',
-    src: 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80&w=800',
+    src: '../images/Vibrant moments photos/Colorful Farewell Party Stage.png',
     caption: 'Campus Vibe'
   },
   {
     id: 16,
     size: 'small',
-    src: 'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&q=80&w=800',
-    caption: 'Student Gathering'
+    src: '../images/Vibrant moments photos/Joyful Pageant Contestant Making a Heart.png',
+    caption: 'A smile, a heart, and a moment to remember.'
   },
   {
     id: 17,
     size: 'large',
-    src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800',
-    caption: 'Excellence in Action'
+    src: '../images/Vibrant moments photos/S.S. Classes Welcome Group Portrait.png',
+    caption: 'Welcoming new faces and creating lasting memories.'
   },
   {
     id: 18,
     size: 'medium',
-    src: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=800',
-    caption: 'Triumphant Achievements'
+    src: '../images/Vibrant moments photos/Celebration Group at S.S. Classes.png',
+    caption: 'Celebrating moments that will always stay with us.'
   },
   {
     id: 19,
     size: 'medium',
-    src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800',
+    src: '../images/Vibrant moments photos/Student Gathering.png',
     caption: 'Innovative Ideas'
   },
   {
     id: 20,
     size: 'small',
-    src: 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&q=80&w=800',
-    caption: 'Campus Memories'
+    src: '../images/Vibrant moments photos/S.S. Classes Farewell Celebration.png',
+    caption: 'Stepping onto the stage with confidence and creating memories to cherish forever.'
   }
 ];
 
@@ -231,7 +231,7 @@ function About() {
           <img
             alt="Vibrant Academy Dahisar Classroom"
             className="w-[95%] h-[95%] object-cover rounded-[24px]"
-            src="/classroom.jpg"
+            src="/Classroom.png"
           />
         </div>
         <div className="w-full md:w-[55%] flex items-center bg-white hero-pattern p-margin_mobile md:p-10 overflow-hidden">
