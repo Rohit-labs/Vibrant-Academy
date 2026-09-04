@@ -2,3 +2,9 @@
 main {
   min-height: 80vh;
 }
+
+/* Show grey color on select when default (empty) option is selected */
+select:required:invalid,
+select option[value=""] {
+  color: #6b7280; /* gray-500 */
+}

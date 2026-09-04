@@ -241,7 +241,7 @@ function About() {
               <span className="font-dancing text-brand-teal text-xl">Believe in Excellence...</span>
             </div>
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-brand-navy mb-4 tracking-tight leading-tight">
-              About <br /><span className="text-brand-purple">Vibrant Academy.</span>
+              About <br /><span className="text-brand-purple">Vibrant Academy</span>
             </h1>
             <div className="h-1 w-[40px] bg-brand-purple rounded-full mb-6"></div>
             <p className="text-gray-500 text-base md:text-lg leading-relaxed mb-6">
@@ -318,7 +318,7 @@ function About() {
                 <span className="font-dancing text-brand-teal text-xl">Powered by S.S. Classes</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy mb-4 tracking-tight leading-tight">
-                Our Story & <br /><span className="text-brand-purple">Academic Mission.</span>
+                Our Story & <br /><span className="text-brand-purple">Academic Mission</span>
               </h2>
               <div className="h-1 w-[40px] bg-brand-purple rounded-full mb-6"></div>
               <p className="text-gray-600 text-base leading-relaxed mb-6">
@@ -351,19 +351,23 @@ function About() {
         <div className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white p-8 rounded-xl border border-brand-purple/10 border-t-4 border-t-brand-purple shadow-md hover:translate-y-[-4px] hover:shadow-lg transition-all" data-aos="fade-up">
-              <div className="w-12 h-12 rounded-full bg-brand-purple/10 flex items-center justify-center text-brand-purple mb-6">
-                <span className="material-symbols-outlined text-2xl">stars</span>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 rounded-full bg-brand-purple/10 flex items-center justify-center text-brand-purple flex-shrink-0">
+                  <span className="material-symbols-outlined text-2xl">stars</span>
+                </div>
+                <h3 className="text-xl font-bold text-brand-navy">Our Mission</h3>
               </div>
-              <h3 className="text-xl font-bold text-brand-navy mb-4">Our Mission</h3>
               <p className="text-gray-500 text-sm leading-relaxed">
                 At Vibrant Academy, we believe learning should be full of energy, curiosity, and excitement. Our mission is to turn classrooms into spaces where students enjoy learning, discover their strengths, and build the confidence to achieve their dreams.
               </p>
             </div>
             <div className="bg-white p-8 rounded-xl border border-brand-teal/10 border-t-4 border-t-brand-teal shadow-md hover:translate-y-[-4px] hover:shadow-lg transition-all" data-aos="fade-up" data-aos-delay="100">
-              <div className="w-12 h-12 rounded-full bg-brand-teal/10 flex items-center justify-center text-brand-teal mb-6">
-                <span className="material-symbols-outlined text-2xl">visibility</span>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 rounded-full bg-brand-teal/10 flex items-center justify-center text-brand-teal flex-shrink-0">
+                  <span className="material-symbols-outlined text-2xl">visibility</span>
+                </div>
+                <h3 className="text-xl font-bold text-brand-navy">Our Vision</h3>
               </div>
-              <h3 className="text-xl font-bold text-brand-navy mb-4">Our Vision</h3>
               <p className="text-gray-500 text-sm leading-relaxed">
                 Our vision is to create a generation of confident learners who are not afraid to ask questions, embrace challenges, and shine in every stage of life. Because when learning is vibrant, every future becomes brighter.
               </p>
@@ -379,7 +383,7 @@ function About() {
           <div className="text-center max-w-2xl mx-auto mb-10" data-aos="fade-up">
             <p className="text-brand-teal font-extrabold uppercase tracking-widest text-xs mb-3">COURSES OFFERED</p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy mb-2 tracking-tight">
-              Programs<span className="text-brand-purple"> for Every Learner.</span>
+              Programs<span className="text-brand-purple"> for Every Learner</span>
             </h2>
             <div className="h-1 w-[40px] bg-brand-purple rounded-full mx-auto mb-4"></div>
           </div>
@@ -469,7 +473,7 @@ function About() {
           <div className="text-center max-w-2xl mx-auto mb-14" data-aos="fade-up">
             <p className="text-brand-teal font-extrabold uppercase tracking-widest text-xs mb-3">Our Faculty</p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy mb-2 tracking-tight">
-              Faculty <span className="text-brand-purple">Directory.</span>
+              Faculty <span className="text-brand-purple">Directory</span>
             </h2>
             <div className="h-1 w-[40px] bg-brand-purple rounded-full mx-auto mb-4"></div>
             <p className="text-gray-500 text-sm leading-relaxed">Qualified educators across all streams and boards committed to student excellence.</p>
@@ -527,7 +531,7 @@ function About() {
           <div className="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
             <p className="text-brand-teal font-extrabold uppercase tracking-widest text-xs mb-3">GALLERY</p>
             <h2 className="text-3xl md:text-5xl font-extrabold text-brand-navy mb-2 tracking-tight">
-              Vibrant <span className="text-brand-purple">Moments.</span>
+              Vibrant <span className="text-brand-purple">Moments</span>
             </h2>
             <div className="h-1 w-[40px] bg-brand-purple rounded-full mx-auto mb-4"></div>
             <p className="text-gray-500 text-sm md:text-base leading-relaxed">

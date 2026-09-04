@@ -32,7 +32,7 @@ function Home() {
   useEffect(() => {
     const timer = setInterval(() => {
       setHeroIndex(prev => (prev + 1) % heroSlides.length);
-    }, 4000);
+    }, 10000);
     return () => clearInterval(timer);
   }, [heroSlides.length]);
 
@@ -142,7 +142,7 @@ function Home() {
         const isClass7to10 = ['Class 7', 'Class 8', 'Class 9', 'Class 10'].includes(value);
         const isClass11to12 = ['Class 11', 'Class 12'].includes(value);
         const isPharma = ['D.Pharm', 'B.Pharm'].includes(value);
-        const isCAorCMA = ['Chartered Accountant Foundation(CA)', 'Cost and Management Accountant (CMA)'].includes(value);
+        const isCAorCMA = ['CA Foundation', 'CMA Foundation'].includes(value);
 
         if (isClass7to10) {
           updated.examination = 'Plain Boards';
@@ -189,7 +189,7 @@ function Home() {
   };
 
   const showExamAndStream = ['Class 11', 'Class 12'].includes(formData.standard);
-  const showBoard = !['B.Pharm', 'D.Pharm', 'Chartered Accountant (CA)', 'Cost and Management Accountant (CMA)'].includes(formData.standard);
+  const showBoard = !['B.Pharm', 'D.Pharm', 'CA Foundation', 'CMA Foundation'].includes(formData.standard);
 
   const courses = [
     {
@@ -347,7 +347,7 @@ function Home() {
           <div className="text-center max-w-2xl mx-auto mb-16">
             <p className="text-brand-teal font-extrabold uppercase tracking-widest text-xs mb-3">Our Toppers</p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy mb-2 tracking-tight">
-              Student <span className="text-brand-purple">Achievements.</span>
+              Student <span className="text-brand-purple">Achievements</span>
             </h2>
             <div className="h-1 w-[40px] bg-brand-purple rounded-full mx-auto mb-4"></div>
           </div>
@@ -436,7 +436,7 @@ function Home() {
           <div className="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
             <p className="text-brand-teal font-extrabold uppercase tracking-widest text-xs mb-3">Our Core Programs</p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy mb-2 tracking-tight">
-              Classroom <span className="text-brand-purple">Offerings.</span>
+              Classroom <span className="text-brand-purple">Offerings</span>
             </h2>
             <div className="h-1 w-[40px] bg-brand-purple rounded-full mx-auto mb-4"></div>
             <p className="text-gray-500 text-base leading-relaxed">
@@ -493,44 +493,44 @@ function Home() {
               <form onSubmit={handleQuickSubmit} className="space-y-4">
                 {/* Field 1: Name */}
                 <div className="space-y-1.5">
-                  <label className="text-xs font-semibold uppercase tracking-wider text-gray-600 ml-1">Student Name</label>
+                  <label className="text-xs font-semibold uppercase tracking-wider text-black ml-1">Student Name <span className="text-red-500">*</span></label>
                   <input
                     type="text"
                     name="name"
                     value={quickForm.name}
                     onChange={handleQuickChange}
-                    placeholder="Enter Student Name"
+                    placeholder="e.g. Riya Sharma"
                     required
-                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 text-brand-navy placeholder-gray-400 focus:bg-white focus:border-brand-teal transition-all outline-none text-sm"
+                    className="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-300 text-black placeholder-gray-500 focus:bg-white focus:border-brand-teal transition-all outline-none text-sm"
                   />
                 </div>
 
                 {/* Field 2: Phone */}
                 <div className="space-y-1.5">
-                  <label className="text-xs font-semibold uppercase tracking-wider text-gray-600 ml-1">Mobile Number</label>
+                  <label className="text-xs font-semibold uppercase tracking-wider text-black ml-1">Mobile Number <span className="text-red-500">*</span></label>
                   <input
                     type="tel"
                     name="phone"
                     value={quickForm.phone}
                     onChange={handleQuickChange}
-                    placeholder="Enter 10-digit Mobile Number"
+                    placeholder="e.g. 98765 43210"
                     required
                     inputMode="numeric"
                     pattern="[0-9]{10}"
                     onKeyDown={(e) => { if (!/[0-9]|Backspace|Delete|Tab|ArrowLeft|ArrowRight/.test(e.key)) e.preventDefault(); }}
-                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 text-brand-navy placeholder-gray-400 focus:bg-white focus:border-brand-teal transition-all outline-none text-sm"
+                    className="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-300 text-black placeholder-gray-500 focus:bg-white focus:border-brand-teal transition-all outline-none text-sm"
                   />
                 </div>
 
                 {/* Field 3: Standard */}
                 <div className="space-y-1.5">
-                  <label className="text-xs font-semibold uppercase tracking-wider text-gray-600 ml-1">Standard</label>
+                  <label className="text-xs font-semibold uppercase tracking-wider text-black ml-1">Standard <span className="text-red-500">*</span></label>
                   <select
                     name="standard"
                     value={quickForm.standard}
                     onChange={handleQuickChange}
                     required
-                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 text-brand-navy focus:bg-white focus:border-brand-teal transition-all outline-none text-sm cursor-pointer [&>option]:text-brand-navy [&>option]:bg-white"
+                    className="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-300 text-black focus:bg-white focus:border-brand-teal transition-all outline-none text-sm cursor-pointer [&>option]:text-black [&>option:first-child]:text-gray-400 [&>option]:bg-white"
                   >
                     <option value="">Select Class</option>
                     <option value="Class 7">Class 7</option>
@@ -541,22 +541,22 @@ function Home() {
                     <option value="Class 12">Class 12</option>
                     <option value="B.Pharm">B.Pharm</option>
                     <option value="D.Pharm">D.Pharm</option>
-                    <option value="Chartered Accountant Foundation (CA)">Chartered Accountant Foundation (CA)</option>
-                    <option value="Cost and Management Accountant (CMA)">Cost and Management Accountant (CMA)</option>
+                    <option value="CA Foundation">Chartered Accountant Foundation (CA)</option>
+                    <option value="CMA Foundation">Cost and Management Accountant (CMA)</option>
                   </select>
                 </div>
 
                 {/* Field 4: School */}
                 <div className="space-y-1.5">
-                  <label className="text-xs font-semibold uppercase tracking-wider text-gray-600 ml-1">School / College Name</label>
+                  <label className="text-xs font-semibold uppercase tracking-wider text-black ml-1">School / College Name <span className="text-red-500">*</span></label>
                   <input
                     type="text"
                     name="school"
                     value={quickForm.school}
                     onChange={handleQuickChange}
-                    placeholder="Enter School or College Name"
+                    placeholder="e.g. Golden Nest High School"
                     required
-                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 text-brand-navy placeholder-gray-400 focus:bg-white focus:border-brand-teal transition-all outline-none text-sm"
+                    className="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-300 text-black placeholder-gray-500 focus:bg-white focus:border-brand-teal transition-all outline-none text-sm"
                   />
                 </div>
 
@@ -654,27 +654,27 @@ function Home() {
               {/* Row 1: Name & Parent Name */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-1">
-                  <label className="text-xs font-bold text-brand-navy/80 ml-0.5">Name</label>
+                  <label className="text-xs font-bold text-black ml-0.5">Name <span className="text-red-500">*</span></label>
                   <input
                     type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="Student Name"
-                    className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold"
+                    placeholder="e.g. Arjun Mehta"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-100 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold text-black placeholder-gray-500"
                     required
                   />
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-xs font-bold text-brand-navy/80 ml-0.5">Parent Name</label>
+                  <label className="text-xs font-bold text-black ml-0.5">Parent Name <span className="text-red-500">*</span></label>
                   <input
                     type="text"
                     name="parentName"
                     value={formData.parentName}
                     onChange={handleChange}
-                    placeholder="Parent Name"
-                    className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold"
+                    placeholder="e.g. Suresh Mehta"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-100 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold text-black placeholder-gray-500"
                     required
                   />
                 </div>
@@ -683,14 +683,14 @@ function Home() {
               {/* Row 2: Phone Number & Gender */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-1">
-                  <label className="text-xs font-bold text-brand-navy/80 ml-0.5">Phone Number</label>
+                  <label className="text-xs font-bold text-black ml-0.5">Phone Number <span className="text-red-500">*</span></label>
                   <input
                     type="tel"
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="Mobile Number"
-                    className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold"
+                    placeholder="e.g. 98765 43210"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-100 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold text-black placeholder-gray-500"
                     required
                     inputMode="numeric"
                     pattern="[0-9]*"
@@ -699,12 +699,12 @@ function Home() {
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-xs font-bold text-brand-navy/80 ml-0.5">Gender</label>
+                  <label className="text-xs font-bold text-black ml-0.5">Gender <span className="text-red-500">*</span></label>
                   <select
                     name="gender"
                     value={formData.gender}
                     onChange={handleChange}
-                    className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold cursor-pointer [&>option]:text-brand-navy [&>option]:bg-white"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-100 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold text-black cursor-pointer [&>option]:text-black [&>option:first-child]:text-gray-400 [&>option]:bg-white"
                     required
                   >
                     <option value="">Select Gender</option>
@@ -718,12 +718,12 @@ function Home() {
               {/* Row 3: Standard & Boards */}
               <div className={`grid grid-cols-1 ${showBoard ? 'md:grid-cols-2' : ''} gap-4`}>
                 <div className="space-y-1">
-                  <label className="text-xs font-bold text-brand-navy/80 ml-0.5">Standard</label>
+                  <label className="text-xs font-bold text-black ml-0.5">Standard <span className="text-red-500">*</span></label>
                   <select
                     name="standard"
                     value={formData.standard}
                     onChange={handleChange}
-                    className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold cursor-pointer [&>option]:text-brand-navy [&>option]:bg-white"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-100 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold text-black cursor-pointer [&>option]:text-black [&>option:first-child]:text-gray-400 [&>option]:bg-white"
                     required
                   >
                     <option value="">Select Standard</option>
@@ -735,19 +735,19 @@ function Home() {
                     <option value="Class 12">Class 12</option>
                     <option value="B.Pharm">B.Pharm</option>
                     <option value="D.Pharm">D.Pharm</option>
-                    <option value="Chartered Accountant Foundation (CA)">Chartered Accountant Foundation(CA)</option>
-                    <option value="Cost and Management Accountant (CMA)">Cost and Management Accountant (CMA)</option>
+                    <option value="CA Foundation">Chartered Accountant Foundation (CA)</option>
+                    <option value="CMA Foundation">Cost and Management Accountant (CMA)</option>
                   </select>
                 </div>
 
                 {showBoard && (
                   <div className="space-y-1">
-                    <label className="text-xs font-bold text-brand-navy/80 ml-0.5">Boards</label>
+                    <label className="text-xs font-bold text-black ml-0.5">Boards <span className="text-red-500">*</span></label>
                     <select
                       name="board"
                       value={formData.board}
                       onChange={handleChange}
-                      className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold cursor-pointer [&>option]:text-brand-navy [&>option]:bg-white"
+                      className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-100 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold text-black cursor-pointer [&>option]:text-black [&>option:first-child]:text-gray-400 [&>option]:bg-white"
                       required={showBoard}
                     >
                       <option value="">Select Board</option>
@@ -764,12 +764,12 @@ function Home() {
               {showExamAndStream && (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 animate-fade-in">
                   <div className="space-y-1">
-                    <label className="text-xs font-bold text-brand-navy/80 ml-0.5">Examination</label>
+                    <label className="text-xs font-bold text-black ml-0.5">Examination <span className="text-red-500">*</span></label>
                     <select
                       name="examination"
                       value={formData.examination}
                       onChange={handleChange}
-                      className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold cursor-pointer [&>option]:text-brand-navy [&>option]:bg-white"
+                      className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-100 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold text-black cursor-pointer [&>option]:text-black [&>option:first-child]:text-gray-400 [&>option]:bg-white"
                       required
                     >
                       <option value="">Select Exam</option>
@@ -783,12 +783,12 @@ function Home() {
                   </div>
 
                   <div className="space-y-1">
-                    <label className="text-xs font-bold text-brand-navy/80 ml-0.5">Stream</label>
+                    <label className="text-xs font-bold text-black ml-0.5">Stream <span className="text-red-500">*</span></label>
                     <select
                       name="stream"
                       value={formData.stream}
                       onChange={handleChange}
-                      className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold cursor-pointer [&>option]:text-brand-navy [&>option]:bg-white"
+                      className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-100 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold text-black cursor-pointer [&>option]:text-black [&>option:first-child]:text-gray-400 [&>option]:bg-white"
                       required
                     >
                       <option value="">Select Stream</option>
@@ -801,14 +801,14 @@ function Home() {
 
               {/* Message Field */}
               <div className="space-y-1">
-                <label className="text-xs font-bold text-brand-navy/80 ml-0.5">Message</label>
+                <label className="text-xs font-bold text-black ml-0.5">Message <span className="text-red-500">*</span></label>
                 <textarea
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Your Message..."
+                  placeholder="e.g. Interested in Class 10 SSC batch starting next month"
                   rows="2"
-                  className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold resize-none"
+                  className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-100 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold text-black placeholder-gray-500 resize-none"
                   required
                 ></textarea>
               </div>
@@ -921,7 +921,7 @@ function Home() {
                 <span className="font-dancing text-brand-teal text-xl">Powered By S.S. Classes</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy mb-4 tracking-tight leading-tight">
-                Our Educational <br /><span className="text-brand-purple">Philosophy.</span>
+                Our Educational <br /><span className="text-brand-purple">Philosophy</span>
               </h2>
               <div className="h-1 w-[40px] bg-brand-purple rounded-full mb-6"></div>
               <p className="text-gray-600 text-base leading-relaxed mb-6">
@@ -946,7 +946,7 @@ function Home() {
           <div className="text-center max-w-2xl mx-auto mb-16">
             <p className="text-brand-teal font-extrabold uppercase tracking-widest text-xs mb-3">Testimonials</p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy mb-2 tracking-tight">
-              What Parents <span className="text-brand-purple">Say About Us.</span>
+              What Parents <span className="text-brand-purple">Say About Us</span>
             </h2>
             <div className="h-1 w-[40px] bg-brand-purple rounded-full mx-auto mb-4"></div>
           </div>
