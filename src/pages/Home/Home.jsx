@@ -93,7 +93,7 @@ function Home() {
     setIsSubmitting(true);
     try {
       const data = new FormData();
-      data.append('access_key', '646459c4-28e2-4768-a836-2d456dbd13e0');
+      data.append('access_key', process.env.REACT_APP_WEB3FORMS_KEY);
       data.append('name', quickForm.name);
       data.append('phone', quickForm.phone);
       data.append('standard', quickForm.standard);
@@ -176,7 +176,7 @@ function Home() {
     setIsContactSubmitting(true);
     try {
       const data = new FormData();
-      data.append('access_key', '646459c4-28e2-4768-a836-2d456dbd13e0');
+      data.append('access_key', process.env.REACT_APP_WEB3FORMS_KEY);
       Object.entries(formData).forEach(([k, v]) => data.append(k, v));
       await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
       setSubmittedInfo({ name: formData.name, phone: formData.phone });

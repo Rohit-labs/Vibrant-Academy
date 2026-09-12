@@ -70,7 +70,7 @@ function Contact() {
     setIsSubmitting(true);
     try {
       const data = new FormData();
-      data.append('access_key', '646459c4-28e2-4768-a836-2d456dbd13e0');
+      data.append('access_key', process.env.REACT_APP_WEB3FORMS_KEY);
       Object.entries(formData).forEach(([k, v]) => data.append(k, v));
       await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
       setSubmittedInfo({ name: formData.name, phone: formData.phone });
@@ -98,14 +98,13 @@ function Contact() {
 
       {/* Main Section */}
       <section className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter py-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
           
           {/* Left Column: Find Us & Map */}
-          <div className="space-y-6" data-aos="fade-right">
+          <div className="flex flex-col space-y-6 h-full" data-aos="fade-right">
             <div>
-              <p className="text-brand-teal font-extrabold uppercase tracking-widest text-[10px] mb-0.5">Find Us</p>
               <h2 className="text-xl md:text-2xl font-black text-brand-navy uppercase tracking-tight">
-                Get In Touch
+                Find Us
               </h2>
             </div>
 
@@ -153,7 +152,7 @@ function Contact() {
             </div>
 
             {/* Map Container */}
-            <div className="h-[280px] md:h-[340px] rounded-xl overflow-hidden shadow-sm border border-brand-navy/5">
+            <div className="flex-1 min-h-[280px] rounded-xl overflow-hidden shadow-sm border border-brand-navy/5">
               <iframe 
                 title="Vibrant Academy Location"
                 allowFullScreen="" 
@@ -168,9 +167,8 @@ function Contact() {
           </div>
 
           {/* Right Column: Enquiry Form (Reduced height & highly compact layout) */}
-          <div className="bg-white p-6 md:p-8 rounded-xl shadow-sm border border-brand-navy/5" data-aos="fade-left">
+          <div className="bg-white p-6 md:p-8 rounded-xl shadow-sm border border-brand-navy/5 h-full" data-aos="fade-left">
             <div className="mb-4">
-              <p className="text-brand-teal font-extrabold uppercase tracking-widest text-[10px] mb-0.5">Admissions Desk</p>
               <h2 className="text-xl md:text-2xl font-black text-brand-navy uppercase tracking-tight">
                 Enquiry Form
               </h2>
