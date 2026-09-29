@@ -24,7 +24,7 @@ function Navbar() {
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
     { name: 'Results', path: '/results' },
-    { name: 'Contact', path: '/contact' },
+    { name: 'Contact Us', path: '/contact' },
   ];
 
   return (
@@ -95,7 +95,7 @@ function Navbar() {
               className={`text-2xl font-semibold tracking-wide hover:text-brand-yellow transition-all ${location.pathname === link.path ? 'text-brand-yellow underline underline-offset-8' : 'text-white'
                 }`}
             >
-              {link.name === 'Results' ? 'Success Results' : link.name}
+              {link.name === 'Results' ? 'Results' : link.name}
             </Link>
           ))}
         </div>

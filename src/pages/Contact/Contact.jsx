@@ -36,7 +36,7 @@ function Contact() {
         const isClass7to10 = ['Class 7', 'Class 8', 'Class 9', 'Class 10'].includes(value);
         const isClass11to12 = ['Class 11', 'Class 12'].includes(value);
         const isPharma = ['D.Pharm', 'B.Pharm'].includes(value);
-        const isCAorCMA = ['Chartered Accountant Foundation(CA)', 'Cost and Management Accountant (CMA)'].includes(value);
+        const isCAorCMA = ['CA Foundation', 'CMA Foundation'].includes(value);
         
         if (isClass7to10) {
           updated.examination = 'Plain Boards';
@@ -70,7 +70,7 @@ function Contact() {
     setIsSubmitting(true);
     try {
       const data = new FormData();
-      data.append('access_key', '646459c4-28e2-4768-a836-2d456dbd13e0');
+      data.append('access_key', process.env.REACT_APP_WEB3FORMS_KEY);
       Object.entries(formData).forEach(([k, v]) => data.append(k, v));
       await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
       setSubmittedInfo({ name: formData.name, phone: formData.phone });
@@ -83,7 +83,7 @@ function Contact() {
   };
 
   const showExamAndStream = ['Class 11', 'Class 12'].includes(formData.standard);
-  const showBoard = !['B.Pharm', 'D.Pharm', 'Chartered Accountant Foundation(CA)', 'Cost and Management Accountant (CMA)'].includes(formData.standard);
+  const showBoard = !['B.Pharm', 'D.Pharm', 'CA Foundation', 'CMA Foundation'].includes(formData.standard);
 
   return (
     <div className="contact-page bg-gray-50 min-h-screen">
@@ -98,14 +98,13 @@ function Contact() {
 
       {/* Main Section */}
       <section className="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter py-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
           
           {/* Left Column: Find Us & Map */}
-          <div className="space-y-6" data-aos="fade-right">
+          <div className="flex flex-col space-y-6 h-full" data-aos="fade-right">
             <div>
-              <p className="text-brand-teal font-extrabold uppercase tracking-widest text-[10px] mb-0.5">Find Us</p>
               <h2 className="text-xl md:text-2xl font-black text-brand-navy uppercase tracking-tight">
-                Get In Touch
+                Find Us
               </h2>
             </div>
 
@@ -153,7 +152,7 @@ function Contact() {
             </div>
 
             {/* Map Container */}
-            <div className="h-[280px] md:h-[340px] rounded-xl overflow-hidden shadow-sm border border-brand-navy/5">
+            <div className="flex-1 min-h-[280px] rounded-xl overflow-hidden shadow-sm border border-brand-navy/5">
               <iframe 
                 title="Vibrant Academy Location"
                 allowFullScreen="" 
@@ -168,9 +167,8 @@ function Contact() {
           </div>
 
           {/* Right Column: Enquiry Form (Reduced height & highly compact layout) */}
-          <div className="bg-white p-6 md:p-8 rounded-xl shadow-sm border border-brand-navy/5" data-aos="fade-left">
+          <div className="bg-white p-6 md:p-8 rounded-xl shadow-sm border border-brand-navy/5 h-full" data-aos="fade-left">
             <div className="mb-4">
-              <p className="text-brand-teal font-extrabold uppercase tracking-widest text-[10px] mb-0.5">Admissions Desk</p>
               <h2 className="text-xl md:text-2xl font-black text-brand-navy uppercase tracking-tight">
                 Enquiry Form
               </h2>
@@ -181,27 +179,27 @@ function Contact() {
               {/* Row 1: Name & Parent Name */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-1">
-                  <label className="text-xs font-bold text-brand-navy/80 ml-0.5">Name</label>
+                  <label className="text-xs font-bold text-black ml-0.5">Name <span className="text-red-500">*</span></label>
                   <input 
                     type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="Student Name"
-                    className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold"
+                    placeholder="e.g. Arjun Mehta"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-100 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold text-black placeholder-gray-500"
                     required
                   />
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-xs font-bold text-brand-navy/80 ml-0.5">Parent Name</label>
+                  <label className="text-xs font-bold text-black ml-0.5">Parent Name <span className="text-red-500">*</span></label>
                   <input 
                     type="text"
                     name="parentName"
                     value={formData.parentName}
                     onChange={handleChange}
-                    placeholder="Parent Name"
-                    className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold"
+                    placeholder="e.g. Suresh Mehta"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-100 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold text-black placeholder-gray-500"
                     required
                   />
                 </div>
@@ -210,14 +208,14 @@ function Contact() {
               {/* Row 2: Phone Number & Gender */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-1">
-                  <label className="text-xs font-bold text-brand-navy/80 ml-0.5">Phone Number</label>
+                  <label className="text-xs font-bold text-black ml-0.5">Phone Number <span className="text-red-500">*</span></label>
                   <input 
                     type="tel"
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="Mobile Number"
-                    className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold"
+                    placeholder="e.g. 98765 43210"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-100 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold text-black placeholder-gray-500"
                     required
                     inputMode="numeric"
                     pattern="[0-9]*"
@@ -226,12 +224,12 @@ function Contact() {
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-xs font-bold text-brand-navy/80 ml-0.5">Gender</label>
+                  <label className="text-xs font-bold text-black ml-0.5">Gender <span className="text-red-500">*</span></label>
                   <select
                     name="gender"
                     value={formData.gender}
                     onChange={handleChange}
-                    className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-55 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-100 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold text-black cursor-pointer [&>option]:text-black [&>option:first-child]:text-gray-400 [&>option]:bg-white"
                     required
                   >
                     <option value="">Select Gender</option>
@@ -245,12 +243,12 @@ function Contact() {
               {/* Row 3: Standard & Boards */}
               <div className={`grid grid-cols-1 ${showBoard ? 'md:grid-cols-2' : ''} gap-4`}>
                 <div className="space-y-1">
-                  <label className="text-xs font-bold text-brand-navy/80 ml-0.5">Standard</label>
+                  <label className="text-xs font-bold text-black ml-0.5">Standard <span className="text-red-500">*</span></label>
                   <select
                     name="standard"
                     value={formData.standard}
                     onChange={handleChange}
-                    className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-55 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-100 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold text-black cursor-pointer [&>option]:text-black [&>option:first-child]:text-gray-400 [&>option]:bg-white"
                     required
                   >
                     <option value="">Select Standard</option>
@@ -262,19 +260,19 @@ function Contact() {
                     <option value="Class 12">Class 12</option>
                     <option value="B.Pharm">B.Pharm</option>
                     <option value="D.Pharm">D.Pharm</option>
-                    <option value="Chartered Accountant (CA)">Chartered Accountant Foundation(CA)</option>
-                    <option value="Cost and Management Accountant (CMA)">Cost and Management Accountant (CMA)</option>
+                    <option value="CA Foundation">Chartered Accountant Foundation (CA)</option>
+                    <option value="CMA Foundation">Cost and Management Accountant (CMA)</option>
                   </select>
                 </div>
 
                 {showBoard && (
                   <div className="space-y-1">
-                    <label className="text-xs font-bold text-brand-navy/80 ml-0.5">Boards</label>
+                    <label className="text-xs font-bold text-black ml-0.5">Boards <span className="text-red-500">*</span></label>
                     <select
                       name="board"
                       value={formData.board}
                       onChange={handleChange}
-                      className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-55 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold"
+                      className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-100 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold text-black cursor-pointer [&>option]:text-black [&>option:first-child]:text-gray-400 [&>option]:bg-white"
                       required={showBoard}
                     >
                       <option value="">Select Board</option>
@@ -291,12 +289,12 @@ function Contact() {
               {showExamAndStream && (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 animate-fade-in">
                   <div className="space-y-1">
-                    <label className="text-xs font-bold text-brand-navy/80 ml-0.5">Examination</label>
+                    <label className="text-xs font-bold text-black ml-0.5">Examination <span className="text-red-500">*</span></label>
                     <select
                       name="examination"
                       value={formData.examination}
                       onChange={handleChange}
-                      className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-55 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold"
+                      className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-100 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold text-black cursor-pointer [&>option]:text-black [&>option:first-child]:text-gray-400 [&>option]:bg-white"
                       required
                     >
                       <option value="">Select Exam</option>
@@ -310,12 +308,12 @@ function Contact() {
                   </div>
 
                   <div className="space-y-1">
-                    <label className="text-xs font-bold text-brand-navy/80 ml-0.5">Stream</label>
+                    <label className="text-xs font-bold text-black ml-0.5">Stream <span className="text-red-500">*</span></label>
                     <select
                       name="stream"
                       value={formData.stream}
                       onChange={handleChange}
-                      className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-55 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold"
+                      className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-100 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold text-black cursor-pointer [&>option]:text-black [&>option:first-child]:text-gray-400 [&>option]:bg-white"
                       required
                     >
                       <option value="">Select Stream</option>
@@ -328,14 +326,14 @@ function Contact() {
 
               {/* Message Field */}
               <div className="space-y-1">
-                <label className="text-xs font-bold text-brand-navy/80 ml-0.5">Message</label>
+                <label className="text-xs font-bold text-black ml-0.5">Message <span className="text-red-500">*</span></label>
                 <textarea 
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Your Message..."
+                  placeholder="e.g. Interested in Class 10 SSC batch starting next month"
                   rows="2"
-                  className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold resize-none"
+                  className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-gray-100 focus:bg-white focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all outline-none text-xs font-semibold text-black placeholder-gray-500 resize-none"
                   required
                 ></textarea>
               </div>

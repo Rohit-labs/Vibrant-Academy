@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaWhatsapp, FaInstagram, FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
-import { SiGmail } from 'react-icons/si';
 import './Footer.css';
 
 function Footer() {
@@ -30,9 +29,6 @@ function Footer() {
                 <a className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-gradient-to-br hover:from-[#833AB4] hover:via-[#E1306C] hover:to-[#F77737] transition-all" href="https://www.instagram.com/vibrant_academy12?igsh=MW9mMzdveXMxN2s3ZQ%3D%3D&utm_source=qr" target="_blank" rel="noreferrer" aria-label="Instagram">
                   <FaInstagram size={18} />
                 </a>
-                <a className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-[#EA4335] transition-all" href="mailto:vibrantacademy@gmail.com" aria-label="Gmail">
-                  <SiGmail size={18} />
-                </a>
               </div>
             </div>
 
@@ -45,8 +41,6 @@ function Footer() {
                 <li><Link className="hover:text-brand-yellow transition-colors" to="/about">About Academy</Link></li>
                 <li><Link className="hover:text-brand-yellow transition-colors" to="/results">Success Results</Link></li>
                 <li><Link className="hover:text-brand-yellow transition-colors" to="/contact">Contact Support</Link></li>
-                <li><Link className="hover:text-brand-yellow transition-colors" to="/privacy-policy">Privacy Policy</Link></li>
-                <li><Link className="hover:text-brand-yellow transition-colors" to="/terms-and-conditions">Terms &amp; Conditions</Link></li>
               </ul>
             </div>
 
@@ -55,12 +49,12 @@ function Footer() {
               <h4 className="text-brand-yellow font-bold uppercase tracking-widest text-xs mb-4">Our Programs</h4>
               <div className="h-[2px] w-8 bg-brand-yellow mb-6"></div>
               <ul className="space-y-4 text-sm font-medium text-white/60">
-                <li><a className="hover:text-brand-yellow transition-colors" href="#programs">Foundation Classes (7-10)</a></li>
-                <li><a className="hover:text-brand-yellow transition-colors" href="#programs">Higher Secondary (11-12)</a></li>
-                <li><a className="hover:text-brand-yellow transition-colors" href="#programs">Board Exam Prep</a></li>
-                <li><a className="hover:text-brand-yellow transition-colors" href="#programs">B-Pharm,D-Pharm</a></li>
-                <li><a className="hover:text-brand-yellow transition-colors" href="#programs">Chartered Accountant Foundation(CA)</a></li>
-                <li><a className="hover:text-brand-yellow transition-colors" href="#programs">Cost and Management Accountant(CMA)</a></li>
+                <li><span>Foundation Classes (7-10)</span></li>
+                <li><span>Higher Secondary (11-12)</span></li>
+                <li><span>Board Exam Prep</span></li>
+                <li><span>B-Pharm, D-Pharm</span></li>
+                <li><span>Chartered Accountant Foundation (CA)</span></li>
+                <li><span>Cost and Management Accountant (CMA)</span></li>
               </ul>
             </div>
 
@@ -89,8 +83,8 @@ function Footer() {
           <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium text-white/40">
             <p>© 2024 Vibrant Academy. All rights reserved.</p>
             <div className="flex gap-8">
-              <Link className="hover:text-white transition-colors" to="/terms-and-conditions">Terms</Link>
-              <Link className="hover:text-white transition-colors" to="/privacy-policy">Privacy</Link>
+              <Link className="hover:text-white transition-colors" to="/terms-and-conditions">Terms & Conditions</Link>
+              <Link className="hover:text-white transition-colors" to="/privacy-policy">Privacy Policy</Link>
             </div>
           </div>
         </div>

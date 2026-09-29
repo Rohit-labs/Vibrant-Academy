@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import AOS from 'aos';
 import './PrivacyPolicy.css';
 
@@ -22,7 +21,7 @@ function PrivacyPolicy() {
             <span className="h-px w-8 bg-brand-teal"></span>
           </div>
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-brand-navy mb-4 tracking-tight leading-tight">
-            Privacy <span className="text-brand-purple">Policy.</span>
+            Privacy <span className="text-brand-purple">Policy</span>
           </h1>
           <div className="h-1 w-[40px] bg-brand-purple rounded-full mx-auto mb-6"></div>
           <p className="text-gray-500 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
@@ -187,47 +186,6 @@ function PrivacyPolicy() {
               </p>
             </PolicyBlock>
 
-            {/* 11. CONTACT */}
-            <PolicyBlock
-              number="11"
-              title="Contact Us"
-            >
-              <p>
-                If you have any questions, concerns, or requests related to this Privacy Policy or your personal information, please reach out to us:
-              </p>
-
-              <div className="policy-contact-card">
-                <div className="policy-contact-row">
-                  <span className="policy-contact-label">Business Name</span>
-                  <span className="policy-contact-value">Vibrant Academy</span>
-                </div>
-                <div className="policy-contact-row">
-                  <span className="policy-contact-label">Email</span>
-                  <a href="mailto:vibrantacademy@gmail.com" className="policy-contact-value policy-link">vibrantacademy@gmail.com</a>
-                </div>
-                <div className="policy-contact-row">
-                  <span className="policy-contact-label">Phone / WhatsApp</span>
-                  <a href="tel:+919137964830" className="policy-contact-value policy-link">+91 91379 64830</a>
-                </div>
-                <div className="policy-contact-row">
-                  <span className="policy-contact-label">Address</span>
-                  <span className="policy-contact-value">Shop No. 7, RMMS CHSL, Bldg. A1/A2, C.S. Road, Dahisar (East), Mumbai, Maharashtra, India</span>
-                </div>
-              </div>
-            </PolicyBlock>
-
-          </div>
-
-          {/* CTA */}
-          <div className="mt-16 text-center" data-aos="fade-up">
-            <div className="inline-flex flex-col sm:flex-row gap-4">
-              <Link to="/contact" className="px-8 py-3.5 bg-brand-yellow hover:bg-[#E0B000] text-[#1F2937] font-bold rounded-lg shadow-md hover:translate-y-[-2px] active:scale-95 transition-all text-sm uppercase tracking-wider">
-                Contact Us
-              </Link>
-              <Link to="/terms-and-conditions" className="px-8 py-3.5 border-2 border-brand-purple hover:bg-brand-purple hover:text-white text-brand-purple font-bold rounded-lg active:scale-95 transition-all text-sm uppercase tracking-wider">
-                View Terms & Conditions
-              </Link>
-            </div>
           </div>
 
         </div>

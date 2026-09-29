@@ -186,7 +186,7 @@ function Results() {
   useEffect(() => {
     const timer = setInterval(() => {
       setHeroIndex(prev => (prev + 1) % heroSlides.length);
-    }, 5000);
+    }, 10000);
     return () => clearInterval(timer);
   }, [heroSlides.length]);
 
@@ -312,7 +312,7 @@ function Results() {
           <div className="text-center max-w-2xl mx-auto mb-12" data-aos="fade-up">
             <p className="text-brand-teal font-extrabold uppercase tracking-widest text-xs mb-3 text-[13px]">Our Toppers</p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy mb-2 tracking-tight">
-              Hall of <span className="text-brand-purple">Fame.</span>
+              Hall of <span className="text-brand-purple">Fame</span>
             </h2>
             <div className="h-1 w-[40px] bg-brand-purple rounded-full mx-auto mb-4"></div>
             <p className="text-gray-500 text-base leading-relaxed">
@@ -326,7 +326,7 @@ function Results() {
               modules={[Autoplay, Pagination, Navigation]}
               spaceBetween={24}
               slidesPerView={1}
-              autoplay={{ delay: 3500, disableOnInteraction: false }}
+              autoplay={{ delay: 10000, disableOnInteraction: false }}
               pagination={{ clickable: true, el: '.toppers-pagination' }}
               navigation={{
                 nextEl: '.toppers-next',
@@ -381,7 +381,7 @@ function Results() {
           <div className="text-center max-w-2xl mx-auto mb-12" data-aos="fade-up">
             <p className="text-brand-teal font-extrabold uppercase tracking-widest text-xs mb-3 text-[13px]">Vibrant Stars</p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy mb-2 tracking-tight">
-              Toppers & <span className="text-brand-purple">Achievers.</span>
+              Toppers & <span className="text-brand-purple">Achievers</span>
             </h2>
             <div className="h-1 w-[40px] bg-brand-purple rounded-full mx-auto mb-4"></div>
             <p className="text-gray-500 text-sm md:text-base leading-relaxed">
@@ -500,7 +500,7 @@ function Results() {
           <div className="text-center max-w-2xl mx-auto mb-12" data-aos="fade-up">
             <p className="text-brand-teal font-extrabold uppercase tracking-widest text-xs mb-3 text-[13px]">Topper Reviews</p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy mb-2 tracking-tight">
-              Testimonials from <span className="text-brand-purple">Achievers.</span>
+              Testimonials from <span className="text-brand-purple">Achievers</span>
             </h2>
             <div className="h-1 w-[40px] bg-brand-purple rounded-full mx-auto mb-4"></div>
             <p className="text-gray-500 text-sm md:text-base leading-relaxed">
@@ -513,7 +513,7 @@ function Results() {
               modules={[Autoplay, Pagination, Navigation]}
               spaceBetween={24}
               slidesPerView={1}
-              autoplay={{ delay: 4000, disableOnInteraction: false }}
+              autoplay={{ delay: 10000, disableOnInteraction: false }}
               pagination={{ clickable: true, el: '.reviews-pagination' }}
               navigation={{
                 nextEl: '.reviews-next',
@@ -577,7 +577,7 @@ function Results() {
             <span className="font-dancing text-brand-yellow text-xl">Believe in Excellence...</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-2 tracking-tight">
-            Create Your <span className="text-brand-yellow">Success Story.</span>
+            Create Your <span className="text-brand-yellow">Success Story</span>
           </h2>
           <div className="h-1 w-[40px] bg-brand-yellow rounded-full mx-auto mb-6"></div>
           <p className="text-white/80 text-base leading-relaxed mb-8 max-w-xl mx-auto">
