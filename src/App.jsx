@@ -18,6 +18,7 @@ import Results from './pages/Results/Results';
 import Contact from './pages/Contact/Contact';
 import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy';
 import TermsAndConditions from './pages/TermsAndConditions/TermsAndConditions';
+import NotFound from './pages/NotFound/NotFound';
 
 import './App.css';
 
@@ -61,6 +62,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       <Footer />
